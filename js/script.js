@@ -181,7 +181,7 @@ class StickyHeader {
                 header.style.transform = 'translateY(0)';
             }
 
-            header.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            header.style.transition = 'all var(--speed-fast) var(--ease-smooth)';
             lastScrollTop = scrollTop;
         });
     }
@@ -220,7 +220,7 @@ class MobileMenu {
                 padding: 20px;
                 gap: 0;
                 border-bottom: 1px solid rgba(201, 162, 75, 0.1);
-                animation: slideDown 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                animation: slideDown 0.3s var(--ease-smooth);
             `;
 
             this.nav.querySelectorAll('a').forEach((link, index) => {
@@ -232,9 +232,9 @@ class MobileMenu {
                     text-transform: uppercase;
                     letter-spacing: 0.08em;
                     font-size: 0.85rem;
-                    transition: all 0.3s;
+                    transition: all var(--speed-fast);
                     border-radius: 6px;
-                    animation: slideDown 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    animation: slideDown var(--speed-fast) var(--ease-smooth);
                     animation-delay: ${index * 0.05}s;
                     animation-fill-mode: both;
                 `;

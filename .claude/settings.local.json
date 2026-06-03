@@ -13,7 +13,13 @@
       "WebFetch(domain:www.instagram.com)",
       "WebSearch",
       "mcp__Claude_in_Chrome__browser_batch",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npm install *)",
+      "Bash(git push *)",
+      "Bash(vercel --version)",
+      "Bash(vercel env *)"
     ]
   }
 }
