@@ -44,12 +44,7 @@ class Gallery {
             'imagens-junco/tatto-braco5.jpg',
             'imagens-junco/tatto-braco11.webp',
             'imagens-junco/tatto-braco-jesus.webp',
-            'imagens-junco/tatto-3.webp',
-            'imagens-junco/estudio.webp',
-            'imagens-junco/estudio2.webp',
-            'imagens-junco/estudio-fktk.webp',
-            'imagens-junco/foto-estudio-todo.webp',
-            'imagens-junco/gabriel-junco-evento.webp'
+            'imagens-junco/tatto-3.webp'
         ];
         this.generateImages();
     }
