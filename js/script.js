@@ -37,25 +37,18 @@ class ScrollReveal {
 
 class Gallery {
     constructor() {
-        this.currentFilter = 'all';
         this.generateImages();
-        this.setupFilters();
     }
 
     generateImages() {
         const gallery = document.getElementById('galleryGrid');
-        const styles = [
-            'realismo', 'realismo', 'fineline', 'blackwork', 'cobertura',
-            'lettering', 'realismo', 'blackwork', 'fineline', 'realismo',
-            'lettering', 'cobertura'
-        ];
+        const totalWorks = 12;
 
         gallery.innerHTML = '';
 
-        styles.forEach((style, index) => {
+        for (let index = 0; index < totalWorks; index++) {
             const item = document.createElement('div');
-            item.className = `gallery-item gallery-${style}`;
-            item.setAttribute('data-style', style);
+            item.className = 'gallery-item';
 
             const gradient = this.generateGradient(index);
             const svg = `
@@ -67,20 +60,19 @@ class Gallery {
                         </linearGradient>
                     </defs>
                     <rect width='400' height='400' fill='url(%23grad${index})'/>
-                    <circle cx='200' cy='200' r='80' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2'/>
-                    <circle cx='200' cy='200' r='60' fill='none' stroke='rgba(201,162,75,0.2)' stroke-width='1'/>
-                    <text x='50%' y='50%' font-family='Space Grotesk' font-size='16' font-weight='600' fill='rgba(201,162,75,0.4)' text-anchor='middle' dy='.3em'>${style.toUpperCase()}</text>
+                    <circle cx='200' cy='200' r='80' fill='none' stroke='rgba(201,162,75,0.15)' stroke-width='2'/>
+                    <text x='50%' y='50%' font-family='Playfair Display' font-size='48' font-weight='700' fill='rgba(201,162,75,0.2)' text-anchor='middle' dy='.3em'>#{index + 1}</text>
                 </svg>
             `;
 
             item.innerHTML = `
                 <img src='data:image/svg+xml;utf8,${encodeURIComponent(svg)}'
-                     alt='${style}'
+                     alt='Trabalho ${index + 1}'
                      onclick='gallery.openLightbox(this.src)'>
             `;
 
             gallery.appendChild(item);
-        });
+        }
     }
 
     generateGradient(index) {
@@ -90,38 +82,9 @@ class Gallery {
             { color1: '#151515', color2: '#252525' },
             { color1: '#202020', color2: '#303030' },
             { color1: '#1D1D1D', color2: '#2D2D2D' },
+            { color1: '#1C1C1C', color2: '#2C2C2C' },
         ];
         return gradients[index % gradients.length];
-    }
-
-    setupFilters() {
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => this.filterItems(btn));
-        });
-    }
-
-    filterItems(button) {
-        const filter = button.getAttribute('onclick').match(/'(\w+)'/)[1];
-        this.currentFilter = filter;
-
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
-
-        const items = document.querySelectorAll('.gallery-item');
-        items.forEach((item, index) => {
-            const itemStyle = item.getAttribute('data-style');
-            const show = filter === 'all' || itemStyle === filter;
-
-            setTimeout(() => {
-                item.style.animation = 'none';
-                setTimeout(() => {
-                    item.style.display = show ? '' : 'none';
-                    if (show) {
-                        item.style.animation = `fadeInGallery 0.6s ease-out forwards`;
-                    }
-                }, 10);
-            }, index * 30);
-        });
     }
 
     openLightbox(src) {
