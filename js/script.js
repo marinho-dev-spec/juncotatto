@@ -37,42 +37,40 @@ class ScrollReveal {
 
 class Gallery {
     constructor() {
+        this.tattooImages = [
+            'imagens-junco/tatto-braco.webp',
+            'imagens-junco/tatto-braco2.webp',
+            'imagens-junco/tatto-braco3.webp',
+            'imagens-junco/tatto-braco5.jpg',
+            'imagens-junco/tatto-braco11.webp',
+            'imagens-junco/tatto-braco-jesus.webp',
+            'imagens-junco/tatto-3.webp',
+            'imagens-junco/estudio.webp',
+            'imagens-junco/estudio2.webp',
+            'imagens-junco/estudio-fktk.webp',
+            'imagens-junco/foto-estudio-todo.webp',
+            'imagens-junco/gabriel-junco-evento.webp'
+        ];
         this.generateImages();
     }
 
     generateImages() {
         const gallery = document.getElementById('galleryGrid');
-        const totalWorks = 12;
-
         gallery.innerHTML = '';
 
-        for (let index = 0; index < totalWorks; index++) {
+        this.tattooImages.forEach((imagePath, index) => {
             const item = document.createElement('div');
             item.className = 'gallery-item';
 
-            const gradient = this.generateGradient(index);
-            const svg = `
-                <svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'>
-                    <defs>
-                        <linearGradient id='grad${index}' x1='0%' y1='0%' x2='100%' y2='100%'>
-                            <stop offset='0%' style='stop-color:${gradient.color1};stop-opacity:1' />
-                            <stop offset='100%' style='stop-color:${gradient.color2};stop-opacity:1' />
-                        </linearGradient>
-                    </defs>
-                    <rect width='400' height='400' fill='url(%23grad${index})'/>
-                    <circle cx='200' cy='200' r='80' fill='none' stroke='rgba(201,162,75,0.15)' stroke-width='2'/>
-                    <text x='50%' y='50%' font-family='Playfair Display' font-size='48' font-weight='700' fill='rgba(201,162,75,0.2)' text-anchor='middle' dy='.3em'>#{index + 1}</text>
-                </svg>
-            `;
-
             item.innerHTML = `
-                <img src='data:image/svg+xml;utf8,${encodeURIComponent(svg)}'
+                <img src='${imagePath}'
                      alt='Trabalho ${index + 1}'
+                     style='width: 100%; height: 100%; object-fit: cover;'
                      onclick='gallery.openLightbox(this.src)'>
             `;
 
             gallery.appendChild(item);
-        }
+        });
     }
 
     generateGradient(index) {
