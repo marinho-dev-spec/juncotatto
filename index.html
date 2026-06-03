@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes, maximum-scale=5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Junco Tattoo & Piercing — Tatuador em Itapema/SC | Realismo Preto e Cinza</title>
+    <meta name="description" content="Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2014. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.">
+    <meta name="theme-color" content="#0A0A0A">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- 1. BARRA DE AVISO -->
+    <div class="warning-bar">
+        <p>No verão a agenda enche rápido — garanta sua data.</p>
+    </div>
+
+    <!-- 2. HEADER FIXO -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="logo-text">JUNCO</span>
+                    <span class="logo-dot">•</span>
+                </a>
+
+                <nav class="nav">
+                    <a href="#trabalhos">Trabalhos</a>
+                    <a href="#avaliacoes">Avaliações</a>
+                    <a href="#piercing">Piercing</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#duvidas">Dúvidas</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+
+                <button class="cta-btn" onclick="abrirWhatsApp('geral')">Pedir orçamento</button>
+
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO -->
+    <section class="hero" id="hero">
+        <!-- Carrossel de imagens do estúdio e tatuagens -->
+        <div class="hero-carousel">
+            <div class="carousel-track">
+                <img src="imagens-junco/estudio.webp" alt="Estúdio Junco" class="carousel-image">
+                <img src="imagens-junco/tatto-braco.webp" alt="Tatuagem realismo" class="carousel-image">
+                <img src="imagens-junco/estudio2.webp" alt="Estúdio Junco" class="carousel-image">
+                <img src="imagens-junco/tatto-braco2.webp" alt="Tatuagem detalhe" class="carousel-image">
+                <img src="imagens-junco/estudio-fktk.webp" alt="Estúdio Junco" class="carousel-image">
+                <img src="imagens-junco/tatto-braco3.webp" alt="Tatuagem braço" class="carousel-image">
+                <img src="imagens-junco/foto-estudio-todo.webp" alt="Estúdio completo" class="carousel-image">
+                <img src="imagens-junco/tatto-braco11.webp" alt="Tatuagem obra" class="carousel-image">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="eyebrow">TATUAGEM & PIERCING · ITAPEMA/SC · DESDE 2014</span>
+            <h1 class="hero-headline">A tatuagem que você não vai querer esconder daqui a 10 anos</h1>
+            <p class="hero-subtitle">Realismo, fine line e blackwork em estúdio esterilizado, atendimento sem pressa.</p>
+            <div class="hero-badge">
+                <span class="stars">★★★★★</span>
+                <span class="rating">4,9 · +600 avaliações no Google</span>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="abrirWhatsApp('geral')">Pedir orçamento no WhatsApp</button>
+                <button class="btn btn-secondary" onclick="scrollTo('trabalhos')">Ver trabalhos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FAIXA DE PROVA -->
+    <section class="proof-bar">
+        <div class="container">
+            <div class="proof-items">
+                <div class="proof-item">
+                    <span class="proof-number">4,9</span>
+                    <span class="proof-text">★ no Google</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-number">+600</span>
+                    <span class="proof-text">avaliações</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-number">2014</span>
+                    <span class="proof-text">desde então</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-number">100%</span>
+                    <span class="proof-text">material descartável</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GALERIA -->
+    <section class="gallery" id="trabalhos">
+        <div class="container">
+            <h2 class="section-title">Trabalhos</h2>
+
+            <div class="gallery-filters">
+                <button class="filter-btn active" onclick="filterGallery('all')">Todos</button>
+                <button class="filter-btn" onclick="filterGallery('realismo')">Realismo</button>
+                <button class="filter-btn" onclick="filterGallery('fineline')">Fine Line</button>
+                <button class="filter-btn" onclick="filterGallery('blackwork')">Blackwork</button>
+                <button class="filter-btn" onclick="filterGallery('cobertura')">Cobertura</button>
+                <button class="filter-btn" onclick="filterGallery('lettering')">Lettering</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Será preenchido por JS com imagens placeholder -->
+            </div>
+
+            <div class="gallery-footer">
+                <a href="https://instagram.com/junco_tattoo" target="_blank" class="link-instagram">
+                    Ver mais no Instagram @junco_tattoo →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox para galeria -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+        </div>
+    </div>
+
+    <!-- 6. AVALIAÇÕES DO GOOGLE -->
+    <section class="reviews" id="avaliacoes">
+        <div class="container">
+            <h2 class="section-title">Mais de 600 motivos pra confiar</h2>
+
+            <div class="reviews-header">
+                <div class="reviews-badge">
+                    <span class="reviews-rating">★ 4,9</span>
+                    <span class="reviews-count">+600 avaliações no Google</span>
+                </div>
+                <a href="https://www.google.com/maps/search/Junco+Tattoo+Itapema" target="_blank" class="btn btn-secondary btn-small">
+                    Ver no Google
+                </a>
+            </div>
+
+            <div id="google-reviews" class="reviews-container">
+                <!-- Widget Elfsight será inserido aqui -->
+                <p style="text-align: center; color: #8A8A90; padding: 40px;">
+                    Widget de avaliações será carregado aqui...
+                </p>
+            </div>
+
+            <!-- Avaliações de exemplo (enquanto widget não carrega) -->
+            <div class="example-reviews">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Profissional impecável. Tatuagem perfeita, higiene de primeira e ainda conversa boa. Recomendo demais!"</p>
+                    <span class="review-author">— Marina S.</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Procurava alguém para fazer uma tatuagem realista há anos. O Gabriel é o cara. Vale cada centavo."</p>
+                    <span class="review-author">— Lucas M.</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Ambiente limpo, acolhedor, profissional atento aos detalhes. Saí de lá com a tatuagem mais bonita que eu já tive."</p>
+                    <span class="review-author">— Ana P.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SEGURANÇA & HIGIENE -->
+    <section class="safety" id="higiene">
+        <div class="container">
+            <h2 class="section-title">Segurança & Higiene</h2>
+            <p class="section-subtitle">Padrão de protocolo clínico, zero compromissos.</p>
+
+            <div class="safety-grid">
+                <div class="safety-item">
+                    <div class="safety-icon">🧵</div>
+                    <h3>Agulha lacrada</h3>
+                    <p>Aberta na sua frente, cada sessão uma nova</p>
+                </div>
+                <div class="safety-item">
+                    <div class="safety-icon">🔬</div>
+                    <h3>Equipamento esterilizado</h3>
+                    <p>Autoclave profissional, certificado</p>
+                </div>
+                <div class="safety-item">
+                    <div class="safety-icon">🧤</div>
+                    <h3>Luva e campo estéril</h3>
+                    <p>Protocolo a cada cliente</p>
+                </div>
+                <div class="safety-item">
+                    <div class="safety-icon">👤</div>
+                    <h3>Atendimento individual</h3>
+                    <p>Uma pessoa por vez, sem pressa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CATÁLOGO DE PIERCING -->
+    <section class="piercing-catalog" id="piercing">
+        <div class="container">
+            <h2 class="section-title">Catálogo de Piercing</h2>
+
+            <div class="piercing-grid">
+                <!-- Orelha -->
+                <div class="piercing-card">
+                    <h3>👂 Orelha</h3>
+                    <ul>
+                        <li>Lóbulo</li>
+                        <li>Hélix</li>
+                        <li>Tragus</li>
+                        <li>Daith</li>
+                        <li>Conch</li>
+                        <li>Industrial</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="abrirWhatsApp('piercing')">
+                        Tirar dúvida
+                    </button>
+                </div>
+
+                <!-- Nariz -->
+                <div class="piercing-card">
+                    <h3>👃 Nariz</h3>
+                    <ul>
+                        <li>Narina</li>
+                        <li>Septo</li>
+                        <li>Bridge</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="abrirWhatsApp('piercing')">
+                        Tirar dúvida
+                    </button>
+                </div>
+
+                <!-- Boca & Rosto -->
+                <div class="piercing-card">
+                    <h3>👄 Boca & Rosto</h3>
+                    <ul>
+                        <li>Labret</li>
+                        <li>Medusa</li>
+                        <li>Monroe</li>
+                        <li>Sobrancelha</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="abrirWhatsApp('piercing')">
+                        Tirar dúvida
+                    </button>
+                </div>
+
+                <!-- Umbigo & Corpo -->
+                <div class="piercing-card">
+                    <h3>⚪ Umbigo & Corpo</h3>
+                    <ul>
+                        <li>Umbigo</li>
+                        <li>Microdermal</li>
+                        <li>Mamilo</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="abrirWhatsApp('piercing')">
+                        Tirar dúvida
+                    </button>
+                </div>
+
+                <!-- Língua -->
+                <div class="piercing-card">
+                    <h3>👅 Língua</h3>
+                    <ul>
+                        <li>Central</li>
+                        <li>Smiley</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="abrirWhatsApp('piercing')">
+                        Tirar dúvida
+                    </button>
+                </div>
+
+                <!-- Troca de joia -->
+                <div class="piercing-card">
+                    <h3>💎 Troca de Joia</h3>
+                    <ul>
+                        <li>Titânio</li>
+                        <li>Aço cirúrgico</li>
+                        <li>Pedras</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="abrirWhatsApp('piercing')">
+                        Tirar dúvida
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. SOBRE O GABRIEL -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-placeholder">📷 Foto do Gabriel</div>
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Sobre</h2>
+                    <p>
+                        Eu sei que tatuar dá frio na barriga: será que vai ficar bom, dói, vou me arrepender?
+                        Desde 2014 eu faço esse medo virar orgulho — e são mais de 600 avaliações 5 estrelas que confirmam isso.
+                    </p>
+                    <p>
+                        Sou especializado em realismo preto e cinza: um estilo que não perdoa erro. Por isso trabalho
+                        de um jeito só: sem pressa, um cliente por vez, com material descartável aberto na sua frente.
+                        Você não sai daqui com uma tatuagem qualquer. Sai com a sua, pra vida toda.
+                    </p>
+                    <button class="btn btn-primary" onclick="abrirWhatsApp('geral')">
+                        Conversar no WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. ANTES & DEPOIS -->
+    <section class="before-after" id="antes-depois">
+        <div class="container">
+            <h2 class="section-title">Antes & Depois</h2>
+            <p class="section-subtitle">Aquela tatuagem que te incomoda pode virar a que você mais ama.</p>
+
+            <div class="ba-slider" id="baSlider">
+                <div class="ba-before">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23161619' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%238A8A90' text-anchor='middle' dy='.3em'%3EAntes%3C/text%3E%3C/svg%3E" alt="Antes">
+                </div>
+                <div class="ba-after">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23161619' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%238A8A90' text-anchor='middle' dy='.3em'%3EDepois%3C/text%3E%3C/svg%3E" alt="Depois">
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-slider-handle" id="baSliderHandle" oninput="updateBeforeAfter(this.value)">
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. COMO FUNCIONA -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Como funciona</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Manda sua ideia no WhatsApp</h3>
+                    <p>Pode ser foto, descrição, desenho — o que você tiver em mente.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Orçamento, agenda e sinal</h3>
+                    <p>Agendamos conversando. Um sinal que abate no valor final reserva sua data.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Faço sua tatuagem</h3>
+                    <p>No dia marcado, você sai com a sua tatuagem. Sem pressa.</p>
+                </div>
+            </div>
+
+            <div class="how-note">
+                <p><strong>Para reservar a data pedimos um sinal que abate no valor final.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. DÚVIDAS (FAQ) -->
+    <section class="faq" id="duvidas">
+        <div class="container">
+            <h2 class="section-title">Dúvidas Frequentes</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quanto custa?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O valor depende do tamanho, complexidade e local da tatuagem. Manda sua referência que faço um orçamento certinho. Geralmente realismo sai a partir de R$300, mas pode variar muito pra mais.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Dói?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Dói sim, mas passa rápido. Depende muito da sua tolerância, do local e do tamanho. Quem já fez comigo fala que a conversa e o ambiente ajudam a passar despercebido.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Como cuido depois?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Simples: deixar secar, não mexer, lavar com água morna e sabão neutro 2-3x ao dia nos primeiros dias. Usar pomada específica. Evitar exposição ao sol, piscina e academia por 15 dias. Dou um manual impresso no final.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Preciso de sinal?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim. Um sinal pequeno (combinamos no orçamento) garante sua data na agenda. Esse valor abate do preço final da tatuagem.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Posso levar minha referência?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Claro! Quanto melhor a referência, melhor a tatuagem. Pode ser foto, print, desenho — trago como está ou adapto para ficar perfeito no seu corpo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Tem retoque/garantia?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim. Se algo sair fora do planejado, agendamos um retoque sem custo. A tatuagem é meu trabalho — sai certo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. CONTATO / ONDE ESTAMOS -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps?q=Junco+Tattoo+Itapema+Av+Nereu+Ramos+4142&output=embed"
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-info">
+                    <h3>Onde estamos</h3>
+                    <p class="contact-address">
+                        <strong>Av. Nereu Ramos, 4142, Sala 9</strong><br>
+                        Meia Praia — Itapema/SC
+                    </p>
+                    <p class="contact-hours">
+                        <strong>Horário</strong><br>
+                        Seg–Sex: 9h–18h<br>
+                        Sáb: 9h–13h
+                    </p>
+                    <button class="btn btn-secondary btn-small" onclick="window.open('https://maps.google.com/?q=Junco+Tattoo+Itapema', '_blank')">
+                        Como chegar
+                    </button>
+                </div>
+            </div>
+
+            <div class="contact-cta">
+                <h2>Sua próxima tatuagem começa com uma mensagem</h2>
+                <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+                    <input type="text" placeholder="Seu nome" required>
+                    <input type="tel" placeholder="WhatsApp (com DDD)" required>
+                    <textarea placeholder="Descreve sua ideia..." rows="4" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>JUNCO</h4>
+                    <p>Tatuagem & Piercing em Itapema/SC<br>Gabriel Junco</p>
+                </div>
+                <div class="footer-nav">
+                    <h5>Navegação</h5>
+                    <a href="#trabalhos">Trabalhos</a>
+                    <a href="#avaliacoes">Avaliações</a>
+                    <a href="#piercing">Piercing</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#duvidas">Dúvidas</a>
+                    <a href="#contato">Contato</a>
+                </div>
+                <div class="footer-contact">
+                    <h5>Contato</h5>
+                    <a href="https://wa.me/5547996615555" target="_blank">WhatsApp</a>
+                    <a href="https://instagram.com/junco_tattoo" target="_blank">Instagram</a>
+                    <a href="https://www.google.com/maps/search/Junco+Tattoo+Itapema" target="_blank">Google Maps</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Junco Tattoo & Piercing. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Barra flutuante mobile (bottom bar) -->
+    <div class="mobile-bottom-bar" id="mobileBottomBar">
+        <button onclick="abrirWhatsApp('geral')" class="btn btn-primary btn-block">
+            Pedir orçamento
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+
+    <!-- Google Analytics (placeholder) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Junco Tattoo & Piercing",
+        "image": "",
+        "description": "Estúdio de tatuagem especializado em realismo preto e cinza",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Nereu Ramos, 4142, Sala 9",
+            "addressLocality": "Itapema",
+            "addressRegion": "SC",
+            "postalCode": "",
+            "addressCountry": "BR"
+        },
+        "telephone": "+5547996615555",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "13:00"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "600"
+        },
+        "sameAs": [
+            "https://www.google.com/maps/search/Junco+Tattoo+Itapema",
+            "https://instagram.com/junco_tattoo"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quanto custa?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "O valor depende do tamanho, complexidade e local. Realismo geralmente sai a partir de R$300."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Dói?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Dói sim, mas passa rápido. Depende da sua tolerância e do local."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Como cuido depois?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Lavar com água morna e sabão neutro, usar pomada específica, evitar sol e piscina por 15 dias."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Preciso de sinal?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim, um pequeno sinal garante sua data na agenda e abate do valor final."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Posso levar minha referência?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Claro! Pode ser foto, print ou desenho. Adapto para ficar perfeito no seu corpo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Tem retoque/garantia?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim. Se algo sair fora do planejado, agendamos um retoque sem custo."
+                }
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
