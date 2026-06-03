@@ -1118,6 +1118,28 @@ section.section-light {
     object-fit: cover;
 }
 
+.ba-label {
+    position: absolute;
+    top: 20px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    backdrop-filter: blur(10px);
+    border-radius: 4px;
+    z-index: 5;
+}
+
+.ba-before .ba-label {
+    left: 20px;
+}
+
+.ba-after .ba-label {
+    right: 20px;
+}
+
 .ba-slider-handle {
     position: absolute;
     top: 0;

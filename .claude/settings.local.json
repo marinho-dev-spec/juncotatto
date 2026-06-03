@@ -19,7 +19,8 @@
       "Bash(npm install *)",
       "Bash(git push *)",
       "Bash(vercel --version)",
-      "Bash(vercel env *)"
+      "Bash(vercel env *)",
+      "Bash(git commit *)"
     ]
   }
 }

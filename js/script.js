@@ -365,13 +365,14 @@ class AnimatedCounter {
     }
 
     animateElement(el) {
-        const finalValue = el.textContent;
-        const isNumber = /\d+/.test(finalValue);
+        const finalValue = el.textContent.trim();
+        const cleanValue = finalValue.replace(/[^0-9.,]/g, '').replace(',', '.');
+        const numValue = parseFloat(cleanValue);
 
-        if (isNumber) {
-            const numValue = parseInt(finalValue);
+        if (!isNaN(numValue) && numValue > 0) {
             let currentValue = 0;
-            const increment = numValue / 30;
+            const increment = numValue / 40;
+            const hasDecimal = finalValue.includes(',');
 
             const interval = setInterval(() => {
                 currentValue += increment;
@@ -379,9 +380,12 @@ class AnimatedCounter {
                     el.textContent = finalValue;
                     clearInterval(interval);
                 } else {
-                    el.textContent = Math.floor(currentValue);
+                    const displayValue = hasDecimal
+                        ? currentValue.toFixed(1).replace('.', ',')
+                        : Math.floor(currentValue).toString();
+                    el.textContent = displayValue;
                 }
-            }, 20);
+            }, 30);
         }
     }
 }
