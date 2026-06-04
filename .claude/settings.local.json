@@ -64,7 +64,8 @@
       "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
       "Bash(node -c js/script.js)",
       "Read(//Users/marinho/Downloads/**)",
-      "Bash(tar -czf juncotatto-site-completo.tar.gz juncotatto/)"
+      "Bash(tar -czf juncotatto-site-completo.tar.gz juncotatto/)",
+      "Bash(command -v vercel)"
     ]
   }
 }
