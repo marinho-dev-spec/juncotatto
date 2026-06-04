@@ -25,7 +25,17 @@
       "Bash(curl -s http://localhost:8000/)",
       "Bash(curl -s http://localhost:8000)",
       "Bash(chmod +x /tmp/preview_test.sh)",
-      "Bash(/tmp/preview_test.sh)"
+      "Bash(/tmp/preview_test.sh)",
+      "Bash(curl -s https://www.bangbangnyc.com)",
+      "Bash(curl -s https://www.kingsavenuetattoo.com)",
+      "Bash(curl -s https://www.shamrocksocialclub.com)",
+      "Bash(curl -s https://www.studio-xiii.com)",
+      "Bash(curl -s https://www.stayhumbletattoo.com)",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.blackinktattoo.com)",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.sunsettattoo.com)",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.integritytattoo.com)",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.ironcladtattoo.com)",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.finelinetattoos.com)"
     ]
   }
 }

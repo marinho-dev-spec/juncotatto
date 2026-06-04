@@ -38,14 +38,41 @@ class ScrollReveal {
 class Gallery {
     constructor() {
         this.tattooImages = [
-            'imagens-junco/tatto-braco.webp',
-            'imagens-junco/tatto-braco2.webp',
-            'imagens-junco/tatto-braco3.webp',
-            'imagens-junco/tatto-braco5.jpg',
-            'imagens-junco/tatto-braco11.webp',
-            'imagens-junco/tatto-braco-jesus.webp',
-            'imagens-junco/tatto-3.webp'
+            { src: 'imagens-junco/tatto-braco.webp', category: 'realismo' },
+            { src: 'imagens-junco/tatto-braco2.webp', category: 'realismo' },
+            { src: 'imagens-junco/tatto-braco3.webp', category: 'fineline' },
+            { src: 'imagens-junco/tatto-braco5.jpg', category: 'realismo' },
+            { src: 'imagens-junco/tatto-braco11.webp', category: 'blackwork' },
+            { src: 'imagens-junco/tatto-braco-jesus.webp', category: 'realismo' },
+            { src: 'imagens-junco/tatto-3.webp', category: 'custom' }
         ];
+        this.currentFilter = 'all';
+        this.setupFilters();
+        this.generateImages();
+    }
+
+    setupFilters() {
+        const gallerySection = document.getElementById('trabalhos')?.parentElement;
+        if (!gallerySection) return;
+
+        const filterContainer = document.createElement('div');
+        filterContainer.className = 'gallery-filters';
+        filterContainer.innerHTML = `
+            <button class="filter-btn active" onclick="gallery.filterGallery('all')">Todos</button>
+            <button class="filter-btn" onclick="gallery.filterGallery('realismo')">Realismo</button>
+            <button class="filter-btn" onclick="gallery.filterGallery('fineline')">Fine Line</button>
+            <button class="filter-btn" onclick="gallery.filterGallery('blackwork')">Blackwork</button>
+            <button class="filter-btn" onclick="gallery.filterGallery('custom')">Custom</button>
+        `;
+
+        const gallery = document.getElementById('galleryGrid');
+        gallery.parentElement.insertBefore(filterContainer, gallery);
+    }
+
+    filterGallery(category) {
+        this.currentFilter = category;
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
         this.generateImages();
     }
 
@@ -53,19 +80,37 @@ class Gallery {
         const gallery = document.getElementById('galleryGrid');
         gallery.innerHTML = '';
 
-        this.tattooImages.forEach((imagePath, index) => {
+        const filteredImages = this.currentFilter === 'all'
+            ? this.tattooImages
+            : this.tattooImages.filter(img => img.category === this.currentFilter);
+
+        filteredImages.forEach((image, index) => {
             const item = document.createElement('div');
             item.className = 'gallery-item';
+            item.style.animation = `fadeIn 0.5s var(--ease-smooth) ${index * 0.1}s backwards`;
 
             item.innerHTML = `
-                <img src='${imagePath}'
+                <img src='${image.src}'
                      alt='Trabalho ${index + 1}'
                      style='width: 100%; height: 100%; object-fit: cover;'
                      onclick='gallery.openLightbox(this.src)'>
+                <div class="gallery-overlay">
+                    <span class="gallery-category">${this.getCategoryLabel(image.category)}</span>
+                </div>
             `;
 
             gallery.appendChild(item);
         });
+    }
+
+    getCategoryLabel(category) {
+        const labels = {
+            'realismo': 'Realismo',
+            'fineline': 'Fine Line',
+            'blackwork': 'Blackwork',
+            'custom': 'Custom'
+        };
+        return labels[category] || category;
     }
 
     generateGradient(index) {
