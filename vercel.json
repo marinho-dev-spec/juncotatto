@@ -1,39 +1,48 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "piercing.html",
-      "use": "@vercel/static"
-    }
-  ],
+  "buildCommand": "echo 'Static site'",
+  "outputDirectory": ".",
   "routes": [
     {
       "src": "/css/(.*)",
       "headers": {
         "cache-control": "public, max-age=31536000, immutable"
-      }
+      },
+      "dest": "/css/$1"
     },
     {
       "src": "/js/(.*)",
       "headers": {
         "cache-control": "public, max-age=31536000, immutable"
-      }
+      },
+      "dest": "/js/$1"
     },
     {
-      "src": "/imagens-(.*)",
+      "src": "/imagens-(.*?)/(.*)",
       "headers": {
         "cache-control": "public, max-age=31536000, immutable"
-      }
+      },
+      "dest": "/imagens-$1/$2"
     },
     {
-      "src": "/(.*)",
+      "src": "/images/(.*)",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      },
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/(.*\\.html)",
       "headers": {
         "cache-control": "public, max-age=3600"
-      }
+      },
+      "dest": "/$1"
+    },
+    {
+      "src": "/",
+      "headers": {
+        "cache-control": "public, max-age=3600"
+      },
+      "dest": "/index.html"
     }
   ]
 }
