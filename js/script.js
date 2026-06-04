@@ -47,8 +47,11 @@ class Gallery {
             { src: 'imagens-junco/tatto-3.webp', category: 'custom' }
         ];
         this.currentFilter = 'all';
+        this.carouselIndex = 0;
+        this.carouselInterval = null;
         this.setupFilters();
         this.generateImages();
+        this.startCarousel();
     }
 
     setupFilters() {
@@ -71,9 +74,49 @@ class Gallery {
 
     filterGallery(category) {
         this.currentFilter = category;
+        this.carouselIndex = 0;
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         event.target.classList.add('active');
+        this.stopCarousel();
         this.generateImages();
+        this.startCarousel();
+    }
+
+    startCarousel() {
+        this.carouselInterval = setInterval(() => this.rotateCarousel(), 4000);
+    }
+
+    stopCarousel() {
+        if (this.carouselInterval) {
+            clearInterval(this.carouselInterval);
+            this.carouselInterval = null;
+        }
+    }
+
+    rotateCarousel() {
+        const gallery = document.getElementById('galleryGrid');
+        const items = gallery.querySelectorAll('.gallery-item');
+
+        if (items.length === 0) return;
+
+        // Remove active de todos os items
+        items.forEach(item => item.classList.remove('carousel-active'));
+
+        // Avança o índice
+        this.carouselIndex = (this.carouselIndex + 1) % items.length;
+
+        // Adiciona active ao item atual
+        items[this.carouselIndex].classList.add('carousel-active');
+
+        // Atualiza indicators
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        indicators.forEach((ind, idx) => {
+            if (idx === this.carouselIndex) {
+                ind.classList.add('active');
+            } else {
+                ind.classList.remove('active');
+            }
+        });
     }
 
     generateImages() {
@@ -87,6 +130,7 @@ class Gallery {
         filteredImages.forEach((image, index) => {
             const item = document.createElement('div');
             item.className = 'gallery-item';
+            if (index === 0) item.classList.add('carousel-active');
             item.style.animationDelay = (index * 0.1) + 's';
 
             const img = document.createElement('img');
@@ -105,6 +149,41 @@ class Gallery {
             item.appendChild(overlay);
             gallery.appendChild(item);
         });
+
+        // Criar indicators
+        this.createCarouselIndicators(filteredImages.length);
+    }
+
+    createCarouselIndicators(count) {
+        const gallery = document.getElementById('galleryGrid');
+        const existingIndicators = gallery.parentElement.querySelector('.carousel-indicators');
+        if (existingIndicators) existingIndicators.remove();
+
+        const indicatorsContainer = document.createElement('div');
+        indicatorsContainer.className = 'carousel-indicators';
+
+        for (let i = 0; i < count; i++) {
+            const indicator = document.createElement('button');
+            indicator.className = 'carousel-indicator' + (i === 0 ? ' active' : '');
+            indicator.onclick = () => this.goToImage(i);
+            indicatorsContainer.appendChild(indicator);
+        }
+
+        gallery.parentElement.appendChild(indicatorsContainer);
+    }
+
+    goToImage(index) {
+        const gallery = document.getElementById('galleryGrid');
+        const items = gallery.querySelectorAll('.gallery-item');
+
+        items.forEach(item => item.classList.remove('carousel-active'));
+        items[index].classList.add('carousel-active');
+
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        indicators.forEach(ind => ind.classList.remove('active'));
+        indicators[index].classList.add('active');
+
+        this.carouselIndex = index;
     }
 
     getCategoryLabel(category) {
