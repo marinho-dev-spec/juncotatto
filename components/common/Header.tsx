@@ -13,7 +13,6 @@ export default function Header({ crossPage = false }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Header com sombra ao rolar
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
     onScroll();
@@ -21,7 +20,7 @@ export default function Header({ crossPage = false }: HeaderProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Bloqueia scroll do body quando menu mobile aberto
+  // Bloqueia scroll do body quando o menu mobile está aberto
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => {
@@ -29,77 +28,132 @@ export default function Header({ crossPage = false }: HeaderProps) {
     };
   }, [menuOpen]);
 
+  // Fecha o menu com a tecla Esc
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
+
   const prefix = crossPage ? '/' : '';
   const closeMenu = () => setMenuOpen(false);
 
+  const links = [
+    { label: 'Trabalhos', href: `${prefix}#trabalhos`, internal: false },
+    { label: 'Piercing', href: '/piercing', internal: true },
+    { label: 'Contato', href: `${prefix}#contato`, internal: false },
+  ];
+
   return (
-    <header
-      className={`header${scrolled ? ' is-scrolled' : ''}`}
-      id="header"
-      role="banner"
-    >
-      <div className="container">
-        <div className="header-content">
-          <Link href="/" className="logo" aria-label="Junco Tattoo">
-            <span className="logo-text">JUNCO</span>
-            <span className="logo-dot" />
-          </Link>
+    <>
+      <header className={`header${scrolled ? ' is-scrolled' : ''}`} id="header" role="banner">
+        <div className="container">
+          <div className="header-content">
+            <Link href="/" className="logo" aria-label="Junco Tattoo" onClick={closeMenu}>
+              <span className="logo-text">JUNCO</span>
+              <span className="logo-dot" />
+            </Link>
 
-          <nav className="nav" role="navigation" aria-label="Menu principal">
-            <a href={`${prefix}#trabalhos`}>Trabalhos</a>
-            <Link href="/piercing">Piercing</Link>
-            <a href={`${prefix}#contato`}>Contato</a>
-          </nav>
+            <nav className="nav" role="navigation" aria-label="Menu principal">
+              {links.map((l) =>
+                l.internal ? (
+                  <Link key={l.label} href={l.href}>
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a key={l.label} href={l.href}>
+                    {l.label}
+                  </a>
+                )
+              )}
+            </nav>
 
-          <button
-            className="btn btn-header-schedule"
-            onClick={() => abrirWhatsApp('geral')}
-            aria-label="Abrir WhatsApp para agendar"
-          >
-            Agendar
-          </button>
+            <button
+              className="btn btn-header-schedule"
+              onClick={() => abrirWhatsApp('geral')}
+              aria-label="Abrir WhatsApp para agendar"
+            >
+              Agendar
+            </button>
 
-          <button
-            className={`hamburger${menuOpen ? ' active' : ''}`}
-            id="hamburger"
-            aria-label="Abrir menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((v) => !v)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+            <button
+              className={`hamburger${menuOpen ? ' active' : ''}`}
+              id="hamburger"
+              aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-expanded={menuOpen}
+              aria-controls="mobileMenu"
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Menu mobile (dropdown) */}
-      <nav
-        className={`mobile-nav${menuOpen ? ' active' : ''}`}
+      {/* Menu mobile — overlay full-screen */}
+      <div
+        className={`mobile-menu${menuOpen ? ' active' : ''}`}
         id="mobileMenu"
+        role="dialog"
+        aria-modal="true"
         aria-hidden={!menuOpen}
       >
-        <a href={`${prefix}#trabalhos`} onClick={closeMenu}>
-          Trabalhos
-        </a>
-        <Link href="/piercing" onClick={closeMenu}>
-          Piercing
-        </Link>
-        <a href={`${prefix}#contato`} onClick={closeMenu}>
-          Contato
-        </a>
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            closeMenu();
-            abrirWhatsApp('geral');
-          }}
-          style={{ color: 'var(--gold)', fontWeight: 600 }}
-        >
-          Chamar no WhatsApp
-        </a>
-      </nav>
-    </header>
+        <nav className="mobile-menu-nav" aria-label="Menu mobile">
+          {links.map((l, i) =>
+            l.internal ? (
+              <Link
+                key={l.label}
+                href={l.href}
+                onClick={closeMenu}
+                style={{ transitionDelay: `${0.12 + i * 0.07}s` }}
+              >
+                <span className="mobile-menu-index">0{i + 1}</span>
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={closeMenu}
+                style={{ transitionDelay: `${0.12 + i * 0.07}s` }}
+              >
+                <span className="mobile-menu-index">0{i + 1}</span>
+                {l.label}
+              </a>
+            )
+          )}
+        </nav>
+
+        <div className="mobile-menu-footer">
+          <button
+            className="btn btn-primary mobile-menu-cta"
+            onClick={() => {
+              closeMenu();
+              abrirWhatsApp('geral');
+            }}
+          >
+            Chamar o Gabriel no WhatsApp
+          </button>
+          <div className="mobile-menu-socials">
+            <a href="https://instagram.com/junco_tattoo" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+            <span aria-hidden="true">·</span>
+            <a
+              href="https://www.google.com/maps/search/Junco+Tattoo+Itapema"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Como chegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

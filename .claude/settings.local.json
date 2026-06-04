@@ -142,7 +142,11 @@
       "Bash(sed -n '46,55p' css/styles.css)",
       "Bash(sed -n '405,413p' css/styles.css)",
       "Bash(awk '{print \"Age:\",$1,\"Status:\",$5,\"Dur:\",$7}')",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(awk '{print \"Status:\",$5,\"Dur:\",$7}')",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/cinematic)",
+      "Bash(echo \"Home: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app\\) | Cinematic: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/cinematic\\)\")"
     ]
   }
 }
