@@ -6,6 +6,62 @@ const WHATSAPP_NUMBER = '5547996615555';
 const GALLERY_STYLES = ['realismo', 'fineline', 'blackwork', 'cobertura', 'lettering'];
 
 // =============================
+// HERO CAROUSEL BACKGROUND
+// =============================
+
+class HeroCarousel {
+    constructor() {
+        this.images = [
+            'imagens-junco/estudio.webp',
+            'imagens-junco/estudio2.webp',
+            'imagens-junco/estudio-fktk.webp',
+            'imagens-junco/foto-estudio-todo.webp'
+        ];
+        this.currentIndex = 0;
+        this.hero = document.querySelector('.hero');
+        this.carouselTrack = document.querySelector('.hero-carousel .carousel-track');
+
+        if (this.carouselTrack) {
+            this.setupCarousel();
+            this.startCarousel();
+        }
+    }
+
+    setupCarousel() {
+        // Limpar track e adicionar todas as imagens
+        this.carouselTrack.innerHTML = '';
+
+        // Adicionar imagens 3 vezes para criar efeito infinito
+        for (let cycle = 0; cycle < 3; cycle++) {
+            this.images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Estúdio Junco';
+                img.className = 'carousel-image';
+                this.carouselTrack.appendChild(img);
+            });
+        }
+    }
+
+    startCarousel() {
+        let position = 0;
+        const imageWidth = 100 / this.images.length;
+        const totalWidth = imageWidth * this.images.length;
+
+        setInterval(() => {
+            position -= imageWidth;
+
+            // Reset para criar efeito contínuo
+            if (Math.abs(position) >= totalWidth) {
+                position = 0;
+            }
+
+            this.carouselTrack.style.transform = `translateX(${position}%)`;
+        }, 5000);
+    }
+}
+
+// =============================
 // SISTEMA DE SCROLL REVEAL
 // =============================
 
@@ -597,6 +653,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('🎨 Junco Tattoo & Piercing — Site Moderno 2026');
 
     // Instanciar sistemas
+    const heroCarousel = new HeroCarousel();
     const scrollReveal = new ScrollReveal();
     const gallery = new Gallery();
     window.gallery = gallery; // Disponível globalmente

@@ -38,7 +38,9 @@
       "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.finelinetattoos.com)",
       "Bash(open index.html)",
       "Bash(pkill -f \"python3 -m http.server\")",
-      "Bash(open http://localhost:8000)"
+      "Bash(open http://localhost:8000)",
+      "Bash(awk '{print $9}')",
+      "Bash(xargs -I {} basename {})"
     ]
   }
 }
