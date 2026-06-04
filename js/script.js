@@ -294,12 +294,51 @@ function submitForm(event) {
     const whatsapp = inputs[1].value;
     const ideia = inputs[2].value;
 
+    // Validação básica
+    if (!nome.trim() || !whatsapp.trim() || !ideia.trim()) {
+        alert('Por favor, preencha todos os campos');
+        return;
+    }
+
+    // Mostrar modal de confirmação
+    showFormConfirmation(nome);
+
     const message = `Oi, Gabriel! Meu nome é ${nome}. Vim pelo site e gostaria de um orçamento. Minha ideia: ${ideia}`;
     const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
 
     trackEvent('form_submission', { form_type: 'contact', timestamp: new Date().toISOString() });
-    window.open(url, '_blank');
+
+    // Abrir WhatsApp após 1 segundo
+    setTimeout(() => {
+        window.open(url, '_blank');
+    }, 1000);
+
     form.reset();
+}
+
+function showFormConfirmation(nome) {
+    const modal = document.createElement('div');
+    modal.className = 'form-modal';
+    modal.innerHTML = `
+        <div class="form-modal-content">
+            <div class="form-modal-icon">✓</div>
+            <h3>Mensagem Enviada!</h3>
+            <p>Oi ${nome}! Sua mensagem foi enviada com sucesso.</p>
+            <p class="form-modal-subtitle">Gabriel responderá em breve via WhatsApp.</p>
+            <button onclick="this.parentElement.parentElement.remove()" class="btn btn-primary">Fechar</button>
+        </div>
+    `;
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+
+    document.body.appendChild(modal);
+
+    // Auto-fechar após 5 segundos
+    setTimeout(() => {
+        if (modal.parentElement) modal.remove();
+    }, 5000);
 }
 
 // =============================

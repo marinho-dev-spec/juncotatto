@@ -2062,6 +2062,171 @@ section.section-light {
 }
 
 /* ============================= */
+/* FORM MODAL */
+/* ============================= */
+
+.form-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn var(--speed-normal) var(--ease-smooth);
+}
+
+.form-modal-content {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(15, 15, 15, 0.95) 100%);
+    border: 1px solid rgba(201, 162, 75, 0.2);
+    border-radius: 16px;
+    padding: 48px 40px;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 25px 80px rgba(201, 162, 75, 0.15);
+    backdrop-filter: blur(20px);
+    animation: slideUp var(--speed-normal) var(--ease-cinematic);
+}
+
+.form-modal-icon {
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 24px;
+    animation: scaleIn var(--speed-normal) var(--ease-bounce);
+    display: inline-block;
+}
+
+.form-modal-content h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--bone);
+    margin-bottom: 16px;
+}
+
+.form-modal-content p {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.form-modal-subtitle {
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin-bottom: 32px !important;
+}
+
+.form-modal-content .btn {
+    margin-top: 8px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================= */
+/* CTA URGÊNCIA */
+/* ============================= */
+
+.cta-urgency {
+    background: linear-gradient(135deg, rgba(201, 162, 75, 0.08) 0%, rgba(26, 26, 26, 0.5) 100%);
+    border-top: 1px solid rgba(201, 162, 75, 0.2);
+    border-bottom: 1px solid rgba(201, 162, 75, 0.2);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-urgency::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(201, 162, 75, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(201, 162, 75, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.cta-urgency-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-urgency h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin-bottom: 16px;
+    color: var(--bone);
+    font-weight: 700;
+}
+
+.cta-urgency p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-urgency .btn-lg {
+    padding: 18px 60px;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    min-height: 56px;
+    border-radius: 12px;
+    margin: 24px auto;
+}
+
+.cta-urgency-subtitle {
+    font-size: 0.9rem !important;
+    color: var(--gold) !important;
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .cta-urgency {
+        padding: 60px 0;
+    }
+
+    .cta-urgency h2 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+
+    .cta-urgency p {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+    }
+
+    .cta-urgency .btn-lg {
+        padding: 16px 40px;
+        font-size: 1rem;
+    }
+}
+
+/* ============================= */
 /* SCROLL REVEAL */
 /* ============================= */
 

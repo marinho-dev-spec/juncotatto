@@ -2,11 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "juncotatto",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "7777"],
-      "port": 7777,
-      "cwd": "/Users/marinho/Downloads/juncotatto"
+      "name": "localhost",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "sleep 999999"],
+      "port": 8000
     }
   ]
 }
