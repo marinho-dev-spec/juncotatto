@@ -104,7 +104,9 @@
       "Bash(curl -s -I \"https://juncotatto.vercel.app/\")",
       "Bash(grep -E \"#[0-9a-fA-F]{3,6}\" /Users/marinho/Downloads/juncotatto/css/styles.css)",
       "Bash(grep -E \"#[0-9]{3,6}|#[a-f]{3,6}\")",
-      "Bash(grep -E \"\\\\.\\(html|js|css\\)$|^d\")"
+      "Bash(grep -E \"\\\\.\\(html|js|css\\)$|^d\")",
+      "Bash(chmod +x /tmp/clean_css.sh)",
+      "Bash(/tmp/clean_css.sh)"
     ]
   }
 }

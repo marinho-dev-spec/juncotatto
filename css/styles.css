@@ -4,12 +4,12 @@
 
 :root {
     /* Paleta Junco (mantida) */
-    --black: #0A0A0A;
-    --dark-bg: #0F0F0F;
-    --card-dark: #1A1A1A;
+    --black: #0B0B0D;
+    --dark-bg: #0B0B0D;
+    --card-dark: #161619;
     --gold: #C9A24B;
     --gold-light: #D4B76A;
-    --bone: #F5F1EB;
+    --bone: #EDE7DB;
     --text-secondary: #CCCCCC;
     --accent: #E8D5C4;
 
@@ -45,7 +45,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: linear-gradient(135deg, var(--black) 0%, var(--dark-bg) 100%);
+    background: #0B0B0D;
     color: var(--bone);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -87,10 +87,7 @@ h1, h2, h3 {
 
 h1 {
     font-size: clamp(2.5rem, 8vw, 5rem);
-    background: linear-gradient(135deg, var(--bone) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: #0B0B0D;
     letter-spacing: -0.03em;
     transform-style: preserve-3d;
     will-change: transform;
@@ -127,8 +124,6 @@ a {
     left: 0;
     right: 0;
     background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     z-index: 150;
     border-bottom: 1px solid rgba(201, 162, 75, 0.08);
     padding: 16px 0;
@@ -162,7 +157,7 @@ a {
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    background: #0B0B0D;
     border-radius: 50%;
     margin-left: 4px;
 }
@@ -194,7 +189,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    background: #0B0B0D;
     transition: width var(--transition-sm);
 }
 
@@ -214,7 +209,7 @@ a {
 
 .nav a.active::after {
     width: 100%;
-    background: linear-gradient(90deg, var(--gold-light), var(--gold));
+    background: #0B0B0D;
 }
 
 .hamburger {
@@ -258,7 +253,7 @@ a {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    background: #0B0B0D;
     color: var(--black);
     box-shadow: 0 8px 24px rgba(201, 162, 75, 0.25);
     transition: all var(--transition-cinematic);
@@ -421,7 +416,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.8) 100%);
+    background: #0B0B0D;
     z-index: 1;
     pointer-events: none;
 }
@@ -477,7 +472,6 @@ a {
     border: 1px solid rgba(201, 162, 75, 0.2);
     border-radius: 12px;
     background: rgba(26, 26, 26, 0.6);
-    backdrop-filter: blur(10px);
     animation: slideUp 0.8s var(--ease-smooth) 0.8s both;
 }
 
@@ -541,7 +535,7 @@ section {
 }
 
 section.section-light {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.3) 0%, transparent 100%);
+    background: #0B0B0D;
 }
 
 .section-title {
@@ -555,7 +549,7 @@ section.section-light {
     display: block;
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    background: #0B0B0D;
     margin: 20px auto 0;
     border-radius: 10px;
 }
@@ -575,7 +569,7 @@ section.section-light {
 /* ============================= */
 
 .proof-bar {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     padding: 80px 0;
     border-top: 1px solid rgba(201, 162, 75, 0.1);
     border-bottom: 1px solid rgba(201, 162, 75, 0.1);
@@ -614,10 +608,7 @@ section.section-light {
 .proof-number {
     font-family: var(--font-display);
     font-size: clamp(2.2rem, 6vw, 3.2rem);
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: #0B0B0D;
     font-weight: 700;
 }
 
@@ -633,7 +624,7 @@ section.section-light {
 /* ============================= */
 
 .gallery {
-    background: linear-gradient(180deg, transparent 0%, rgba(201, 162, 75, 0.02) 100%);
+    background: #0B0B0D;
 }
 
 .gallery-filters {
@@ -662,7 +653,7 @@ section.section-light {
 .filter-btn.active {
     border-color: var(--gold-light);
     color: var(--gold-light);
-    background: linear-gradient(135deg, rgba(201, 162, 75, 0.1) 0%, rgba(212, 183, 106, 0.05) 100%);
+    background: #0B0B0D;
     box-shadow: 0 0 20px rgba(201, 162, 75, 0.1);
 }
 
@@ -687,7 +678,7 @@ section.section-light {
 
 .gallery-item {
     aspect-ratio: 1;
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -753,7 +744,7 @@ section.section-light {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(201, 162, 75, 0.2) 0%, transparent 60%);
+    background: #0B0B0D;
     opacity: 0;
     transition: opacity var(--transition-cinematic);
     pointer-events: none;
@@ -897,7 +888,6 @@ section.section-light {
     justify-content: center;
     padding: 40px 20px;
     animation: fadeIn 0.3s ease-out;
-    backdrop-filter: blur(10px);
 }
 
 .lightbox.active {
@@ -964,7 +954,7 @@ section.section-light {
 /* ============================= */
 
 .testimonials {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.5) 0%, transparent 100%);
+    background: #0B0B0D;
     padding: 80px 0;
 }
 
@@ -976,7 +966,7 @@ section.section-light {
 }
 
 .testimonial-card {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     border: 1px solid rgba(201, 162, 75, 0.15);
     border-radius: 12px;
     padding: 32px;
@@ -1071,7 +1061,7 @@ section.section-light {
 /* ============================= */
 
 .reviews {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.5) 0%, transparent 100%);
+    background: #0B0B0D;
 }
 
 .reviews-header {
@@ -1097,10 +1087,7 @@ section.section-light {
 .reviews-rating {
     font-family: var(--font-display);
     font-size: 2.8rem;
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: #0B0B0D;
     font-weight: 700;
     white-space: nowrap;
     line-height: 1;
@@ -1121,7 +1108,7 @@ section.section-light {
 }
 
 .google-review-card {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     border: 1px solid rgba(201, 162, 75, 0.15);
     border-radius: 12px;
     padding: 24px;
@@ -1150,7 +1137,7 @@ section.section-light {
     justify-content: center;
     font-weight: 700;
     font-size: 0.9rem;
-    color: #0A0A0A;
+    color: #0B0B0D;
     flex-shrink: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -1245,7 +1232,7 @@ section.section-light {
 }
 
 .review-card {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     padding: 28px;
     border: 1px solid rgba(201, 162, 75, 0.15);
     border-radius: 12px;
@@ -1261,7 +1248,7 @@ section.section-light {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+    background: #0B0B0D;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform var(--speed-fast) var(--ease-smooth);
@@ -1305,7 +1292,7 @@ section.section-light {
 /* ============================= */
 
 .safety {
-    background: linear-gradient(180deg, transparent 0%, rgba(201, 162, 75, 0.02) 100%);
+    background: #0B0B0D;
 }
 
 .safety-grid {
@@ -1318,7 +1305,7 @@ section.section-light {
     text-align: center;
     padding: 30px;
     border-radius: 12px;
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(15, 15, 15, 0.6) 100%);
+    background: #0B0B0D;
     border: 1px solid rgba(201, 162, 75, 0.1);
     transition: all var(--speed-normal) var(--ease-smooth);
     position: relative;
@@ -1357,7 +1344,7 @@ section.section-light {
 /* ============================= */
 
 .piercing-catalog {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.3) 0%, transparent 100%);
+    background: #0B0B0D;
 }
 
 .piercing-grid {
@@ -1367,7 +1354,7 @@ section.section-light {
 }
 
 .piercing-card {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     padding: 32px;
     border: 1px solid rgba(201, 162, 75, 0.15);
     border-radius: 12px;
@@ -1380,7 +1367,7 @@ section.section-light {
     content: '';
     position: absolute;
     inset: -100%;
-    background: linear-gradient(135deg, transparent 0%, rgba(201, 162, 75, 0.1) 50%, transparent 100%);
+    background: #0B0B0D;
     transform: translate(-100%, -100%);
     transition: transform var(--speed-normal) var(--ease-smooth);
 }
@@ -1431,7 +1418,7 @@ section.section-light {
 /* ============================= */
 
 .about {
-    background: linear-gradient(180deg, transparent 0%, rgba(201, 162, 75, 0.02) 100%);
+    background: #0B0B0D;
 }
 
 .about-content {
@@ -1443,7 +1430,7 @@ section.section-light {
 
 .about-image {
     aspect-ratio: 3/4;
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     border: 1px solid rgba(201, 162, 75, 0.2);
     display: flex;
     align-items: center;
@@ -1459,7 +1446,7 @@ section.section-light {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(201, 162, 75, 0.1) 0%, transparent 50%);
+    background: #0B0B0D;
     opacity: 0;
     transition: opacity var(--transition-md);
 }
@@ -1494,7 +1481,7 @@ section.section-light {
 /* ============================= */
 
 .before-after {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.5) 0%, transparent 100%);
+    background: #0B0B0D;
 }
 
 .ba-slider {
@@ -1547,7 +1534,6 @@ section.section-light {
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.1em;
-    backdrop-filter: blur(10px);
     border-radius: 4px;
     z-index: 5;
 }
@@ -1584,7 +1570,7 @@ section.section-light {
     appearance: none;
     width: 4px;
     height: 100%;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    background: #0B0B0D;
     cursor: col-resize;
     box-shadow: -20px 0 40px rgba(201, 162, 75, 0.3);
 }
@@ -1592,7 +1578,7 @@ section.section-light {
 .ba-slider-handle::-moz-range-thumb {
     width: 4px;
     height: 100%;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    background: #0B0B0D;
     cursor: col-resize;
     border: none;
     box-shadow: -20px 0 40px rgba(201, 162, 75, 0.3);
@@ -1603,7 +1589,7 @@ section.section-light {
 /* ============================= */
 
 .how-it-works {
-    background: linear-gradient(180deg, transparent 0%, rgba(201, 162, 75, 0.02) 100%);
+    background: #0B0B0D;
 }
 
 .steps {
@@ -1618,13 +1604,13 @@ section.section-light {
     padding: 40px;
     border: 1px solid rgba(201, 162, 75, 0.1);
     border-radius: 12px;
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.4) 0%, rgba(15, 15, 15, 0.4) 100%);
+    background: #0B0B0D;
     transition: all var(--transition-md);
 }
 
 .step:hover {
     border-color: rgba(201, 162, 75, 0.3);
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     transform: translateY(-12px);
     box-shadow: 0 20px 50px rgba(201, 162, 75, 0.1);
 }
@@ -1632,10 +1618,7 @@ section.section-light {
 .step-number {
     font-family: var(--font-display);
     font-size: 3.5rem;
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: #0B0B0D;
     font-weight: 700;
     margin-bottom: 20px;
     transition: transform var(--transition-sm);
@@ -1655,7 +1638,7 @@ section.section-light {
 }
 
 .how-note {
-    background: linear-gradient(135deg, rgba(201, 162, 75, 0.1) 0%, rgba(212, 183, 106, 0.05) 100%);
+    background: #0B0B0D;
     padding: 32px;
     border: 1.5px solid rgba(201, 162, 75, 0.2);
     border-radius: 12px;
@@ -1672,7 +1655,7 @@ section.section-light {
 /* ============================= */
 
 .faq {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.3) 0%, transparent 100%);
+    background: #0B0B0D;
 }
 
 .faq-list {
@@ -1744,7 +1727,7 @@ section.section-light {
 /* ============================= */
 
 .contact {
-    background: linear-gradient(180deg, transparent 0%, rgba(201, 162, 75, 0.02) 100%);
+    background: #0B0B0D;
 }
 
 .contact-grid {
@@ -1783,7 +1766,7 @@ section.section-light {
 }
 
 .contact-cta {
-    background: linear-gradient(135deg, rgba(201, 162, 75, 0.08) 0%, rgba(212, 183, 106, 0.04) 100%);
+    background: #0B0B0D;
     padding: 80px 60px;
     text-align: center;
     border: 1px solid rgba(201, 162, 75, 0.2);
@@ -1836,7 +1819,7 @@ section.section-light {
 /* ============================= */
 
 .footer {
-    background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    background: #0B0B0D;
     border-top: 1px solid rgba(201, 162, 75, 0.1);
     padding: 80px 0 30px;
 }
@@ -1905,11 +1888,10 @@ section.section-light {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.95) 100%);
+    background: #0B0B0D;
     padding: 20px 16px 24px;
     border-top: 1px solid rgba(201, 162, 75, 0.1);
     z-index: 90;
-    backdrop-filter: blur(10px);
 }
 
 /* ============================= */
@@ -1940,7 +1922,7 @@ section.section-light {
     .hamburger span {
         width: 26px;
         height: 3px;
-        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        background: #0B0B0D;
         border-radius: 2px;
         transition: all var(--transition-sm);
     }
@@ -2489,7 +2471,6 @@ section.section-light {
     position: fixed;
     inset: 0;
     background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2498,14 +2479,13 @@ section.section-light {
 }
 
 .form-modal-content {
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(15, 15, 15, 0.95) 100%);
+    background: #0B0B0D;
     border: 1px solid rgba(201, 162, 75, 0.2);
     border-radius: 16px;
     padding: 48px 40px;
     max-width: 420px;
     text-align: center;
     box-shadow: 0 25px 80px rgba(201, 162, 75, 0.15);
-    backdrop-filter: blur(20px);
     animation: slideUp var(--speed-normal) var(--ease-cinematic);
 }
 
@@ -2567,7 +2547,7 @@ section.section-light {
 /* ============================= */
 
 .cta-urgency {
-    background: linear-gradient(135deg, rgba(201, 162, 75, 0.08) 0%, rgba(26, 26, 26, 0.5) 100%);
+    background: #0B0B0D;
     border-top: 1px solid rgba(201, 162, 75, 0.2);
     border-bottom: 1px solid rgba(201, 162, 75, 0.2);
     padding: 80px 0;
@@ -2672,7 +2652,7 @@ section.section-light {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    background: #0B0B0D;
     color: var(--black);
     border: none;
     cursor: pointer;
