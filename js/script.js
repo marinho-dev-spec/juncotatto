@@ -660,12 +660,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const gallery = new Gallery();
     window.gallery = gallery; // Disponível globalmente
     const faq = new FAQ();
+    window.faqInstance = faq; // Exposição global para toggleFaq()
     const slider = new BeforeAfterSlider();
+    window.sliderInstance = slider; // Exposição global para updateBeforeAfter()
     const header = new StickyHeader();
     const menu = new MobileMenu();
     const parallax = new ParallaxScroll();
     const mouse = new MouseFollow();
     const counter = new AnimatedCounter();
+    const ripple = new RippleEffect();
 
     // Fechar lightbox
     document.addEventListener('keydown', (e) => {
@@ -694,6 +697,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('✅ Todos os sistemas inicializados');
 });
+
+// =============================
+// RIPPLE EFFECT ON BUTTONS
+// =============================
+
+class RippleEffect {
+    constructor() {
+        this.setupRipples();
+    }
+
+    setupRipples() {
+        document.querySelectorAll('.ripple-effect, .btn').forEach(element => {
+            element.addEventListener('click', (e) => this.createRipple(e, element));
+        });
+    }
+
+    createRipple(event, element) {
+        const rect = element.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = event.clientX - rect.left - size / 2;
+        const y = event.clientY - rect.top - size / 2;
+
+        const ripple = document.createElement('span');
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        ripple.style.position = 'absolute';
+        ripple.style.pointerEvents = 'none';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(201, 162, 75, 0.6)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s ease-out';
+
+        if (!element.style.position || element.style.position === 'static') {
+            element.style.position = 'relative';
+            element.style.overflow = 'hidden';
+        }
+
+        element.appendChild(ripple);
+
+        setTimeout(() => ripple.remove(), 600);
+    }
+}
+
+// =============================
+// WRAPPER FUNCTIONS PARA ONCLICK
+// =============================
+
+// Função global para toggle FAQ (chamada via onclick no HTML)
+function toggleFaq(button) {
+    if (window.faqInstance) {
+        window.faqInstance.toggle(button);
+    }
+}
+
+// Função global para atualizar Before/After slider (chamada via oninput no HTML)
+function updateBeforeAfter(value) {
+    if (window.sliderInstance) {
+        window.sliderInstance.update(value);
+    }
+}
 
 // =============================
 // UTILITÁRIOS

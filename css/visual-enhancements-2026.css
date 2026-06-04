@@ -1,0 +1,441 @@
+/* ===================================== */
+/* VISUAL ENHANCEMENTS 2026 */
+/* Professional Tattoo Studio Design */
+/* ===================================== */
+
+:root {
+    /* Easing for 2026 animations */
+    --ease-magnetic: cubic-bezier(0.43, 0.13, 0.23, 0.96);
+    --ease-elastic-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth-in-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===================================== */
+/* ANIMATED GRADIENT MESH (Enhanced) */
+/* ===================================== */
+
+@keyframes meshGradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.6;
+        filter: blur(40px);
+    }
+    50% {
+        opacity: 0.9;
+        filter: blur(60px);
+    }
+}
+
+/* Orbs com movimento mais suave */
+.mesh-orb {
+    animation-timing-function: ease-in-out !important;
+}
+
+/* ===================================== */
+/* MAGNETIC HOVER BUTTONS (2026) */
+/* ===================================== */
+
+.btn-magnetic,
+.btn-primary,
+.btn-secondary {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--speed-normal) var(--ease-magnetic);
+}
+
+.btn-magnetic::before,
+.btn-primary::before,
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity var(--speed-fast);
+    pointer-events: none;
+}
+
+.btn-magnetic:hover::before,
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    opacity: 1;
+}
+
+/* Magnetic effect on button (element follows cursor within button) */
+.btn-magnetic:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(201, 162, 75, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    letter-spacing: 0.05em;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--black);
+}
+
+.btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow:
+        0 20px 40px rgba(201, 162, 75, 0.2),
+        inset 0 0 20px rgba(201, 162, 75, 0.1);
+}
+
+/* Active state ripple */
+.btn-primary:active,
+.btn-secondary:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* ===================================== */
+/* ENHANCED GLASSMORPHISM CARDS */
+/* ===================================== */
+
+.card-interactive,
+.testimonial-card,
+.review-card,
+.gallery-item,
+.safety-item {
+    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg,
+        rgba(255,255,255,0.08) 0%,
+        rgba(255,255,255,0.02) 100%
+    );
+    border: 1px solid rgba(201, 162, 75, 0.2);
+    transition: all var(--speed-normal) var(--ease-smooth-in-out);
+    transform-style: preserve-3d;
+    will-change: transform, filter;
+}
+
+.card-interactive:hover,
+.testimonial-card:hover,
+.review-card:hover,
+.safety-item:hover {
+    transform: translateY(-12px) translateZ(20px);
+    backdrop-filter: blur(20px);
+    background: linear-gradient(135deg,
+        rgba(255,255,255,0.12) 0%,
+        rgba(255,255,255,0.04) 100%
+    );
+    border-color: rgba(201, 162, 75, 0.4);
+    box-shadow:
+        0 30px 60px rgba(201, 162, 75, 0.15),
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 0 40px rgba(201, 162, 75, 0.1);
+}
+
+/* Gallery items with enhanced reveal */
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all var(--speed-slow) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08) rotate(1deg);
+    filter: brightness(1.1) saturate(1.1);
+}
+
+/* ===================================== */
+/* SCROLL TRIGGERED REVEALS (Enhanced) */
+/* ===================================== */
+
+/* Stagger animation for multiple elements */
+@keyframes staggerIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+[data-scroll] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all var(--speed-normal) var(--ease-smooth-in-out);
+    transition-delay: var(--stagger-delay, 0s);
+}
+
+[data-scroll].visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children elements */
+[data-stagger] > * {
+    animation: staggerIn var(--speed-normal) var(--ease-smooth-in-out) backwards;
+}
+
+[data-stagger] > :nth-child(1) { animation-delay: 0.1s; }
+[data-stagger] > :nth-child(2) { animation-delay: 0.2s; }
+[data-stagger] > :nth-child(3) { animation-delay: 0.3s; }
+[data-stagger] > :nth-child(4) { animation-delay: 0.4s; }
+[data-stagger] > :nth-child(5) { animation-delay: 0.5s; }
+[data-stagger] > :nth-child(6) { animation-delay: 0.6s; }
+
+/* ===================================== */
+/* TEXT ANIMATIONS (2026) */
+/* ===================================== */
+
+@keyframes textShimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes letterSpacingPulse {
+    0%, 100% {
+        letter-spacing: -0.02em;
+    }
+    50% {
+        letter-spacing: 0.05em;
+    }
+}
+
+.hero-headline {
+    animation: textReveal 1.2s var(--ease-cinematic) backwards;
+}
+
+.section-title {
+    background: linear-gradient(135deg, var(--bone) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: meshGradientFlow 6s ease-in-out infinite;
+}
+
+/* ===================================== */
+/* RIPPLE EFFECT ON CLICK */
+/* ===================================== */
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: rgba(201, 162, 75, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ripple-effect:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+/* ===================================== */
+/* GLOW EFFECTS (Enhanced) */
+/* ===================================== */
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow:
+            0 0 10px rgba(201, 162, 75, 0.3),
+            0 0 20px rgba(201, 162, 75, 0.2);
+        box-shadow:
+            0 0 20px rgba(201, 162, 75, 0.2),
+            0 0 40px rgba(201, 162, 75, 0.1);
+    }
+    50% {
+        text-shadow:
+            0 0 20px rgba(201, 162, 75, 0.5),
+            0 0 40px rgba(201, 162, 75, 0.3);
+        box-shadow:
+            0 0 40px rgba(201, 162, 75, 0.3),
+            0 0 60px rgba(201, 162, 75, 0.2);
+    }
+}
+
+[data-glow],
+[data-bloom] {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ===================================== */
+/* SMOOTH SCROLLBAR */
+/* ===================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 10px;
+    border: 2px solid var(--black);
+    transition: all var(--speed-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 100%);
+    box-shadow: 0 0 20px rgba(201, 162, 75, 0.3);
+}
+
+/* ===================================== */
+/* LOADING ANIMATIONS */
+/* ===================================== */
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.loading-reviews {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,0.05) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    padding: 40px 20px;
+    text-align: center;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* ===================================== */
+/* HERO ENHANCEMENTS */
+/* ===================================== */
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    animation: staggerIn 0.8s var(--ease-smooth-in-out) 0.4s backwards;
+}
+
+.btn-pulse {
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(201, 162, 75, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(201, 162, 75, 0.1);
+    }
+}
+
+/* ===================================== */
+/* PARALLAX IMPROVEMENTS */
+/* ===================================== */
+
+[data-parallax] {
+    will-change: transform;
+}
+
+/* ===================================== */
+/* MOBILE OPTIMIZATION */
+/* ===================================== */
+
+@media (max-width: 768px) {
+    /* Reduce animation complexity on mobile */
+    [data-scroll] {
+        transition: opacity 0.6s ease-out !important;
+    }
+
+    .card-interactive:hover,
+    .gallery-item:hover {
+        transform: translateY(-6px) !important;
+    }
+
+    [data-stagger] > * {
+        animation-delay: 0s !important;
+    }
+
+    /* Disable glow on mobile */
+    [data-glow],
+    [data-bloom] {
+        animation: none;
+    }
+
+    .btn-pulse {
+        animation: none;
+    }
+}
+
+/* ===================================== */
+/* ACCESSIBILITY - Reduce Motion */
+/* ===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

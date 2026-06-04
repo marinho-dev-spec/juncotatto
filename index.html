@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations-advanced.css">
     <link rel="stylesheet" href="css/glassmorphism.css">
+    <link rel="stylesheet" href="css/visual-enhancements-2026.css">
 </head>
 <body>
     <!-- HEADER FIXO -->
@@ -69,8 +70,8 @@
                 <span class="rating">+600 avaliações Google · 100% Material Descartável</span>
             </div>
             <div class="hero-buttons">
-                <button class="btn btn-primary btn-pulse" onclick="abrirWhatsApp('geral')">💬 Agendar Consulta Grátis</button>
-                <button class="btn btn-secondary" onclick="scrollTo('trabalhos')">↓ Ver Portfólio</button>
+                <button class="btn btn-primary btn-pulse ripple-effect" data-bloom onclick="abrirWhatsApp('geral')">💬 Agendar Consulta Grátis</button>
+                <button class="btn btn-secondary ripple-effect" onclick="scrollTo('trabalhos')">↓ Ver Portfólio</button>
             </div>
             <div class="hero-urgency">
                 <small>🔥 Apenas 3 vagas em junho — Reserve agora</small>
@@ -79,9 +80,9 @@
     </section>
 
     <!-- 4. FAIXA DE PROVA -->
-    <section class="proof-bar">
+    <section class="proof-bar" data-scroll>
         <div class="container">
-            <div class="proof-items">
+            <div class="proof-items" data-stagger>
                 <div class="proof-item">
                     <span class="proof-number">4,9</span>
                     <span class="proof-text">★ no Google</span>
@@ -105,10 +106,10 @@
     <!-- 5. GALERIA DE TRABALHOS -->
     <section class="gallery" id="trabalhos">
         <div class="container">
-            <h2 class="section-title">Trabalhos Realizados</h2>
+            <h2 class="section-title" data-bloom>Trabalhos Realizados</h2>
             <p class="section-subtitle">Especializado em realismo preto e cinza, cobertura e fine line. Veja alguns dos trabalhos que já realizei.</p>
 
-            <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-grid" id="galleryGrid" data-stagger>
                 <!-- Será preenchido por JS com imagens -->
             </div>
 
@@ -151,12 +152,12 @@
     </section>
 
     <!-- 7. SEGURANÇA & HIGIENE -->
-    <section class="safety" id="higiene">
+    <section class="safety" id="higiene" data-scroll>
         <div class="container">
-            <h2 class="section-title">Segurança & Higiene</h2>
+            <h2 class="section-title" data-bloom>Segurança & Higiene</h2>
             <p class="section-subtitle">Padrão de protocolo clínico, zero compromissos.</p>
 
-            <div class="safety-grid">
+            <div class="safety-grid" data-stagger>
                 <div class="safety-item">
                     <div class="safety-icon">🧵</div>
                     <h3>Agulha lacrada</h3>
@@ -183,9 +184,9 @@
 
 
     <!-- 9. SOBRE O GABRIEL -->
-    <section class="about" id="sobre">
+    <section class="about" id="sobre" data-scroll>
         <div class="container">
-            <div class="about-content">
+            <div class="about-content" data-stagger>
                 <div class="about-image">
                     <img src="imagens-junco/gabriel-junco.jpg" alt="Gabriel Junco - Tatuador especialista em realismo" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
                 </div>
@@ -229,11 +230,11 @@
     </section>
 
     <!-- 11. COMO FUNCIONA -->
-    <section class="how-it-works">
+    <section class="how-it-works" data-scroll>
         <div class="container">
-            <h2 class="section-title">Como funciona</h2>
+            <h2 class="section-title" data-bloom>Como funciona</h2>
 
-            <div class="steps">
+            <div class="steps" data-stagger>
                 <div class="step">
                     <div class="step-number">01</div>
                     <h3>Manda sua ideia no WhatsApp</h3>
@@ -258,11 +259,11 @@
     </section>
 
     <!-- 12. DÚVIDAS (FAQ) -->
-    <section class="faq" id="duvidas">
+    <section class="faq" id="duvidas" data-scroll>
         <div class="container">
-            <h2 class="section-title">Dúvidas Frequentes</h2>
+            <h2 class="section-title" data-bloom>Dúvidas Frequentes</h2>
 
-            <div class="faq-list">
+            <div class="faq-list" data-stagger>
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>Quanto custa?</span>
@@ -341,9 +342,9 @@
     </section>
 
     <!-- 13. CONTATO / ONDE ESTAMOS -->
-    <section class="contact" id="contato">
+    <section class="contact" id="contato" data-scroll>
         <div class="container">
-            <div class="contact-grid">
+            <div class="contact-grid" data-stagger>
                 <div class="contact-map">
                     <iframe src="https://www.google.com/maps?q=Junco+Tattoo+Itapema+Av+Nereu+Ramos+4142&output=embed"
                             width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
