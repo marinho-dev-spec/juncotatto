@@ -6,180 +6,277 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Piercing em Itapema/SC — Junco Tattoo & Piercing | Gabriel Junco</title>
-    <meta name="description" content="Piercing profissional em Itapema/SC. Especialista em piercings de orelha, nariz, septo, industrial e mais. Estúdio esterilizado, materiais de qualidade, +600 avaliações 5 estrelas.">
-    <meta name="theme-color" content="#0A0A0A">
+    <meta name="description" content="Piercing profissional em Itapema/SC. Orelha, nariz, septo, industrial e mais. Estúdio esterilizado, titânio/aço cirúrgico, +600 avaliações 5 estrelas. Agende seu piercing agora.">
+    <meta name="theme-color" content="#0B0B0D">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://juncotatto.vercel.app/piercing">
+    <meta property="og:title" content="Piercing profissional — Junco Tattoo & Piercing">
+    <meta property="og:description" content="Piercing em Itapema/SC especializado. Agulha, titânio, higiene profissional.">
+    <meta property="og:locale" content="pt_BR">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-optimization.css">
+
+    <!-- GLightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/css/glightbox.min.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "additionalType": "ProfessionalService",
+        "name": "Junco Tattoo & Piercing",
+        "image": "https://juncotatto.vercel.app/imagens-junco/estudio.webp",
+        "description": "Piercing profissional em Itapema/SC. Orelha, nariz, septo, industrial e mais. Esterilizado, titânio, agulha.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Nereu Ramos, 4142, Sala 9",
+            "addressLocality": "Itapema",
+            "addressRegion": "SC",
+            "postalCode": "88220-000",
+            "addressCountry": "BR"
+        },
+        "telephone": "+5547996615555",
+        "url": "https://juncotatto.vercel.app/piercing",
+        "foundingDate": "2014",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "600"
+        }
+    }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA4_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YOUR_GA4_ID', {'send_page_view': true});
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+
     <style>
-        /* Estilos específicos para página de piercing */
-        .piercing-catalog {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .piercing-item {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(42, 42, 42, 0.8) 100%);
-            border: 1px solid rgba(201, 162, 75, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s var(--ease-cinematic);
-            backdrop-filter: blur(10px);
-        }
-
-        .piercing-item:hover {
-            transform: translateY(-8px);
-            border-color: rgba(201, 162, 75, 0.5);
-            box-shadow: 0 20px 50px rgba(201, 162, 75, 0.15);
-        }
-
-        .piercing-image {
-            width: 100%;
-            height: 240px;
-            background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
+        .piercing-hero {
+            height: 100vh;
+            background: #0B0B0D;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: rgba(201, 162, 75, 0.3);
+            text-align: center;
+            padding: 60px 20px;
         }
 
-        .piercing-info {
-            padding: 20px;
-        }
-
-        .piercing-name {
+        .piercing-hero h1 {
             font-family: var(--font-display);
-            font-size: 1.4rem;
-            color: var(--gold);
-            margin-bottom: 8px;
-            font-weight: 700;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #EDE7DB;
+            margin-bottom: 16px;
+            line-height: 1.1;
         }
 
-        .piercing-description {
-            font-size: 0.95rem;
-            color: var(--bone);
-            opacity: 0.8;
+        .piercing-hero p {
+            font-size: 1.2rem;
+            color: #CCCCCC;
+            max-width: 600px;
+            margin: 0 auto 32px;
             line-height: 1.6;
-            margin-bottom: 12px;
         }
 
-        .piercing-details {
+        .piercing-badge {
             display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: var(--gold);
-            opacity: 0.8;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 16px 24px;
+            border: 1px solid rgba(201, 162, 75, 0.2);
+            border-radius: 8px;
+            background: #161619;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .piercing-badge .stars {
+            color: #C9A24B;
+            font-weight: 600;
+        }
+
+        .piercing-badge .rating {
+            color: #CCCCCC;
+            font-size: 0.95rem;
+        }
+
+        .catalog-section {
+            padding: 80px 20px;
+        }
+
+        .catalog-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: #EDE7DB;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .catalog-section > p {
+            text-align: center;
+            color: #CCCCCC;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
         }
 
         .filter-buttons {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
             justify-content: center;
+            margin-bottom: 40px;
         }
 
         .filter-btn {
-            padding: 10px 24px;
-            background: rgba(201, 162, 75, 0.1);
-            color: var(--bone);
-            border: 1px solid rgba(201, 162, 75, 0.3);
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid #CCCCCC;
+            color: #CCCCCC;
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            transition: all 0.3s var(--ease-cinematic);
+            transition: all 0.3s ease;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: rgba(201, 162, 75, 0.3);
-            border-color: var(--gold);
-            color: var(--gold);
+            background: #C9A24B;
+            border-color: #C9A24B;
+            color: #0B0B0D;
         }
 
-        .cases-grid {
+        .piercing-catalog {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .case-item {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
-            border: 1px solid rgba(201, 162, 75, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s var(--ease-cinematic);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: rgba(201, 162, 75, 0.2);
-        }
-
-        .case-item:hover {
-            transform: scale(1.05);
-            border-color: rgba(201, 162, 75, 0.5);
-            box-shadow: 0 20px 50px rgba(201, 162, 75, 0.15);
-        }
-
-        .piercing-hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(180deg, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.9) 100%);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
             margin-bottom: 60px;
         }
 
-        .piercing-hero h1 {
-            font-size: clamp(2rem, 6vw, 3rem);
-            color: var(--bone);
-            margin-bottom: 16px;
-            font-weight: 700;
+        .piercing-card {
+            background: #161619;
+            border: 1px solid rgba(201, 162, 75, 0.15);
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.3s ease;
         }
 
-        .piercing-hero p {
-            font-size: 1.1rem;
-            color: var(--bone);
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto 32px;
+        .piercing-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 162, 75, 0.4);
+            box-shadow: 0 12px 32px rgba(201, 162, 75, 0.1);
+        }
+
+        .piercing-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: #C9A24B;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .piercing-card p {
+            color: #EDE7DB;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .piercing-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #CCCCCC;
+        }
+
+        .piercing-details span {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .piercing-details strong {
+            color: #C9A24B;
+        }
+
+        .piercing-btn {
+            width: 100%;
+            padding: 12px;
+            background: #C9A24B;
+            color: #0B0B0D;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .piercing-btn:hover {
+            background: #D4B76A;
+            transform: scale(1.02);
+        }
+
+        .disclaimer {
+            text-align: center;
+            color: #CCCCCC;
+            font-size: 0.85rem;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid rgba(201, 162, 75, 0.2);
         }
     </style>
 </head>
 <body>
-    <!-- BARRA DE AVISO -->
-    <div class="warning-bar">
-        <p>Agende seu piercing — agenda sempre cheia na temporada! 💫</p>
-    </div>
-
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
+                <a href="/" class="logo" onclick="window.location.href='/'; return false;">
                     <span class="logo-text">JUNCO</span>
                     <span class="logo-dot">•</span>
                 </a>
 
                 <nav class="nav">
-                    <a href="index.html#trabalhos">Tatuagens</a>
-                    <a href="piercing.html">Piercing</a>
-                    <a href="index.html#contato">Contato</a>
+                    <a href="/#trabalhos">Tatuagens</a>
+                    <a href="/piercing">Piercing</a>
+                    <a href="/#contato">Contato</a>
                 </nav>
 
-                <button class="hamburger" id="hamburger">
+                <button class="btn btn-header-schedule" onclick="abrirWhatsApp('piercing')">Agendar Piercing</button>
+
+                <button class="hamburger" id="hamburger" aria-label="Abrir menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -188,329 +285,142 @@
         </div>
     </header>
 
-    <!-- HERO PIERCING -->
+    <!-- HERO -->
     <section class="piercing-hero">
-        <h1>Piercing Profissional</h1>
-        <p>Especializado em todos os tipos de piercing com materiais de qualidade premium, em ambiente esterilizado e com atendimento sem pressa.</p>
-        <div class="hero-badge">
-            <span class="stars">★★★★★</span>
-            <span class="rating">4,9 · +600 avaliações no Google</span>
-        </div>
-    </section>
-
-    <!-- CATÁLOGO DE TIPOS -->
-    <section class="container" style="padding: 60px 20px;">
-        <h2 style="text-align: center; margin-bottom: 10px; font-size: clamp(1.8rem, 5vw, 2.5rem); color: var(--bone);">Catálogo de Piercing</h2>
-        <p style="text-align: center; color: var(--bone); opacity: 0.7; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Conheça todos os tipos de piercing que oferecemos. Cada um com suas características únicas e tempo de cicatrização.</p>
-
-        <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterPiercings('all')">Todos</button>
-            <button class="filter-btn" onclick="filterPiercings('orelha')">Orelha</button>
-            <button class="filter-btn" onclick="filterPiercings('rosto')">Rosto</button>
-            <button class="filter-btn" onclick="filterPiercings('corpo')">Corpo</button>
-        </div>
-
-        <div class="piercing-catalog" id="piercingCatalog">
-            <!-- Será preenchido por JavaScript -->
-        </div>
-    </section>
-
-    <!-- GALERIA DE CASES -->
-    <section class="container" style="padding: 60px 20px; margin-top: 40px;">
-        <h2 style="text-align: center; margin-bottom: 10px; font-size: clamp(1.8rem, 5vw, 2.5rem); color: var(--bone);">Trabalhos Realizados</h2>
-        <p style="text-align: center; color: var(--bone); opacity: 0.7; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Veja alguns dos piercings que já realizamos. Cada trabalho é único e personalizado para o cliente.</p>
-
-        <div class="cases-grid" id="casesGrid">
-            <!-- Será preenchido por JavaScript -->
-        </div>
-    </section>
-
-    <!-- FAQ PIERCING -->
-    <section class="container" style="padding: 60px 20px; margin-top: 40px;">
-        <h2 style="text-align: center; margin-bottom: 40px; font-size: clamp(1.8rem, 5vw, 2.5rem); color: var(--bone);">Dúvidas Frequentes sobre Piercing</h2>
-
-        <div style="max-width: 700px; margin: 0 auto;">
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Qual é o tempo de cicatrização?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Depende do tipo de piercing. Orelha leva 4-8 semanas, nariz 6-8 semanas, septo 6-10 semanas. Piercings no corpo podem levar mais tempo. Seguindo os cuidados corretos, acelera a cicatrização.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Como é o processo de higiene?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Usamos equipamentos esterilizados em autoclave, agulhas descartáveis e materiais premium (aço cirúrgico e titânio). Luvas esterilizadas para cada procedimento. Ambiente limpo e profissional.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Dói muito?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>A dor é mínima e rápida. A agulha passa em segundos. Depois sente formigamento e sensibilidade. Cada pessoa sente diferente. Nosso atendimento sem pressa deixa tudo mais tranquilo.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Qual material usar no piercing novo?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Aço cirúrgico 316L ou titânio são os melhores para piercing novo. Evite materiais genéricos que causam inflamação. Oferecemos opções de qualidade premium para cada tipo.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Como cuidar do piercing novo?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Limpar 2x por dia com soro fisiológico. Evitar tocar sem lavar as mãos. Não girar a joia. Evitar piscina e mar nos primeiros 15 dias. Dormir na posição contrária. Orientações completas dadas no atendimento.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>Posso colocar outro piercing logo depois?</span>
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Recomendamos esperar a cicatrização completa (4-8 semanas). Mas é possível fazer mais piercings no mesmo dia em locais diferentes. Converse conosco para planejar!</p>
-                </div>
+        <div style="text-align: center;">
+            <h1>Piercing Profissional</h1>
+            <p>Especializado em todos os tipos de piercing. Agulha, material premium (titânio/aço cirúrgico), higiene clínica.</p>
+            <div class="piercing-badge">
+                <span class="stars">★★★★★ 4,9</span>
+                <span class="rating">+600 avaliações reais</span>
             </div>
         </div>
     </section>
 
-    <!-- CTA FINAL -->
-    <section style="padding: 60px 20px; text-align: center; margin-top: 40px;">
-        <h2 style="font-size: clamp(1.8rem, 5vw, 2.5rem); color: var(--bone); margin-bottom: 20px;">Pronto para o seu Piercing?</h2>
-        <p style="color: var(--bone); opacity: 0.8; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Entre em contato com Gabriel para agendar sua sessão. Atendimento profissional, sem pressa, com materiais premium.</p>
-        <button class="btn btn-primary" onclick="abrirWhatsApp('piercing')" style="margin: 0 auto;">Agendar Piercing via WhatsApp</button>
+    <!-- CATÁLOGO -->
+    <section class="catalog-section">
+        <div class="container">
+            <h2>Catálogo Completo de Piercing</h2>
+            <p>Conheça todos os tipos de piercing que oferecemos. Cada um com suas características únicas, tempo de cicatrização e material recomendado.</p>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterPiercings('todos')">Todos</button>
+                <button class="filter-btn" onclick="filterPiercings('orelha')">Orelha</button>
+                <button class="filter-btn" onclick="filterPiercings('nariz')">Nariz</button>
+                <button class="filter-btn" onclick="filterPiercings('boca')">Boca & Rosto</button>
+                <button class="filter-btn" onclick="filterPiercings('corpo')">Corpo</button>
+                <button class="filter-btn" onclick="filterPiercings('lingua')">Língua</button>
+            </div>
+
+            <div class="piercing-catalog" id="piercingCatalog">
+                <!-- Preenchido por JS -->
+            </div>
+
+            <p class="disclaimer">
+                ★ Tempos de cicatrização são aproximados e variam de pessoa para pessoa. A higiene adequada acelera o processo. Sem preço fixo — solicite orçamento pelo WhatsApp.
+            </p>
+        </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer style="background: rgba(10, 10, 10, 0.95); border-top: 1px solid rgba(201, 162, 75, 0.1); padding: 40px 20px; text-align: center; margin-top: 60px;">
-        <p style="color: var(--bone); opacity: 0.7; margin: 0;">© 2024 Junco Tattoo & Piercing — Itapema/SC</p>
-        <p style="color: var(--bone); opacity: 0.5; font-size: 0.9rem; margin-top: 10px;">Tatuagem & Piercing · Atendimento sem pressa · Ambiente esterilizado</p>
-    </footer>
+    <!-- Floating CTA -->
+    <button id="floatingCta" class="floating-cta-btn" onclick="abrirWhatsApp('piercing')" aria-label="Agendar Piercing">
+        <span class="floating-cta-icon">💬</span>
+        <span class="floating-cta-text">Agendar</span>
+    </button>
 
+    <!-- Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script defer src="js/script.js"></script>
+
+    <!-- Piercing Catalog Data & JS -->
     <script>
-        // Dados de piercings
-        const piercings = [
-            { name: 'Lóbulo', emoji: '👂', category: 'orelha', healing: '4-6 semanas', description: 'O piercing clássico, perfeito para começar' },
-            { name: 'Hélix', emoji: '👂', category: 'orelha', healing: '6-8 semanas', description: 'Na parte superior da orelha, versátil e elegante' },
-            { name: 'Cartilagem', emoji: '👂', category: 'orelha', healing: '8-12 semanas', description: 'Mais robusto, cicatrização mais lenta' },
-            { name: 'Industrial', emoji: '👂', category: 'orelha', healing: '10-16 semanas', description: 'Dois furos conectados por uma barra' },
-            { name: 'Septo', emoji: '👃', category: 'rosto', healing: '6-10 semanas', description: 'Entre as narinas, muito procurado' },
-            { name: 'Narina', emoji: '👃', category: 'rosto', healing: '4-8 semanas', description: 'Clássico no rosto, discreto ou chamativo' },
-            { name: 'Sobrancelha', emoji: '😊', category: 'rosto', healing: '6-8 semanas', description: 'Destaca a expressão do rosto' },
-            { name: 'Labio', emoji: '👄', category: 'rosto', healing: '6-8 semanas', description: 'Vários estilos possíveis' },
-            { name: 'Língua', emoji: '👅', category: 'rosto', healing: '4-6 semanas', description: 'Cicatriza rápido, cuidado com fala no início' },
-            { name: 'Umbigo', emoji: '😊', category: 'corpo', healing: '6-12 semanas', description: 'Clássico e versátil, cicatrização variável' },
-            { name: 'Peito', emoji: '💪', category: 'corpo', healing: '8-12 semanas', description: 'Profundo e marcante' },
-            { name: 'Costas', emoji: '💪', category: 'corpo', healing: '8-12 semanas', description: 'Raro e especial' },
-        ];
+        const piercingData = {
+            orelha: [
+                { nome: "Lóbulo", desc: "O clássico, na parte macia da orelha.", cicatriza: "6–8 semanas", joia: "Titânio ou aço" },
+                { nome: "Hélix", desc: "Na cartilagem da borda superior da orelha.", cicatriza: "3–6 meses", joia: "Titânio ou aço" },
+                { nome: "Tragus", desc: "Na saliência à frente do canal auditivo.", cicatriza: "3–6 meses", joia: "Titânio ou aço" },
+                { nome: "Daith", desc: "Na dobra interna da cartilagem da orelha.", cicatriza: "4–9 meses", joia: "Titânio ou aço" },
+                { nome: "Conch", desc: "No centro da concha da orelha.", cicatriza: "3–9 meses", joia: "Titânio ou aço" },
+                { nome: "Industrial", desc: "Duas perfurações ligadas por uma barra.", cicatriza: "6–12 meses", joia: "Titânio ou aço" }
+            ],
+            nariz: [
+                { nome: "Narina", desc: "A lateral do nariz, clássico e discreto.", cicatriza: "2–4 meses", joia: "Titânio ou aço" },
+                { nome: "Septo", desc: "No centro, entre as narinas.", cicatriza: "6–8 semanas", joia: "Titânio ou aço" },
+                { nome: "Bridge", desc: "Na ponte do nariz, entre os olhos (superficial).", cicatriza: "8–12 semanas", joia: "Titânio ou aço" }
+            ],
+            boca: [
+                { nome: "Labret", desc: "Abaixo do lábio inferior, no centro.", cicatriza: "6–8 semanas", joia: "Titânio ou aço" },
+                { nome: "Medusa", desc: "Acima do lábio superior, no centro (philtrum).", cicatriza: "8–12 semanas", joia: "Titânio ou aço" },
+                { nome: "Monroe", desc: "Lateral acima do lábio, estilo pintinha.", cicatriza: "8–12 semanas", joia: "Titânio ou aço" },
+                { nome: "Sobrancelha", desc: "Vertical na sobrancelha.", cicatriza: "6–8 semanas", joia: "Titânio ou aço" }
+            ],
+            corpo: [
+                { nome: "Umbigo", desc: "Na borda superior do umbigo.", cicatriza: "6–12 meses", joia: "Titânio ou aço" },
+                { nome: "Microdermal", desc: "Implante de superfície, ancorado na pele.", cicatriza: "Varia", joia: "Titânio ou aço" },
+                { nome: "Mamilo", desc: "Piercing no mamilo.", cicatriza: "6–12 meses", joia: "Titânio ou aço" }
+            ],
+            lingua: [
+                { nome: "Língua (central)", desc: "Vertical no centro da língua.", cicatriza: "4–6 semanas", joia: "Titânio ou aço" },
+                { nome: "Smiley", desc: "No freio do lábio superior (efeito sorriso).", cicatriza: "4–8 semanas", joia: "Titânio ou aço" }
+            ],
+            troca: [
+                { nome: "Troca / Upgrade de Joia", desc: "Substitua por titânio, aço cirúrgico, pedras e zircônias.", cicatriza: "N/A", joia: "Titânio, aço ou pedra" }
+            ]
+        };
 
-        // Renderizar catálogo
-        function renderCatalog(filter = 'all') {
+        function renderPiercings(category) {
             const catalog = document.getElementById('piercingCatalog');
             catalog.innerHTML = '';
 
-            piercings
-                .filter(p => filter === 'all' || p.category === filter)
-                .forEach(piercing => {
-                    const item = document.createElement('div');
-                    item.className = 'piercing-item';
-                    item.innerHTML = `
-                        <div class="piercing-image">${piercing.emoji}</div>
-                        <div class="piercing-info">
-                            <div class="piercing-name">${piercing.name}</div>
-                            <div class="piercing-description">${piercing.description}</div>
-                            <div class="piercing-details">
-                                <span>⏱️ ${piercing.healing}</span>
-                                <span>🔧 Profissional</span>
-                            </div>
-                        </div>
-                    `;
-                    catalog.appendChild(item);
-                });
-        }
+            let items = [];
+            if (category === 'todos') {
+                Object.values(piercingData).forEach(arr => items.push(...arr));
+            } else {
+                items = piercingData[category] || [];
+            }
 
-        // Renderizar casos
-        const piercingImages = [
-            'imagens-piercing/20260330_174051.jpg',
-            'imagens-piercing/20260403_151858.jpg',
-            'imagens-piercing/20260403_151907.jpg',
-            'imagens-piercing/20260403_152441.jpg',
-            'imagens-piercing/20260403_152610.jpg',
-            'imagens-piercing/20260403_152822.jpg',
-            'imagens-piercing/20260403_153227.jpg',
-            'imagens-piercing/20260403_155427.jpg',
-            'imagens-piercing/20260403_162252.jpg'
-        ];
-
-        function renderCases() {
-            const grid = document.getElementById('casesGrid');
-            grid.innerHTML = '';
-
-            piercingImages.forEach((image, i) => {
-                const caseItem = document.createElement('div');
-                caseItem.className = 'case-item';
-                caseItem.style.cssText = `
-                    background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
-                    overflow: hidden;
-                    position: relative;
+            items.forEach(piercing => {
+                const card = document.createElement('div');
+                card.className = 'piercing-card';
+                card.innerHTML = `
+                    <h3>${piercing.nome}</h3>
+                    <p>${piercing.desc}</p>
+                    <div class="piercing-details">
+                        <span><strong>Cicatrização:</strong> ${piercing.cicatriza}</span>
+                        <span><strong>Joia:</strong> ${piercing.joia}</span>
+                    </div>
+                    <button class="piercing-btn" onclick="abrirWhatsAppPiercing('${piercing.nome}')">
+                        Agendar ${piercing.nome}
+                    </button>
                 `;
-                caseItem.innerHTML = `
-                    <img src="${image}" alt="Piercing ${i + 1}"
-                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-smooth);">
-                `;
-
-                const img = caseItem.querySelector('img');
-                caseItem.addEventListener('mouseenter', () => {
-                    img.style.transform = 'scale(1.1)';
-                });
-                caseItem.addEventListener('mouseleave', () => {
-                    img.style.transform = 'scale(1)';
-                });
-
-                grid.appendChild(caseItem);
+                catalog.appendChild(card);
             });
         }
 
-        // Filtrar piercings
         function filterPiercings(category) {
-            // Atualizar botões ativos
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-
-            // Renderizar filtrado
-            renderCatalog(category);
+            renderPiercings(category);
         }
 
-        // FAQ
-        class FAQ {
-            constructor() {
-                this.setup();
-            }
-
-            setup() {
-                document.querySelectorAll('.faq-question').forEach(btn => {
-                    btn.addEventListener('click', (e) => this.toggle(e.currentTarget));
+        function abrirWhatsAppPiercing(tipo) {
+            const msg = encodeURIComponent(`Oi Gabriel! Quero agendar um piercing ${tipo}. Como funciona?`);
+            window.open(`https://wa.me/5547996615555?text=${msg}`, '_blank');
+            
+            if (typeof gtag === 'function') {
+                gtag('event', 'piercing_booking', {
+                    'event_category': 'engagement',
+                    'event_label': tipo
                 });
             }
-
-            toggle(button) {
-                const faqItem = button.parentElement;
-                const answer = faqItem.querySelector('.faq-answer');
-                const icon = button.querySelector('.faq-icon');
-
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        const otherAnswer = item.querySelector('.faq-answer');
-                        const otherBtn = item.querySelector('.faq-question');
-                        otherAnswer.classList.remove('active');
-                        otherBtn.classList.remove('active');
-                    }
-                });
-
-                answer.classList.toggle('active');
-                button.classList.toggle('active');
+            if (typeof fbq === 'function') {
+                fbq('track', 'Contact', {'content_name': tipo});
             }
         }
 
-        // Menu Mobile
-        class MobileMenu {
-            constructor() {
-                this.hamburger = document.getElementById('hamburger');
-                this.nav = document.querySelector('.nav');
-                if (this.hamburger) {
-                    this.hamburger.addEventListener('click', () => this.toggle());
-                }
-            }
-
-            toggle() {
-                this.hamburger.classList.toggle('active');
-                let mobileNav = document.querySelector('.mobile-nav');
-
-                if (!mobileNav) {
-                    mobileNav = document.createElement('nav');
-                    mobileNav.className = 'mobile-nav';
-                    mobileNav.style.cssText = `
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        right: 0;
-                        background: rgba(10, 10, 10, 0.98);
-                        backdrop-filter: blur(20px);
-                        display: flex;
-                        flex-direction: column;
-                        padding: 20px;
-                        gap: 0;
-                        border-bottom: 1px solid rgba(201, 162, 75, 0.1);
-                    `;
-
-                    this.nav.querySelectorAll('a').forEach((link, index) => {
-                        const clone = link.cloneNode(true);
-                        clone.style.cssText = `
-                            padding: 14px 16px;
-                            color: var(--bone);
-                            opacity: 0.8;
-                            text-transform: uppercase;
-                            letter-spacing: 0.08em;
-                            font-size: 0.85rem;
-                            transition: all 0.3s;
-                            border-radius: 6px;
-                        `;
-                        clone.addEventListener('click', () => this.close());
-                        mobileNav.appendChild(clone);
-                    });
-
-                    document.querySelector('.header').appendChild(mobileNav);
-                } else {
-                    mobileNav.remove();
-                }
-            }
-
-            close() {
-                this.hamburger.classList.remove('active');
-                const mobileNav = document.querySelector('.mobile-nav');
-                if (mobileNav) mobileNav.remove();
-            }
-        }
-
-        // WhatsApp
-        const WHATSAPP_NUMBER = '5547996615555';
-        const WHATSAPP_MESSAGES = {
-            piercing: "Oi, Gabriel! Quero colocar um piercing. Qual a disponibilidade?",
-            geral: "Oi, Gabriel! Vim pelo site. Quero um orçamento!"
-        };
-
-        function abrirWhatsApp(tipo = 'geral') {
-            const message = WHATSAPP_MESSAGES[tipo] || WHATSAPP_MESSAGES.geral;
-            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
-
-        // Inicializar
+        // Inicializar na carga
         document.addEventListener('DOMContentLoaded', () => {
-            renderCatalog();
-            renderCases();
-            new FAQ();
-            new MobileMenu();
+            renderPiercings('todos');
         });
     </script>
 </body>
