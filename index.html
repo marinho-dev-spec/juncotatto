@@ -9,6 +9,29 @@
     <meta name="description" content="Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2014. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.">
     <meta name="theme-color" content="#0A0A0A">
 
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:url" content="https://juncotatto.vercel.app/">
+    <meta property="og:title" content="Junco Tattoo & Piercing — Tatuador em Itapema/SC">
+    <meta property="og:description" content="Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line. Consultoria gratuita.">
+    <meta property="og:image" content="https://juncotatto.vercel.app/imagens-junco/estudio.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://juncotatto.vercel.app/">
+    <meta name="twitter:title" content="Junco Tattoo & Piercing — Tatuador em Itapema/SC">
+    <meta name="twitter:description" content="Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.">
+    <meta name="twitter:image" content="https://juncotatto.vercel.app/imagens-junco/estudio.webp">
+
+    <!-- Additional SEO -->
+    <meta name="keywords" content="tatuador, tatoo, itapema, sc, realismo preto cinza, piercing, fine line, tatuagem">
+    <meta name="author" content="Gabriel Junco">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Portuguese (BR)">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -266,7 +289,7 @@
 
             <div class="faq-list" data-stagger>
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" onclick="toggleFaq(this)" aria-label="Expandir pergunta: Quanto custa?">
                         <span>Quanto custa?</span>
                         <span class="faq-icon">+</span>
                     </button>
@@ -371,10 +394,10 @@
             <div class="contact-cta">
                 <h2>Sua próxima tatuagem começa com uma mensagem</h2>
                 <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
-                    <input type="text" placeholder="Seu nome" required>
-                    <input type="tel" placeholder="WhatsApp (com DDD)" required>
-                    <textarea placeholder="Descreve sua ideia..." rows="4" required></textarea>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <input type="text" placeholder="Seu nome" required aria-label="Seu nome completo">
+                    <input type="tel" placeholder="WhatsApp (com DDD)" required aria-label="Telefone ou WhatsApp com DDD">
+                    <textarea placeholder="Descreve sua ideia..." rows="4" required aria-label="Descreva sua ideia de tatuagem"></textarea>
+                    <button type="submit" class="btn btn-primary" aria-label="Enviar formulário de contato">Enviar</button>
                 </form>
             </div>
         </div>
@@ -420,12 +443,34 @@
     <!-- Scripts -->
     <script src="js/script.js"></script>
 
-    <!-- Google Analytics (placeholder) -->
+    <!-- Google Analytics 4 -->
+    <!-- ⚠️ IMPORTANTE: Substitua 'G-XXXXXXXXXX' pelo seu Google Analytics 4 Measurement ID -->
+    <!-- Criar em: https://analytics.google.com → Admin → Propriedades → Streams da Web -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
+        gtag('config', 'G-XXXXXXXXXX');
+
+        // Track button clicks
+        document.querySelectorAll('[onclick*="abrirWhatsApp"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                gtag('event', 'whatsapp_click', {
+                    'button_text': this.textContent,
+                    'location': this.closest('section')?.id || 'unknown'
+                });
+            });
+        });
+
+        // Track FAQ interactions
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', function() {
+                gtag('event', 'faq_toggle', {
+                    'question': this.textContent
+                });
+            });
+        });
     </script>
 
     <!-- Schema JSON-LD -->
