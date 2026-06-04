@@ -87,18 +87,22 @@ class Gallery {
         filteredImages.forEach((image, index) => {
             const item = document.createElement('div');
             item.className = 'gallery-item';
-            item.style.animation = `fadeIn 0.5s var(--ease-smooth) ${index * 0.1}s backwards`;
+            item.style.animationDelay = (index * 0.1) + 's';
 
-            item.innerHTML = `
-                <img src='${image.src}'
-                     alt='Trabalho ${index + 1}'
-                     style='width: 100%; height: 100%; object-fit: cover;'
-                     onclick='gallery.openLightbox(this.src)'>
-                <div class="gallery-overlay">
-                    <span class="gallery-category">${this.getCategoryLabel(image.category)}</span>
-                </div>
-            `;
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.alt = 'Trabalho ' + (index + 1);
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            img.onclick = () => this.openLightbox(image.src);
 
+            const overlay = document.createElement('div');
+            overlay.className = 'gallery-overlay';
+            overlay.innerHTML = `<span class="gallery-category">${this.getCategoryLabel(image.category)}</span>`;
+
+            item.appendChild(img);
+            item.appendChild(overlay);
             gallery.appendChild(item);
         });
     }

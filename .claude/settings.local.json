@@ -35,7 +35,8 @@
       "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.sunsettattoo.com)",
       "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.integritytattoo.com)",
       "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.ironcladtattoo.com)",
-      "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.finelinetattoos.com)"
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" https://www.finelinetattoos.com)",
+      "Bash(open index.html)"
     ]
   }
 }
