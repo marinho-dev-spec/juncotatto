@@ -112,7 +112,13 @@
       "Bash(sed -i '' 's/min-height: 110vh/height: 100vh/' /Users/marinho/Downloads/juncotatto/css/styles.css)",
       "Bash(sed -i '' '/\\\\.hero {/,/overflow: hidden/ { *)",
       "Bash(sed -i '' 's/\\\\.hero {/\\\\.hero {\\\\n    background: #0B0B0D;/' /Users/marinho/Downloads/juncotatto/css/styles.css)",
-      "Bash(sed -i '' 's/background: #0B0B0D;/background: rgba\\(11, 11, 13, 0.7\\);/' /Users/marinho/Downloads/juncotatto/css/styles.css)"
+      "Bash(sed -i '' 's/background: #0B0B0D;/background: rgba\\(11, 11, 13, 0.7\\);/' /Users/marinho/Downloads/juncotatto/css/styles.css)",
+      "Bash(sed -i '' 's/🔥 Apenas 3 vagas em junho — Reserve agora/💫 Atendo um cliente por vez, sem pressa — por isso as datas fecham rápido. Garanta a sua./' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/Próximas vagas em junho/Escassez natural — dados garantidos/' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/Agendar Consulta Grátis/Chamar o Gabriel no WhatsApp/' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/2014 desde então/Desde 2014/' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/+600 avaliações no Google/+600 avaliações reais no Google/' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/+600 avaliações Google/+600 avaliações reais/' /Users/marinho/Downloads/juncotatto/index.html)"
     ]
   }
 }
