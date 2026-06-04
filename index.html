@@ -41,6 +41,57 @@
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/visual-enhancements-2026.css">
     <link rel="stylesheet" href="css/mobile-optimization.css">
+
+    <!-- GLightbox for Gallery Lightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/css/glightbox.min.css">
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Junco Tattoo & Piercing",
+        "image": "https://juncotatto.vercel.app/imagens-junco/estudio.webp",
+        "description": "Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing, cobertura e fine line.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Nereu Ramos, 4142, Sala 9",
+            "addressLocality": "Itapema",
+            "addressRegion": "SC",
+            "postalCode": "88220-000",
+            "addressCountry": "BR"
+        },
+        "telephone": "+5547996615555",
+        "url": "https://juncotatto.vercel.app",
+        "priceRange": "R$",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "13:00"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "600",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "sameAs": [
+            "https://instagram.com/junco_tattoo",
+            "https://wa.me/5547996615555",
+            "https://www.google.com/maps/search/Junco+Tattoo+Itapema"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- HEADER FIXO -->
@@ -74,14 +125,14 @@
         <!-- Carrossel de imagens do estúdio e tatuagens -->
         <div class="hero-carousel">
             <div class="carousel-track">
-                <img src="imagens-junco/estudio.webp" alt="Estúdio Junco" class="carousel-image" loading="eager">
-                <img src="imagens-junco/tatto-braco.webp" alt="Tatuagem realismo" class="carousel-image" loading="lazy">
-                <img src="imagens-junco/estudio2.webp" alt="Estúdio Junco" class="carousel-image" loading="lazy">
-                <img src="imagens-junco/tatto-braco2.webp" alt="Tatuagem detalhe" class="carousel-image" loading="lazy">
-                <img src="imagens-junco/estudio-fktk.webp" alt="Estúdio Junco" class="carousel-image" loading="lazy">
-                <img src="imagens-junco/tatto-braco3.webp" alt="Tatuagem braço" class="carousel-image" loading="lazy">
-                <img src="imagens-junco/foto-estudio-todo.webp" alt="Estúdio completo" class="carousel-image" loading="lazy">
-                <img src="imagens-junco/tatto-braco11.webp" alt="Tatuagem obra" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/estudio.webp" alt="Estúdio profissional Junco Tattoo em Itapema com equipamentos de tatuagem" class="carousel-image" loading="eager">
+                <img src="imagens-junco/tatto-braco.webp" alt="Tatuagem em realismo preto e cinza feita no braço por Gabriel Junco" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/estudio2.webp" alt="Estúdio profissional Junco Tattoo em Itapema" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/tatto-braco2.webp" alt="Detalhe de tatuagem em realismo preto e cinza" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/estudio-fktk.webp" alt="Estúdio profissional Junco Tattoo em Itapema" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/tatto-braco3.webp" alt="Tatuagem no braço em realismo preto e cinza" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/foto-estudio-todo.webp" alt="Vista completa do estúdio Junco com espaço dedicado e higienizado" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/tatto-braco11.webp" alt="Obra de tatuagem em realismo preto e cinza" class="carousel-image" loading="lazy">
             </div>
         </div>
         <div class="hero-overlay"></div>
@@ -225,8 +276,8 @@
                         de um jeito só: sem pressa, um cliente por vez, com material descartável aberto na sua frente.
                         Você não sai daqui com uma tatuagem qualquer. Sai com a sua, pra vida toda.
                     </p>
-                    <button class="btn btn-primary" onclick="abrirWhatsApp('geral')">
-                        Conversar no WhatsApp
+                    <button class="btn btn-primary" onclick="scrollTo('contato')">
+                        Agendar Consulta Grátis
                     </button>
                 </div>
             </div>
@@ -357,10 +408,9 @@
             <div class="cta-urgency-content">
                 <h2>Próximas vagas em junho</h2>
                 <p>Gabriel está com agenda quase cheia. Se quer uma tatuagem de qualidade, é agora.</p>
-                <button class="btn btn-primary btn-lg" onclick="abrirWhatsApp('geral')">
-                    Agendar Minha Tatuagem
-                </button>
-                <p class="cta-urgency-subtitle">Resposta em até 2 horas • Sinal garante sua data</p>
+                <p class="cta-urgency-subtitle">
+                    👇 <a href="#contato" style="color: #C9A24B; text-decoration: underline; cursor: pointer;">Agende agora</a> • Resposta em até 2 horas • Sinal garante sua data
+                </p>
             </div>
         </div>
     </section>
@@ -436,12 +486,14 @@
 
     <!-- Barra flutuante mobile (bottom bar) -->
     <div class="mobile-bottom-bar" id="mobileBottomBar">
-        <button onclick="abrirWhatsApp('geral')" class="btn btn-primary btn-block">
-            Pedir orçamento
+        <button onclick="scrollTo('contato')" class="btn btn-primary btn-block">
+            💬 Agendar Consulta
         </button>
     </div>
 
     <!-- Scripts -->
+    <!-- GLightbox for Gallery Lightbox Functionality -->
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script src="js/script.js"></script>
 
     <!-- EmailJS for Form Submissions -->
@@ -686,37 +738,49 @@
             author: 'Marina Silva',
             rating: 5,
             text: 'Profissional impecável. Tatuagem perfeita, higiene de primeira e ainda conversa boa. Recomendo demais!',
-            date: '2 semanas atrás'
+            date: '2 semanas atrás',
+            initials: 'MS',
+            color: '#FF6B6B'
         },
         {
             author: 'Lucas Mendes',
             rating: 5,
             text: 'Procurava alguém para fazer uma tatuagem realista há anos. O Gabriel é o cara. Vale cada centavo.',
-            date: '1 mês atrás'
+            date: '1 mês atrás',
+            initials: 'LM',
+            color: '#4ECDC4'
         },
         {
             author: 'Ana Paula Costa',
             rating: 5,
             text: 'Ambiente limpo, acolhedor, profissional atento aos detalhes. Saí de lá com a tatuagem mais bonita que eu já tive.',
-            date: '3 semanas atrás'
+            date: '3 semanas atrás',
+            initials: 'AC',
+            color: '#FFE66D'
         },
         {
             author: 'Carlos Rodrigues',
             rating: 5,
             text: 'Excelente profissional! Design perfeito, execução impecável. Já recomendei para vários amigos e todos amaram.',
-            date: '15 dias atrás'
+            date: '15 dias atrás',
+            initials: 'CR',
+            color: '#95E1D3'
         },
         {
             author: 'Fernanda Oliveira',
             rating: 5,
             text: 'Melhor tatuador que já conheci. Atencioso, ouve bem a ideia do cliente e transforma em obra de arte.',
-            date: '1 semana atrás'
+            date: '1 semana atrás',
+            initials: 'FO',
+            color: '#C9A24B'
         },
         {
             author: 'Roberto Santos',
             rating: 5,
             text: 'Fiz 3 tatuagens e todas ficaram perfeitas. Higiene impecável, profissionalismo nota 10. Voltaria mil vezes!',
-            date: '4 dias atrás'
+            date: '4 dias atrás',
+            initials: 'RS',
+            color: '#A8E6CF'
         }
     ];
 
@@ -731,12 +795,19 @@
             const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
             reviewsHTML += `
                 <div class="google-review-card">
+                    <div class="review-avatar-header">
+                        <div class="review-avatar" style="background-color: ${review.color}; background: linear-gradient(135deg, ${review.color}, ${review.color}dd);">
+                            ${review.initials}
+                        </div>
+                        <div class="review-author-info">
+                            <p class="review-author">${review.author}</p>
+                            <span class="review-date">${review.date}</span>
+                        </div>
+                    </div>
                     <div class="review-header">
                         <div class="review-stars">${stars}</div>
-                        <span class="review-date">${review.date}</span>
                     </div>
                     <p class="review-text">"${review.text}"</p>
-                    <p class="review-author">— ${review.author}</p>
                 </div>
             `;
         });

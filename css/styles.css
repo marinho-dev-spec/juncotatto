@@ -1086,6 +1086,41 @@ section.section-light {
     box-shadow: 0 12px 40px rgba(201, 162, 75, 0.1);
 }
 
+.review-avatar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #0A0A0A;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.review-author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.review-author-info .review-author {
+    margin: 0;
+}
+
+.review-author-info .review-date {
+    font-size: 0.75rem;
+}
+
 .review-header {
     display: flex;
     justify-content: space-between;

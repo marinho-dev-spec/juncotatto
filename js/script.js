@@ -191,25 +191,35 @@ class Gallery {
             if (index === 0) item.classList.add('carousel-active');
             item.style.animationDelay = (index * 0.1) + 's';
 
+            const link = document.createElement('a');
+            link.href = image.src;
+            link.className = 'glightbox';
+            link.setAttribute('data-gallery', 'gallery');
+
             const img = document.createElement('img');
             img.src = image.src;
-            img.alt = 'Trabalho ' + (index + 1);
+            img.alt = 'Tatuagem realismo - ' + this.getCategoryLabel(image.category);
             img.style.width = '100%';
             img.style.height = '100%';
             img.style.objectFit = 'cover';
-            img.onclick = () => this.openLightbox(image.src);
 
             const overlay = document.createElement('div');
             overlay.className = 'gallery-overlay';
             overlay.innerHTML = `<span class="gallery-category">${this.getCategoryLabel(image.category)}</span>`;
 
-            item.appendChild(img);
+            link.appendChild(img);
+            item.appendChild(link);
             item.appendChild(overlay);
             gallery.appendChild(item);
         });
 
         // Criar indicators
         this.createCarouselIndicators(filteredImages.length);
+
+        // Reinitialize GLightbox para novos elementos
+        if (window.GLightbox) {
+            GLightbox.init();
+        }
     }
 
     createCarouselIndicators(count) {
@@ -492,31 +502,88 @@ function abrirWhatsApp(tipo = 'geral') {
 function submitForm(event) {
     event.preventDefault();
     const form = event.target;
-    const inputs = form.querySelectorAll('input, textarea');
-    const nome = inputs[0].value;
-    const whatsapp = inputs[1].value;
-    const ideia = inputs[2].value;
+    const statusDiv = document.getElementById('form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-    // Validação básica
-    if (!nome.trim() || !whatsapp.trim() || !ideia.trim()) {
-        alert('Por favor, preencha todos os campos');
+    // Get values
+    const nome = form.querySelector('[name="user_name"]').value.trim();
+    const whatsapp = form.querySelector('[name="user_phone"]').value.trim();
+    const ideia = form.querySelector('[name="message"]').value.trim();
+
+    // Clear previous status
+    statusDiv.innerHTML = '';
+    statusDiv.className = '';
+
+    // VALIDAÇÃO 1: Campos vazios
+    if (!nome || !whatsapp || !ideia) {
+        statusDiv.innerHTML = '❌ Por favor, preencha todos os campos obrigatórios';
+        statusDiv.style.color = '#FF6B6B';
         return;
     }
 
-    // Mostrar modal de confirmação
-    showFormConfirmation(nome);
+    // VALIDAÇÃO 2: Nome (mínimo 3 caracteres)
+    if (nome.length < 3) {
+        statusDiv.innerHTML = '❌ Digite um nome completo (mínimo 3 caracteres)';
+        statusDiv.style.color = '#FF6B6B';
+        return;
+    }
 
-    const message = `Oi, Gabriel! Meu nome é ${nome}. Vim pelo site e gostaria de um orçamento. Minha ideia: ${ideia}`;
-    const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
+    // VALIDAÇÃO 3: WhatsApp (deve ter números)
+    const phoneCleaned = whatsapp.replace(/\D/g, '');
+    if (phoneCleaned.length < 10) {
+        statusDiv.innerHTML = '❌ Telefone inválido (mínimo 10 dígitos)';
+        statusDiv.style.color = '#FF6B6B';
+        return;
+    }
 
-    trackEvent('form_submission', { form_type: 'contact', timestamp: new Date().toISOString() });
+    // VALIDAÇÃO 4: Mensagem (mínimo 10 caracteres)
+    if (ideia.length < 10) {
+        statusDiv.innerHTML = '❌ Descreva sua ideia com mais detalhes (mínimo 10 caracteres)';
+        statusDiv.style.color = '#FF6B6B';
+        return;
+    }
 
-    // Abrir WhatsApp após 1 segundo
+    // ✅ TUDO OK - MOSTRAR LOADING
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳ Processando...';
+    statusDiv.innerHTML = '⏳ Enviando sua mensagem...';
+    statusDiv.style.color = '#C9A24B';
+
+    // Enviar para WhatsApp com delay
     setTimeout(() => {
-        window.open(url, '_blank');
-    }, 1000);
+        const message = `Oi Gabriel! 👋\n\nMeu nome é ${nome}\nVim pelo seu website e gostaria de um orçamento.\n\n💡 Minha ideia de tatuagem:\n${ideia}\n\nTelefone: ${whatsapp}`;
+        const whatsappNumber = phoneCleaned.startsWith('55') ? phoneCleaned : '55' + phoneCleaned;
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-    form.reset();
+        // Track success
+        if (window.gtag) {
+            gtag('event', 'form_submission_success', {
+                'form_type': 'contact',
+                'method': 'whatsapp'
+            });
+        }
+
+        // Show success message
+        statusDiv.innerHTML = '✅ Mensagem pronta! Abrindo WhatsApp em 2 segundos...';
+        statusDiv.style.color = '#51CF66';
+
+        // Open WhatsApp
+        setTimeout(() => {
+            window.open(url, '_blank');
+
+            // Reset form and button
+            setTimeout(() => {
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar';
+
+                // Keep success message visible for 5 seconds, then clear
+                setTimeout(() => {
+                    statusDiv.innerHTML = '';
+                }, 5000);
+            }, 500);
+        }, 2000);
+    }, 300);
 }
 
 function showFormConfirmation(nome) {
@@ -702,6 +769,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollReveal = new ScrollReveal();
     const gallery = new Gallery();
     window.gallery = gallery; // Disponível globalmente
+
+    // Inicializar GLightbox para galeria
+    setTimeout(() => {
+        if (window.GLightbox) {
+            GLightbox.init('.glightbox', {
+                titlePosition: 'bottom',
+                touchNavigation: true,
+                keyboardNavigation: true,
+                closeEffect: 'fadeOut',
+                slideEffect: 'slide'
+            });
+        }
+    }, 100);
+
     const faq = new FAQ();
     window.faqInstance = faq; // Exposição global para toggleFaq()
     const slider = new BeforeAfterSlider();
