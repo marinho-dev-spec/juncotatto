@@ -1057,6 +1057,9 @@ section.section-light {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
+    white-space: nowrap;
+    line-height: 1;
+    letter-spacing: -0.02em;
 }
 
 .reviews-count {
