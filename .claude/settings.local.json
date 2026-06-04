@@ -137,7 +137,10 @@
       "Bash(curl -s -o /dev/null -w \"Piercing: %{http_code}\\\\n\" https://juncotatto.vercel.app/piercing)",
       "Bash(curl -sI https://juncotatto.vercel.app)",
       "Bash(curl -s https://juncotatto.vercel.app/piercing)",
-      "Bash(pkill -f \"next dev\")"
+      "Bash(pkill -f \"next dev\")",
+      "Bash(awk '{print \"Age:\", $1, \"| Status:\", $5, \"| Duration:\", $7}')",
+      "Bash(sed -n '46,55p' css/styles.css)",
+      "Bash(sed -n '405,413p' css/styles.css)"
     ]
   }
 }

@@ -34,17 +34,9 @@ export default function Header({ crossPage = false }: HeaderProps) {
 
   return (
     <header
-      className="header"
+      className={`header${scrolled ? ' is-scrolled' : ''}`}
       id="header"
       role="banner"
-      style={
-        scrolled
-          ? {
-              boxShadow: '0 8px 32px rgba(201, 162, 75, 0.15)',
-              backgroundColor: 'rgba(11, 11, 13, 0.97)',
-            }
-          : undefined
-      }
     >
       <div className="container">
         <div className="header-content">

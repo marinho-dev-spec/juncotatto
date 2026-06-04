@@ -7,6 +7,52 @@
 @import '../css/mobile-optimization.css';
 
 /* ============================================= */
+/* Fundo sólido + hero full-bleed                 */
+/* Corrige a faixa cinza no topo (fundo translú-  */
+/* cido herdado) e faz o carousel preencher tudo. */
+/* ============================================= */
+
+html,
+body {
+  background-color: #0b0b0d;
+}
+
+/* Remove o deslocamento do topo: o hero ocupa a tela inteira,
+   com o header flutuando por cima da imagem. */
+body {
+  padding-top: 0;
+}
+
+/* Evita que seções ancoradas fiquem escondidas sob o header fixo */
+html {
+  scroll-padding-top: 72px;
+}
+
+.hero {
+  margin-top: 0;
+  background-color: #0b0b0d;
+}
+
+/* Header transparente com leve gradiente sobre a imagem (legibilidade);
+   fica sólido ao rolar (classe is-scrolled controlada pelo React). */
+.header {
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 11, 13, 0.9) 0%,
+    rgba(11, 11, 13, 0.45) 55%,
+    rgba(11, 11, 13, 0) 100%
+  );
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.header.is-scrolled {
+  background: rgba(11, 11, 13, 0.97);
+  box-shadow: 0 8px 32px rgba(201, 162, 75, 0.15);
+  border-bottom-color: rgba(201, 162, 75, 0.2);
+}
+
+/* ============================================= */
 /* Ajustes para a versão Next.js (React)         */
 /* ============================================= */
 
