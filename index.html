@@ -394,11 +394,12 @@
             <div class="contact-cta">
                 <h2>Sua próxima tatuagem começa com uma mensagem</h2>
                 <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
-                    <input type="text" placeholder="Seu nome" required aria-label="Seu nome completo">
-                    <input type="tel" placeholder="WhatsApp (com DDD)" required aria-label="Telefone ou WhatsApp com DDD">
-                    <textarea placeholder="Descreve sua ideia..." rows="4" required aria-label="Descreva sua ideia de tatuagem"></textarea>
+                    <input type="text" name="user_name" placeholder="Seu nome" required aria-label="Seu nome completo">
+                    <input type="tel" name="user_phone" placeholder="WhatsApp (com DDD)" required aria-label="Telefone ou WhatsApp com DDD">
+                    <textarea name="message" placeholder="Descreve sua ideia..." rows="4" required aria-label="Descreva sua ideia de tatuagem"></textarea>
                     <button type="submit" class="btn btn-primary" aria-label="Enviar formulário de contato">Enviar</button>
                 </form>
+                <div id="form-status" style="margin-top: 12px; font-size: 0.95rem; text-align: center; min-height: 20px;"></div>
             </div>
         </div>
     </section>
@@ -442,6 +443,78 @@
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
+
+    <!-- EmailJS for Form Submissions -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            // Initialize EmailJS
+            emailjs.init('YOUR_PUBLIC_KEY'); // ⚠️ Substituir com seu public key (veja instruções abaixo)
+
+            // Override submitForm to use EmailJS
+            window.submitForm = function(event) {
+                event.preventDefault();
+
+                const form = document.getElementById('contactForm');
+                const statusDiv = document.getElementById('form-status');
+                const submitBtn = form.querySelector('button[type="submit"]');
+
+                // Disable button durante envio
+                submitBtn.disabled = true;
+                submitBtn.textContent = '⏳ Enviando...';
+                statusDiv.innerHTML = '';
+
+                // Template ID: 'contact_form' (será criado no EmailJS)
+                emailjs.sendForm('SERVICE_ID', 'contact_form', form)
+                    .then(function(response) {
+                        console.log('✅ Email enviado!', response.status, response.text);
+
+                        // Mensagem de sucesso
+                        statusDiv.innerHTML = '✅ Mensagem enviada com sucesso! Gabriel vai responder em breve.';
+                        statusDiv.style.color = '#C9A24B';
+
+                        // Reset form
+                        form.reset();
+
+                        // Re-enable button
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Enviar';
+
+                        // Limpar mensagem após 5s
+                        setTimeout(() => {
+                            statusDiv.innerHTML = '';
+                        }, 5000);
+
+                        // Track no Analytics
+                        if(window.gtag) {
+                            gtag('event', 'form_submission', {
+                                'form_name': 'contact_form',
+                                'status': 'success'
+                            });
+                        }
+                    })
+                    .catch(function(error) {
+                        console.error('❌ Erro ao enviar:', error);
+
+                        // Mensagem de erro
+                        statusDiv.innerHTML = '❌ Erro ao enviar. Tente novamente ou envie WhatsApp direto.';
+                        statusDiv.style.color = '#FF6B6B';
+
+                        // Re-enable button
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Tentar novamente';
+
+                        // Track no Analytics
+                        if(window.gtag) {
+                            gtag('event', 'form_submission', {
+                                'form_name': 'contact_form',
+                                'status': 'error'
+                            });
+                        }
+                    });
+            };
+        })();
+    </script>
 
     <!-- Google Analytics 4 -->
     <!-- ⚠️ IMPORTANTE: Substitua 'G-XXXXXXXXXX' pelo seu Google Analytics 4 Measurement ID -->
