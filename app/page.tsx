@@ -9,6 +9,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 import Hero from '@/components/home/Hero';
 import ProofBar from '@/components/home/ProofBar';
 import Gallery from '@/components/home/Gallery';
+import TattooCube from '@/components/home/TattooCube';
 import Reviews from '@/components/home/Reviews';
 import Safety from '@/components/home/Safety';
 import About from '@/components/home/About';
@@ -28,6 +29,10 @@ export default function HomePage() {
 
         <ScrollReveal direction="up">
           <Gallery />
+        </ScrollReveal>
+
+        <ScrollReveal direction="up">
+          <TattooCube />
         </ScrollReveal>
 
         <ScrollReveal direction="up">

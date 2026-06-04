@@ -141,7 +141,8 @@
       "Bash(awk '{print \"Age:\", $1, \"| Status:\", $5, \"| Duration:\", $7}')",
       "Bash(sed -n '46,55p' css/styles.css)",
       "Bash(sed -n '405,413p' css/styles.css)",
-      "Bash(awk '{print \"Age:\",$1,\"Status:\",$5,\"Dur:\",$7}')"
+      "Bash(awk '{print \"Age:\",$1,\"Status:\",$5,\"Dur:\",$7}')",
+      "Bash(git rm *)"
     ]
   }
 }
