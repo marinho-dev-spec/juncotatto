@@ -276,7 +276,7 @@
                         de um jeito só: sem pressa, um cliente por vez, com material descartável aberto na sua frente.
                         Você não sai daqui com uma tatuagem qualquer. Sai com a sua, pra vida toda.
                     </p>
-                    <button class="btn btn-primary" onclick="scrollTo('contato')">
+                    <button class="btn btn-primary" onclick="abrirWhatsApp('geral')">
                         Agendar Consulta Grátis
                     </button>
                 </div>
@@ -486,13 +486,13 @@
 
     <!-- Barra flutuante mobile (bottom bar) -->
     <div class="mobile-bottom-bar" id="mobileBottomBar">
-        <button onclick="scrollTo('contato')" class="btn btn-primary btn-block">
+        <button onclick="abrirWhatsApp('geral')" class="btn btn-primary btn-block">
             💬 Agendar Consulta
         </button>
     </div>
 
-    <!-- Floating CTA Button (Desktop + Mobile) -->
-    <button id="floatingCta" class="floating-cta-btn" onclick="scrollTo('contato')" aria-label="Agendar Consulta" title="Agendar Consulta">
+    <!-- Floating CTA Button (Desktop only) -->
+    <button id="floatingCta" class="floating-cta-btn" onclick="abrirWhatsApp('geral')" aria-label="Agendar Consulta" title="Agendar Consulta">
         <span class="floating-cta-icon">💬</span>
         <span class="floating-cta-text">Agendar</span>
     </button>
