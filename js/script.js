@@ -6,6 +6,80 @@ const WHATSAPP_NUMBER = '5547996615555';
 const GALLERY_STYLES = ['realismo', 'fineline', 'blackwork', 'cobertura', 'lettering'];
 
 // =============================
+// FLOATING CTA BUTTON
+// =============================
+
+class FloatingCtaButton {
+    constructor() {
+        this.button = document.getElementById('floatingCta');
+        this.scrollThreshold = 0.5; // 50% da página
+        this.setupScrollListener();
+    }
+
+    setupScrollListener() {
+        window.addEventListener('scroll', () => this.updateVisibility());
+        // Verificar logo na carga
+        this.updateVisibility();
+    }
+
+    updateVisibility() {
+        const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) || 0;
+
+        if (scrollPercentage > this.scrollThreshold) {
+            this.button.classList.add('visible');
+        } else {
+            this.button.classList.remove('visible');
+        }
+    }
+}
+
+// =============================
+// PHONE INPUT MASK
+// =============================
+
+class PhoneInputMask {
+    constructor() {
+        const phoneInput = document.querySelector('[name="user_phone"]');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', (e) => this.maskPhone(e.target));
+            phoneInput.addEventListener('keydown', (e) => this.handleKeydown(e));
+        }
+    }
+
+    maskPhone(input) {
+        let value = input.value.replace(/\D/g, '');
+
+        // Limita a 11 dígitos (DDD + telefone)
+        if (value.length > 11) {
+            value = value.substring(0, 11);
+        }
+
+        // Formata: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX
+        if (value.length > 0) {
+            if (value.length <= 2) {
+                value = `(${value}`;
+            } else if (value.length <= 7) {
+                value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+            } else {
+                value = `(${value.substring(0, 2)}) ${value.substring(2, 7)}-${value.substring(7)}`;
+            }
+        }
+
+        input.value = value;
+    }
+
+    handleKeydown(e) {
+        // Permitir backspace, delete, tab e arrow keys
+        const allowedKeys = ['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'Home', 'End'];
+        if (!allowedKeys.includes(e.key) && !e.ctrlKey && !e.metaKey) {
+            if (!/\d/.test(e.key)) {
+                e.preventDefault();
+            }
+        }
+    }
+}
+
+// =============================
 // HERO CAROUSEL BACKGROUND
 // =============================
 
@@ -789,6 +863,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.sliderInstance = slider; // Exposição global para updateBeforeAfter()
     const header = new StickyHeader();
     const menu = new MobileMenu();
+    const floatingCta = new FloatingCtaButton();
+    const phoneInput = new PhoneInputMask();
 
     // Desabilitar parallax em mobile para performance
     if (!isMobile()) {
