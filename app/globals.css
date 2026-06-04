@@ -1,0 +1,74 @@
+/* ============================================= */
+/* Global styles — Junco Tattoo & Piercing       */
+/* Reutiliza o design system existente            */
+/* ============================================= */
+
+@import '../css/styles.css';
+@import '../css/mobile-optimization.css';
+
+/* ============================================= */
+/* Ajustes para a versão Next.js (React)         */
+/* ============================================= */
+
+/* Menu mobile fica escondido no desktop; só aparece no breakpoint mobile */
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-nav {
+    display: block;
+  }
+
+  /* No mobile a barra inferior ocupa o rodapé; esconde o blur para não borrá-la */
+  .progressive-blur {
+    display: none;
+  }
+}
+
+/* ============================================= */
+/* Correções de cor (acentos dourados)           */
+/* Restaura elementos que ficaram com fundo       */
+/* escuro indevido na limpeza de gradientes.      */
+/* ============================================= */
+
+/* Botão primário (CTA) — fundo dourado, texto escuro */
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  color: var(--black);
+}
+
+/* Títulos e textos de destaque: sem caixa escura herdada */
+h1,
+.hero-headline,
+.section-title,
+.proof-number,
+.step-number,
+.reviews-rating {
+  background: transparent;
+}
+
+/* Números de destaque em dourado */
+.proof-number,
+.step-number {
+  color: var(--gold);
+}
+
+/* Linha de destaque no topo dos cards de avaliação */
+.review-card::before {
+  background: var(--gold);
+}
+
+/* Galeria: a animação herdada não tinha 'forwards' e escondia os itens
+   após tocar. A entrada já é feita pelo ScrollReveal da seção. */
+.gallery-item {
+  opacity: 1;
+  animation: none;
+}
+
+

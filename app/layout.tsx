@@ -1,0 +1,163 @@
+import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
+import './globals.css';
+
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
+const PIXEL_ID = process.env.NEXT_PUBLIC_PIXEL_ID;
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://juncotatto.vercel.app'),
+  title: 'Junco Tattoo & Piercing — Tatuador em Itapema/SC | Realismo Preto e Cinza',
+  description:
+    'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2014. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
+  keywords: ['tatuador', 'tattoo', 'itapema', 'sc', 'realismo preto cinza', 'piercing', 'fine line', 'tatuagem'],
+  authors: [{ name: 'Gabriel Junco' }],
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    url: 'https://juncotatto.vercel.app/',
+    title: 'Junco Tattoo & Piercing — Tatuador em Itapema/SC',
+    description:
+      'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line. Consultoria gratuita.',
+    images: [
+      {
+        url: '/imagens-junco/estudio.webp',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'pt_BR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Junco Tattoo & Piercing — Tatuador em Itapema/SC',
+    description:
+      'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
+    images: ['/imagens-junco/estudio.webp'],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#0B0B0D',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+};
+
+const schemaJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  additionalType: 'ProfessionalService',
+  name: 'Junco Tattoo & Piercing',
+  image: [
+    'https://juncotatto.vercel.app/imagens-junco/estudio.webp',
+    'https://juncotatto.vercel.app/imagens-junco/gabriel-junco.jpg',
+  ],
+  description:
+    'Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing, cobertura e fine line. Desde 2014 com mais de 600 avaliações 5 estrelas.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Nereu Ramos, 4142, Sala 9',
+    addressLocality: 'Itapema',
+    addressRegion: 'SC',
+    postalCode: '88220-000',
+    addressCountry: 'BR',
+  },
+  telephone: '+5547996615555',
+  url: 'https://juncotatto.vercel.app',
+  priceRange: 'R$',
+  foundingDate: '2014',
+  founder: { '@type': 'Person', name: 'Gabriel Junco' },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '09:00',
+      closes: '13:00',
+    },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '600',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  sameAs: [
+    'https://instagram.com/junco_tattoo',
+    'https://wa.me/5547996615555',
+    'https://www.google.com/maps/search/Junco+Tattoo+Itapema',
+  ],
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="pt-BR">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/css/glightbox.min.css"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
+        />
+      </head>
+      <body>
+        {children}
+
+        {/* GLightbox */}
+        <Script
+          src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"
+          strategy="afterInteractive"
+        />
+
+        {/* Google Analytics 4 — só carrega se o ID estiver configurado */}
+        {GA4_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA4_ID}', { send_page_view: true });
+              `}
+            </Script>
+          </>
+        )}
+
+        {/* Meta Pixel — só carrega se o ID estiver configurado */}
+        {PIXEL_ID && (
+          <Script id="meta-pixel" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+              n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+              document,'script','https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${PIXEL_ID}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+        )}
+      </body>
+    </html>
+  );
+}

@@ -120,7 +120,17 @@
       "Bash(sed -i '' 's/+600 avaliações no Google/+600 avaliações reais no Google/' /Users/marinho/Downloads/juncotatto/index.html)",
       "Bash(sed -i '' 's/+600 avaliações Google/+600 avaliações reais/' /Users/marinho/Downloads/juncotatto/index.html)",
       "Bash(sed -i '' 's/<script src=\"js\\\\//<script defer src=\"js\\\\//' /Users/marinho/Downloads/juncotatto/index.html)",
-      "Bash(sed -i '' 's/<script src=\"https:\\\\/\\\\/cdn.jsdelivr.net\\\\\\(.*\\\\\\)\"/<script defer src=\"https:\\\\/\\\\/cdn.jsdelivr.net\\\\1\"/' /Users/marinho/Downloads/juncotatto/index.html)"
+      "Bash(sed -i '' 's/<script src=\"https:\\\\/\\\\/cdn.jsdelivr.net\\\\\\(.*\\\\\\)\"/<script defer src=\"https:\\\\/\\\\/cdn.jsdelivr.net\\\\1\"/' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(git -C /Users/marinho/Downloads/juncotatto log --oneline)",
+      "Bash(npm --version)",
+      "Bash(git mv *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000/piercing)",
+      "Bash(curl -s -o /dev/null -w \"Home: %{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(curl -s -o /dev/null -w \"Piercing: %{http_code}\\\\n\" http://localhost:3000/piercing)",
+      "Bash(pkill -f \"next start\")",
+      "Bash(pkill -f \"next-server\")"
     ]
   }
 }
