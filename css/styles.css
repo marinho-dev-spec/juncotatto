@@ -19,8 +19,8 @@
     --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
     /* Tipografia 2026 */
-    --font-display: 'Playfair Display', serif;
-    --font-sans: 'Space Grotesk', sans-serif;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     /* Animações */
@@ -45,7 +45,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     color: var(--bone);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -87,7 +87,7 @@ h1, h2, h3 {
 
 h1 {
     font-size: clamp(2.5rem, 8vw, 5rem);
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     letter-spacing: -0.03em;
     transform-style: preserve-3d;
     will-change: transform;
@@ -157,7 +157,7 @@ a {
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     border-radius: 50%;
     margin-left: 4px;
 }
@@ -189,7 +189,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     transition: width var(--transition-sm);
 }
 
@@ -209,7 +209,7 @@ a {
 
 .nav a.active::after {
     width: 100%;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .hamburger {
@@ -253,7 +253,7 @@ a {
 }
 
 .btn-primary {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     color: var(--black);
     box-shadow: 0 8px 24px rgba(201, 162, 75, 0.25);
     transition: all var(--transition-cinematic);
@@ -397,14 +397,13 @@ a {
 /* ============================= */
 
 .hero {
+    background: rgba(11, 11, 13, 0.7);
     position: relative;
-    min-height: 110vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 60px;
-    background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(15, 15, 15, 0.98) 100%),
-                radial-gradient(ellipse at center, rgba(139, 69, 69, 0.2) 0%, rgba(20, 20, 20, 0.6) 60%, rgba(0, 0, 0, 0.95) 100%);
     overflow: hidden;
     transform-style: preserve-3d;
 }
@@ -416,7 +415,7 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     z-index: 1;
     pointer-events: none;
 }
@@ -535,7 +534,7 @@ section {
 }
 
 section.section-light {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .section-title {
@@ -549,7 +548,7 @@ section.section-light {
     display: block;
     width: 60px;
     height: 3px;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     margin: 20px auto 0;
     border-radius: 10px;
 }
@@ -569,7 +568,7 @@ section.section-light {
 /* ============================= */
 
 .proof-bar {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     padding: 80px 0;
     border-top: 1px solid rgba(201, 162, 75, 0.1);
     border-bottom: 1px solid rgba(201, 162, 75, 0.1);
@@ -608,7 +607,7 @@ section.section-light {
 .proof-number {
     font-family: var(--font-display);
     font-size: clamp(2.2rem, 6vw, 3.2rem);
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     font-weight: 700;
 }
 
@@ -624,7 +623,7 @@ section.section-light {
 /* ============================= */
 
 .gallery {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .gallery-filters {
@@ -653,14 +652,14 @@ section.section-light {
 .filter-btn.active {
     border-color: var(--gold-light);
     color: var(--gold-light);
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     box-shadow: 0 0 20px rgba(201, 162, 75, 0.1);
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 8px;
     margin-bottom: 80px;
 }
 
@@ -678,7 +677,7 @@ section.section-light {
 
 .gallery-item {
     aspect-ratio: 1;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -744,7 +743,7 @@ section.section-light {
     content: '';
     position: absolute;
     inset: 0;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     opacity: 0;
     transition: opacity var(--transition-cinematic);
     pointer-events: none;
@@ -954,7 +953,7 @@ section.section-light {
 /* ============================= */
 
 .testimonials {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     padding: 80px 0;
 }
 
@@ -966,7 +965,7 @@ section.section-light {
 }
 
 .testimonial-card {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     border: 1px solid rgba(201, 162, 75, 0.15);
     border-radius: 12px;
     padding: 32px;
@@ -1048,7 +1047,7 @@ section.section-light {
 
     .testimonials-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 8px;
     }
 
     .testimonial-card {
@@ -1061,7 +1060,7 @@ section.section-light {
 /* ============================= */
 
 .reviews {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .reviews-header {
@@ -1087,7 +1086,7 @@ section.section-light {
 .reviews-rating {
     font-family: var(--font-display);
     font-size: 2.8rem;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     font-weight: 700;
     white-space: nowrap;
     line-height: 1;
@@ -1103,12 +1102,12 @@ section.section-light {
 .google-reviews-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
+    gap: 8px;
     margin: 60px 0 40px;
 }
 
 .google-review-card {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     border: 1px solid rgba(201, 162, 75, 0.15);
     border-radius: 12px;
     padding: 24px;
@@ -1232,7 +1231,7 @@ section.section-light {
 }
 
 .review-card {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     padding: 28px;
     border: 1px solid rgba(201, 162, 75, 0.15);
     border-radius: 12px;
@@ -1248,7 +1247,7 @@ section.section-light {
     left: 0;
     right: 0;
     height: 3px;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform var(--speed-fast) var(--ease-smooth);
@@ -1292,7 +1291,7 @@ section.section-light {
 /* ============================= */
 
 .safety {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .safety-grid {
@@ -1305,7 +1304,7 @@ section.section-light {
     text-align: center;
     padding: 30px;
     border-radius: 12px;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     border: 1px solid rgba(201, 162, 75, 0.1);
     transition: all var(--speed-normal) var(--ease-smooth);
     position: relative;
@@ -1344,17 +1343,17 @@ section.section-light {
 /* ============================= */
 
 .piercing-catalog {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .piercing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    gap: 8px;
 }
 
 .piercing-card {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     padding: 32px;
     border: 1px solid rgba(201, 162, 75, 0.15);
     border-radius: 12px;
@@ -1367,7 +1366,7 @@ section.section-light {
     content: '';
     position: absolute;
     inset: -100%;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     transform: translate(-100%, -100%);
     transition: transform var(--speed-normal) var(--ease-smooth);
 }
@@ -1418,7 +1417,7 @@ section.section-light {
 /* ============================= */
 
 .about {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .about-content {
@@ -1430,7 +1429,7 @@ section.section-light {
 
 .about-image {
     aspect-ratio: 3/4;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     border: 1px solid rgba(201, 162, 75, 0.2);
     display: flex;
     align-items: center;
@@ -1446,7 +1445,7 @@ section.section-light {
     content: '';
     position: absolute;
     inset: 0;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     opacity: 0;
     transition: opacity var(--transition-md);
 }
@@ -1481,7 +1480,7 @@ section.section-light {
 /* ============================= */
 
 .before-after {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .ba-slider {
@@ -1570,7 +1569,7 @@ section.section-light {
     appearance: none;
     width: 4px;
     height: 100%;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     cursor: col-resize;
     box-shadow: -20px 0 40px rgba(201, 162, 75, 0.3);
 }
@@ -1578,7 +1577,7 @@ section.section-light {
 .ba-slider-handle::-moz-range-thumb {
     width: 4px;
     height: 100%;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     cursor: col-resize;
     border: none;
     box-shadow: -20px 0 40px rgba(201, 162, 75, 0.3);
@@ -1589,7 +1588,7 @@ section.section-light {
 /* ============================= */
 
 .how-it-works {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .steps {
@@ -1604,13 +1603,13 @@ section.section-light {
     padding: 40px;
     border: 1px solid rgba(201, 162, 75, 0.1);
     border-radius: 12px;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     transition: all var(--transition-md);
 }
 
 .step:hover {
     border-color: rgba(201, 162, 75, 0.3);
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     transform: translateY(-12px);
     box-shadow: 0 20px 50px rgba(201, 162, 75, 0.1);
 }
@@ -1618,7 +1617,7 @@ section.section-light {
 .step-number {
     font-family: var(--font-display);
     font-size: 3.5rem;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     font-weight: 700;
     margin-bottom: 20px;
     transition: transform var(--transition-sm);
@@ -1638,7 +1637,7 @@ section.section-light {
 }
 
 .how-note {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     padding: 32px;
     border: 1.5px solid rgba(201, 162, 75, 0.2);
     border-radius: 12px;
@@ -1655,7 +1654,7 @@ section.section-light {
 /* ============================= */
 
 .faq {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .faq-list {
@@ -1727,7 +1726,7 @@ section.section-light {
 /* ============================= */
 
 .contact {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
 }
 
 .contact-grid {
@@ -1766,7 +1765,7 @@ section.section-light {
 }
 
 .contact-cta {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     padding: 80px 60px;
     text-align: center;
     border: 1px solid rgba(201, 162, 75, 0.2);
@@ -1819,7 +1818,7 @@ section.section-light {
 /* ============================= */
 
 .footer {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     border-top: 1px solid rgba(201, 162, 75, 0.1);
     padding: 80px 0 30px;
 }
@@ -1888,7 +1887,7 @@ section.section-light {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     padding: 20px 16px 24px;
     border-top: 1px solid rgba(201, 162, 75, 0.1);
     z-index: 90;
@@ -1922,7 +1921,7 @@ section.section-light {
     .hamburger span {
         width: 26px;
         height: 3px;
-        background: #0B0B0D;
+        background: rgba(11, 11, 13, 0.7);
         border-radius: 2px;
         transition: all var(--transition-sm);
     }
@@ -1966,7 +1965,7 @@ section.section-light {
 
     .proof-items {
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
+        gap: 8px;
     }
 
     .proof-item {
@@ -1992,7 +1991,7 @@ section.section-light {
 
     .reviews-header {
         flex-direction: column;
-        gap: 24px;
+        gap: 8px;
     }
 
     .about-content {
@@ -2026,6 +2025,7 @@ section.section-light {
     }
 
     .hero {
+    background: rgba(11, 11, 13, 0.7);
         margin-top: 100px;
         padding: 40px 0;
     }
@@ -2049,7 +2049,7 @@ section.section-light {
 
     .steps {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 8px;
     }
 
     .step {
@@ -2147,6 +2147,7 @@ section.section-light {
 
     /* HERO */
     .hero {
+    background: rgba(11, 11, 13, 0.7);
         margin-top: 95px;
         padding: 30px 0 40px;
     }
@@ -2479,7 +2480,7 @@ section.section-light {
 }
 
 .form-modal-content {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     border: 1px solid rgba(201, 162, 75, 0.2);
     border-radius: 16px;
     padding: 48px 40px;
@@ -2547,7 +2548,7 @@ section.section-light {
 /* ============================= */
 
 .cta-urgency {
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     border-top: 1px solid rgba(201, 162, 75, 0.2);
     border-bottom: 1px solid rgba(201, 162, 75, 0.2);
     padding: 80px 0;
@@ -2652,7 +2653,7 @@ section.section-light {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: #0B0B0D;
+    background: rgba(11, 11, 13, 0.7);
     color: var(--black);
     border: none;
     cursor: pointer;

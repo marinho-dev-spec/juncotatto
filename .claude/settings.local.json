@@ -106,7 +106,13 @@
       "Bash(grep -E \"#[0-9]{3,6}|#[a-f]{3,6}\")",
       "Bash(grep -E \"\\\\.\\(html|js|css\\)$|^d\")",
       "Bash(chmod +x /tmp/clean_css.sh)",
-      "Bash(/tmp/clean_css.sh)"
+      "Bash(/tmp/clean_css.sh)",
+      "Bash(sed -i '' 's/💬 //g' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/⭐ /★ /g' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/min-height: 110vh/height: 100vh/' /Users/marinho/Downloads/juncotatto/css/styles.css)",
+      "Bash(sed -i '' '/\\\\.hero {/,/overflow: hidden/ { *)",
+      "Bash(sed -i '' 's/\\\\.hero {/\\\\.hero {\\\\n    background: #0B0B0D;/' /Users/marinho/Downloads/juncotatto/css/styles.css)",
+      "Bash(sed -i '' 's/background: #0B0B0D;/background: rgba\\(11, 11, 13, 0.7\\);/' /Users/marinho/Downloads/juncotatto/css/styles.css)"
     ]
   }
 }
