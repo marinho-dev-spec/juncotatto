@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { abrirWhatsApp } from '@/lib/whatsapp';
+import { IconChevronDown } from '@/components/common/Icons';
 
 const HERO_IMAGES = [
   { src: '/imagens-junco/estudio.webp', alt: 'Estúdio profissional Junco Tattoo em Itapema com equipamentos de tatuagem' },
@@ -86,6 +87,15 @@ export default function Hero() {
           </small>
         </div>
       </div>
+
+      <button
+        className="hero-scroll-cue"
+        onClick={() => scrollToSection('trabalhos')}
+        aria-label="Rolar para ver os trabalhos"
+      >
+        <span>Role para ver</span>
+        <IconChevronDown />
+      </button>
     </section>
   );
 }

@@ -2,6 +2,7 @@ import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import FloatingCTA from '@/components/common/FloatingCTA';
 import MobileBottomBar from '@/components/common/MobileBottomBar';
+import BackToTop from '@/components/common/BackToTop';
 import ProgressiveBlur from '@/components/ProgressiveBlur';
 import ScrollReveal from '@/components/ScrollReveal';
 
@@ -65,6 +66,7 @@ export default function HomePage() {
 
       <MobileBottomBar context="geral" label="Agendar Consulta" />
       <FloatingCTA context="geral" label="Agendar" />
+      <BackToTop />
       <ProgressiveBlur height={160} zIndex={40} />
     </>
   );

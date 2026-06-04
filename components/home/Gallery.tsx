@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { IconZoom } from '@/components/common/Icons';
 
 declare global {
   interface Window {
@@ -58,9 +59,13 @@ export default function Gallery() {
               href={img.src}
               className="gallery-item glightbox"
               data-gallery="tattoos"
+              aria-label={`Ampliar: ${img.alt}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img.src} alt={img.alt} loading="lazy" />
+              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+              <span className="gallery-overlay">
+                <IconZoom />
+              </span>
             </a>
           ))}
         </div>

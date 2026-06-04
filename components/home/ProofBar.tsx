@@ -1,21 +1,34 @@
-export default function ProofBar() {
-  const items = [
-    { number: '4,9', text: '★ no Google' },
-    { number: '+600', text: 'avaliações' },
-    { number: '2014', text: 'desde então' },
-    { number: '100%', text: 'material descartável' },
-  ];
+import CountUp from '@/components/common/CountUp';
 
+export default function ProofBar() {
   return (
     <section className="proof-bar">
       <div className="container">
         <div className="proof-items">
-          {items.map((item) => (
-            <div className="proof-item" key={item.text}>
-              <span className="proof-number">{item.number}</span>
-              <span className="proof-text">{item.text}</span>
-            </div>
-          ))}
+          <div className="proof-item">
+            <span className="proof-number">
+              <CountUp end={4.9} decimals={1} />
+            </span>
+            <span className="proof-text">★ no Google</span>
+          </div>
+          <div className="proof-item">
+            <span className="proof-number">
+              <CountUp end={600} prefix="+" />
+            </span>
+            <span className="proof-text">avaliações</span>
+          </div>
+          <div className="proof-item">
+            <span className="proof-number">
+              <CountUp end={2014} grouping={false} />
+            </span>
+            <span className="proof-text">desde então</span>
+          </div>
+          <div className="proof-item">
+            <span className="proof-number">
+              <CountUp end={100} suffix="%" />
+            </span>
+            <span className="proof-text">material descartável</span>
+          </div>
         </div>
       </div>
     </section>

@@ -119,4 +119,161 @@ h1,
   }
 }
 
+/* ============================================= */
+/* Melhorias UX/UI — micro-interações             */
+/* ============================================= */
+
+/* Indicador de "role para baixo" no hero */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+  animation: cueBounce 2.4s ease-in-out infinite;
+}
+
+.hero-scroll-cue:hover {
+  opacity: 1;
+}
+
+@keyframes cueBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+@media (max-height: 700px) {
+  .hero-scroll-cue {
+    display: none;
+  }
+}
+
+/* No mobile a barra inferior já guia o usuário; evita sobreposição */
+@media (max-width: 767px) {
+  .hero-scroll-cue {
+    display: none;
+  }
+}
+
+/* Overlay de zoom na galeria */
+.gallery-item {
+  position: relative;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: linear-gradient(180deg, rgba(11, 11, 13, 0) 0%, rgba(11, 11, 13, 0.45) 100%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth);
+  pointer-events: none;
+}
+
+.gallery-overlay svg {
+  transform: scale(0.85);
+  transition: transform 0.4s var(--ease-smooth);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus-visible .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-overlay svg {
+  transform: scale(1);
+}
+
+/* Botão "voltar ao topo" */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 140;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 162, 75, 0.4);
+  background: rgba(11, 11, 13, 0.85);
+  color: var(--gold);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+@media (max-width: 767px) {
+  .back-to-top {
+    bottom: 84px;
+    left: 16px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* ============================================= */
+/* Acessibilidade — foco visível por teclado      */
+/* ============================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.filter-btn:focus-visible,
+.gallery-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Remove o outline para cliques de mouse (mantém só teclado) */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Respeita preferência por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-cue {
+    animation: none;
+  }
+  .carousel-image {
+    animation: none;
+  }
+}
+
 

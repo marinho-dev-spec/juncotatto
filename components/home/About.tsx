@@ -12,6 +12,8 @@ export default function About() {
             <img
               src="/imagens-junco/gabriel-junco.jpg"
               alt="Gabriel Junco - Tatuador especialista em realismo"
+              loading="lazy"
+              decoding="async"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
             />
           </div>

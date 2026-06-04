@@ -5,6 +5,7 @@ import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import FloatingCTA from '@/components/common/FloatingCTA';
 import MobileBottomBar from '@/components/common/MobileBottomBar';
+import BackToTop from '@/components/common/BackToTop';
 import PiercingHero from '@/components/piercing/PiercingHero';
 import PiercingSections from '@/components/piercing/PiercingSections';
 
@@ -63,6 +64,7 @@ export default function PiercingPage() {
 
       <MobileBottomBar context="piercing" label="Agendar Piercing" />
       <FloatingCTA context="piercing" label="Agendar" />
+      <BackToTop />
     </>
   );
 }

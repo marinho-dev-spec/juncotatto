@@ -16,12 +16,12 @@ export default function BeforeAfter() {
         <div className="ba-slider" id="baSlider">
           <div className="ba-before" style={{ width: `${value}%` }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/imagens-junco/tatto-braco.webp" alt="Antes da tatuagem" />
+            <img src="/imagens-junco/tatto-braco.webp" alt="Antes da tatuagem" loading="lazy" decoding="async" />
             <span className="ba-label">ANTES</span>
           </div>
           <div className="ba-after">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/imagens-junco/tatto-braco2.webp" alt="Depois da tatuagem" />
+            <img src="/imagens-junco/tatto-braco2.webp" alt="Depois da tatuagem" loading="lazy" decoding="async" />
             <span className="ba-label">DEPOIS</span>
           </div>
           <input

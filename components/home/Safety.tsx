@@ -1,8 +1,10 @@
+import { IconNeedle, IconShieldCheck, IconGlove, IconPerson } from '@/components/common/Icons';
+
 const SAFETY_ITEMS = [
-  { icon: '🧵', title: 'Agulha lacrada', text: 'Aberta na sua frente, cada sessão uma nova' },
-  { icon: '🔬', title: 'Equipamento esterilizado', text: 'Autoclave profissional, certificado' },
-  { icon: '🧤', title: 'Luva e campo estéril', text: 'Protocolo a cada cliente' },
-  { icon: '👤', title: 'Atendimento individual', text: 'Uma pessoa por vez, sem pressa' },
+  { Icon: IconNeedle, title: 'Agulha lacrada', text: 'Aberta na sua frente, cada sessão uma nova' },
+  { Icon: IconShieldCheck, title: 'Equipamento esterilizado', text: 'Autoclave profissional, certificado' },
+  { Icon: IconGlove, title: 'Luva e campo estéril', text: 'Protocolo a cada cliente' },
+  { Icon: IconPerson, title: 'Atendimento individual', text: 'Uma pessoa por vez, sem pressa' },
 ];
 
 export default function Safety() {
@@ -13,11 +15,13 @@ export default function Safety() {
         <p className="section-subtitle">Padrão de protocolo clínico, zero compromissos.</p>
 
         <div className="safety-grid">
-          {SAFETY_ITEMS.map((item) => (
-            <div className="safety-item" key={item.title}>
-              <div className="safety-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+          {SAFETY_ITEMS.map(({ Icon, title, text }) => (
+            <div className="safety-item" key={title}>
+              <div className="safety-icon" style={{ color: 'var(--gold)' }}>
+                <Icon />
+              </div>
+              <h3>{title}</h3>
+              <p>{text}</p>
             </div>
           ))}
         </div>

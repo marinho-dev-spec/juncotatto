@@ -50,7 +50,7 @@ export default function PiercingGallery() {
               data-gallery="piercing-gallery"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img.src} alt={img.alt} loading="lazy" />
+              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
             </a>
           ))}
         </div>
