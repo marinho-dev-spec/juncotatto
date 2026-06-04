@@ -319,8 +319,25 @@ class BeforeAfterSlider {
         const handle = document.getElementById('baSliderHandle');
         if (handle) {
             handle.addEventListener('input', (e) => this.update(e.target.value));
+            handle.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                this.handleTouch(e);
+            });
+            handle.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                this.handleTouch(e);
+            });
             this.update(50);
         }
+    }
+
+    handleTouch(e) {
+        const slider = document.getElementById('baSlider');
+        const touch = e.touches[0];
+        const rect = slider.getBoundingClientRect();
+        const x = touch.clientX - rect.left;
+        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        this.update(percentage);
     }
 
     update(value) {
@@ -648,11 +665,37 @@ function closeLightbox() {
 }
 
 // =============================
+// MOBILE DETECTION
+// =============================
+
+const isMobile = () => window.innerWidth <= 768;
+const isLandscape = () => window.innerHeight < window.innerWidth;
+
+// =============================
+// PERFORMANCE OPTIMIZATION
+// =============================
+
+// Disable heavy animations on mobile
+if (isMobile()) {
+    // Reduce animation frame rate on mobile
+    const style = document.createElement('style');
+    style.textContent = `
+        @media (max-width: 768px) {
+            [data-bloom], [data-glow] { animation: none !important; }
+            .btn-pulse { animation: none !important; }
+            [data-stagger] > * { animation: none !important; }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// =============================
 // INICIALIZAÇÃO
 // =============================
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🎨 Junco Tattoo & Piercing — Site Moderno 2026');
+    console.log(`📱 Mobile: ${isMobile()}, Landscape: ${isLandscape()}`);
 
     // Instanciar sistemas
     const heroCarousel = new HeroCarousel();
@@ -665,8 +708,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.sliderInstance = slider; // Exposição global para updateBeforeAfter()
     const header = new StickyHeader();
     const menu = new MobileMenu();
-    const parallax = new ParallaxScroll();
-    const mouse = new MouseFollow();
+
+    // Desabilitar parallax em mobile para performance
+    if (!isMobile()) {
+        const parallax = new ParallaxScroll();
+        const mouse = new MouseFollow();
+    }
+
     const counter = new AnimatedCounter();
     const ripple = new RippleEffect();
 

@@ -1,0 +1,759 @@
+/* ============================================================
+   EFEITOS VISUAIS 2026 - TATUAGEM CINEMATIC NOIR
+   Paleta: Ouro #C9A24B + Preto #0A0A0A
+   ============================================================ */
+
+:root {
+  --gold: #C9A24B;
+  --gold-dark: #8B7030;
+  --gold-light: #D4B566;
+  --black: #0A0A0A;
+  --black-light: #1A1A1A;
+  --black-lighter: #2A2A2A;
+  --white-text: rgba(255, 255, 255, 0.9);
+  --white-text-secondary: rgba(255, 255, 255, 0.6);
+  --transition-smooth: cubic-bezier(0.23, 1, 0.320, 1);
+  --transition-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--black);
+  color: var(--white-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   1. ANIMATED GRADIENT MESH
+   ============================================================ */
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--black) 0%,
+    var(--black-light) 25%,
+    var(--gold) 50%,
+    var(--black-light) 75%,
+    var(--black) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientMesh 15s ease infinite;
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientMesh {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.mesh-gradient {
+  position: relative;
+  background: var(--black);
+  overflow: hidden;
+}
+
+.mesh-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 50%, var(--gold) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, var(--gold-dark) 0%, transparent 50%);
+  animation: meshFloat 20s ease-in-out infinite;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+@keyframes meshFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* ============================================================
+   2. MAGNETIC BUTTONS
+   ============================================================ */
+
+.magnetic-btn {
+  padding: 16px 40px;
+  background: var(--gold);
+  color: var(--black);
+  border: 2px solid var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  margin: 10px;
+  display: inline-block;
+  will-change: transform;
+}
+
+.magnetic-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gold-dark);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.magnetic-btn:hover::before {
+  left: 0;
+}
+
+.magnetic-btn:hover {
+  color: var(--gold);
+  box-shadow: 0 20px 40px rgba(201, 162, 75, 0.4);
+  transform: scale(1.05);
+}
+
+.magnetic-btn:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-btn {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   3. GLASSMORPHISM CARDS
+   ============================================================ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 75, 0.2);
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--transition-smooth);
+  will-change: transform, box-shadow;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(201, 162, 75, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(201, 162, 75, 0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(201, 162, 75, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.glass-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.glass-card h3 {
+  color: var(--gold);
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.glass-card p {
+  color: var(--white-text-secondary);
+  line-height: 1.8;
+}
+
+/* ============================================================
+   4. SCROLL REVEAL ANIMATIONS
+   ============================================================ */
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--transition-ease);
+  will-change: opacity, transform;
+}
+
+.reveal-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-item.from-left {
+  transform: translateX(-50px);
+}
+
+.reveal-item.from-left.active {
+  transform: translateX(0);
+}
+
+.reveal-item.from-right {
+  transform: translateX(50px);
+}
+
+.reveal-item.from-right.active {
+  transform: translateX(0);
+}
+
+.reveal-item.scale {
+  transform: scale(0.9);
+}
+
+.reveal-item.scale.active {
+  transform: scale(1);
+}
+
+.reveal-item.blur {
+  filter: blur(10px);
+}
+
+.reveal-item.blur.active {
+  filter: blur(0);
+}
+
+/* ============================================================
+   5. RIPPLE EFFECT
+   ============================================================ */
+
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+  background: var(--gold);
+  color: var(--black);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px;
+  display: inline-block;
+  will-change: box-shadow;
+}
+
+.ripple-btn:hover {
+  background: var(--gold-dark);
+  box-shadow: 0 10px 25px rgba(201, 162, 75, 0.3);
+}
+
+.ripple-btn:active {
+  transform: scale(0.98);
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   6. GLOW EFFECTS
+   ============================================================ */
+
+.glow-text {
+  color: var(--gold);
+  text-shadow:
+    0 0 10px rgba(201, 162, 75, 0.5),
+    0 0 20px rgba(201, 162, 75, 0.3),
+    0 0 40px rgba(201, 162, 75, 0.2);
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  will-change: text-shadow;
+}
+
+.glow-text:hover {
+  text-shadow:
+    0 0 20px rgba(201, 162, 75, 0.8),
+    0 0 30px rgba(201, 162, 75, 0.5),
+    0 0 60px rgba(201, 162, 75, 0.3);
+}
+
+.glow-border {
+  border: 2px solid var(--gold);
+  position: relative;
+  border-radius: 4px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 162, 75, 0.3),
+    transparent
+  );
+  animation: glowSweep 3s infinite;
+}
+
+@keyframes glowSweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.glow-box {
+  background: var(--black-light);
+  border: 1px solid rgba(201, 162, 75, 0.3);
+  box-shadow:
+    0 0 15px rgba(201, 162, 75, 0.4),
+    inset 0 0 15px rgba(201, 162, 75, 0.1),
+    0 0 30px rgba(201, 162, 75, 0.2);
+  transition: all 0.3s ease;
+  padding: 24px;
+  border-radius: 6px;
+  will-change: box-shadow, border-color;
+}
+
+.glow-box:hover {
+  box-shadow:
+    0 0 25px rgba(201, 162, 75, 0.6),
+    inset 0 0 25px rgba(201, 162, 75, 0.15),
+    0 0 50px rgba(201, 162, 75, 0.3);
+  border-color: rgba(201, 162, 75, 0.5);
+}
+
+.glow-box h3 {
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.glow-box p {
+  color: var(--white-text-secondary);
+}
+
+/* ============================================================
+   7. TEXT ANIMATIONS
+   ============================================================ */
+
+.animated-headline {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  animation: letterSpacingExpand 1.2s ease-out;
+}
+
+@keyframes letterSpacingExpand {
+  0% {
+    opacity: 0;
+    letter-spacing: 0;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 2px;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark), var(--gold));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-reveal {
+  position: relative;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.text-reveal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--black);
+  animation: textReveal 0.8s ease-out forwards;
+}
+
+@keyframes textReveal {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
+.word-highlight {
+  position: relative;
+  transition: all 0.3s ease;
+  will-change: color, text-shadow;
+}
+
+.word-highlight.active {
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(201, 162, 75, 0.5);
+}
+
+/* ============================================================
+   8. PARALLAX 3D
+   ============================================================ */
+
+.parallax-container {
+  perspective: 1000px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-3d {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.parallax-element {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+/* ============================================================
+   9. CURSOR TRACKING
+   ============================================================ */
+
+.cursor-follower {
+  width: 35px;
+  height: 35px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 20px rgba(201, 162, 75, 0.5);
+  display: none;
+  will-change: left, top;
+}
+
+.cursor-follower.active {
+  display: block;
+}
+
+.cursor-follower::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.interactive-zone {
+  cursor: none;
+}
+
+/* ============================================================
+   10. SMOOTH SCROLL STYLING
+   ============================================================ */
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.optimized {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.no-animation {
+  animation: none !important;
+  transition: none !important;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .glow-text {
+    font-size: 32px;
+  }
+
+  .animated-headline {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .gradient-text {
+    font-size: 20px;
+  }
+
+  .glass-card {
+    padding: 20px;
+  }
+
+  .glass-card h3 {
+    font-size: 20px;
+  }
+
+  .magnetic-btn {
+    padding: 12px 24px;
+    font-size: 12px;
+    margin: 5px;
+  }
+
+  .ripple-btn {
+    padding: 10px 20px;
+    font-size: 12px;
+    margin: 5px;
+  }
+
+  /* Disable expensive effects on mobile */
+  .mesh-gradient::before {
+    display: none;
+  }
+
+  .parallax-3d {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .glow-text {
+    font-size: 24px;
+  }
+
+  .animated-headline {
+    font-size: 20px;
+  }
+
+  .glass-card {
+    padding: 16px;
+  }
+
+  .magnetic-btn {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+
+  .glass-card {
+    transform: none !important;
+  }
+
+  .magnetic-btn {
+    transform: none !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--black);
+  }
+}
+
+/* ============================================================
+   FOCUS STATES (Keyboard Navigation)
+   ============================================================ */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+
+@media print {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   DARK MODE ENHANCEMENTS
+   ============================================================ */
+
+@supports (backdrop-filter: blur(10px)) {
+  .glass-card {
+    backdrop-filter: blur(10px);
+  }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ============================================================
+   PERFORMANCE OPTIMIZATION
+   ============================================================ */
+
+/* Use GPU acceleration for frequently animated elements */
+.glass-card,
+.magnetic-btn,
+.reveal-item,
+.glow-text {
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* Reduce blur on slower devices */
+@media (prefers-reduced-motion: reduce) {
+  .glass-card {
+    backdrop-filter: none;
+  }
+}
+
+/* ============================================================
+   ANIMATION TIMING FUNCTIONS (Reusable)
+   ============================================================ */
+
+:root {
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-out-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-out-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================================
+   THEME CUSTOMIZATION
+   ============================================================ */
+
+/* Se quiser usar cores diferentes, override estas variáveis: */
+
+.theme-warm {
+  --gold: #D4AF37;
+  --gold-dark: #AA8C2E;
+}
+
+.theme-cool {
+  --gold: #A8DADC;
+  --gold-dark: #457B9D;
+}
+
+.theme-luxury {
+  --gold: #E5C1A0;
+  --gold-dark: #B89968;
+}
+
+/* ============================================================
+   EOF - EFEITOS VISUAIS 2026
+   ============================================================ */

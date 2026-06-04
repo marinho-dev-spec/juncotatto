@@ -17,26 +17,27 @@
     <link rel="stylesheet" href="css/animations-advanced.css">
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/visual-enhancements-2026.css">
+    <link rel="stylesheet" href="css/mobile-optimization.css">
 </head>
 <body>
     <!-- HEADER FIXO -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">
+                <a href="#" class="logo" aria-label="Junco Tattoo">
                     <span class="logo-text">JUNCO</span>
                     <span class="logo-dot">•</span>
                 </a>
 
-                <nav class="nav">
+                <nav class="nav" role="navigation" aria-label="Menu principal">
                     <a href="#trabalhos">Trabalhos</a>
                     <a href="piercing.html">Piercing</a>
                     <a href="#contato">Contato</a>
                 </nav>
 
-                <button class="btn btn-header-schedule" onclick="abrirWhatsApp('geral')">Agendar</button>
+                <button class="btn btn-header-schedule" onclick="abrirWhatsApp('geral')" aria-label="Abrir WhatsApp para agendar">Agendar</button>
 
-                <button class="hamburger" id="hamburger">
+                <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -50,14 +51,14 @@
         <!-- Carrossel de imagens do estúdio e tatuagens -->
         <div class="hero-carousel">
             <div class="carousel-track">
-                <img src="imagens-junco/estudio.webp" alt="Estúdio Junco" class="carousel-image">
-                <img src="imagens-junco/tatto-braco.webp" alt="Tatuagem realismo" class="carousel-image">
-                <img src="imagens-junco/estudio2.webp" alt="Estúdio Junco" class="carousel-image">
-                <img src="imagens-junco/tatto-braco2.webp" alt="Tatuagem detalhe" class="carousel-image">
-                <img src="imagens-junco/estudio-fktk.webp" alt="Estúdio Junco" class="carousel-image">
-                <img src="imagens-junco/tatto-braco3.webp" alt="Tatuagem braço" class="carousel-image">
-                <img src="imagens-junco/foto-estudio-todo.webp" alt="Estúdio completo" class="carousel-image">
-                <img src="imagens-junco/tatto-braco11.webp" alt="Tatuagem obra" class="carousel-image">
+                <img src="imagens-junco/estudio.webp" alt="Estúdio Junco" class="carousel-image" loading="eager">
+                <img src="imagens-junco/tatto-braco.webp" alt="Tatuagem realismo" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/estudio2.webp" alt="Estúdio Junco" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/tatto-braco2.webp" alt="Tatuagem detalhe" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/estudio-fktk.webp" alt="Estúdio Junco" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/tatto-braco3.webp" alt="Tatuagem braço" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/foto-estudio-todo.webp" alt="Estúdio completo" class="carousel-image" loading="lazy">
+                <img src="imagens-junco/tatto-braco11.webp" alt="Tatuagem obra" class="carousel-image" loading="lazy">
             </div>
         </div>
         <div class="hero-overlay"></div>

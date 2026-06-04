@@ -40,7 +40,31 @@
       "Bash(pkill -f \"python3 -m http.server\")",
       "Bash(open http://localhost:8000)",
       "Bash(awk '{print $9}')",
-      "Bash(xargs -I {} basename {})"
+      "Bash(xargs -I {} basename {})",
+      "WebFetch(domain:tympanus.net)",
+      "WebFetch(domain:www.awwwards.com)",
+      "WebFetch(domain:web.dev)",
+      "WebFetch(domain:caniuse.com)",
+      "WebFetch(domain:developer.chrome.com)",
+      "WebFetch(domain:www.smashingmagazine.com)",
+      "WebFetch(domain:gsap.com)",
+      "WebFetch(domain:www.framer.com)",
+      "WebFetch(domain:scrollrevealjs.org)",
+      "WebFetch(domain:motion.dev)",
+      "WebFetch(domain:www.lenis.dev)",
+      "WebFetch(domain:greensock.com)",
+      "WebFetch(domain:michalsnik.github.io)",
+      "WebFetch(domain:www.chromestatus.com)",
+      "WebFetch(domain:www.useanimations.com)",
+      "WebFetch(domain:www.behance.net)",
+      "WebFetch(domain:dribbble.com)",
+      "WebFetch(domain:www.cssfx.dev)",
+      "WebFetch(domain:animista.net)",
+      "WebFetch(domain:www.webdesignmuseum.org)",
+      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+      "Bash(node -c js/script.js)",
+      "Read(//Users/marinho/Downloads/**)",
+      "Bash(tar -czf juncotatto-site-completo.tar.gz juncotatto/)"
     ]
   }
 }

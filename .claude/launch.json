@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "localhost",
-      "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "sleep 999999"],
+      "name": "http-server",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8000"],
       "port": 8000
     }
   ]
