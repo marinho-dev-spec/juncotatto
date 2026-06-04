@@ -435,13 +435,56 @@ class BeforeAfterSlider {
 }
 
 // =============================
+// ACTIVE SECTION INDICATOR
+// =============================
+
+class ActiveSectionIndicator {
+    constructor() {
+        this.navLinks = document.querySelectorAll('.nav a[href^="#"]');
+        this.updateActiveSection();
+        window.addEventListener('scroll', () => this.updateActiveSection());
+    }
+
+    updateActiveSection() {
+        let currentSection = '';
+        const sections = document.querySelectorAll('section[id]');
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 200;
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                currentSection = '#' + section.id;
+            }
+        });
+
+        this.navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    }
+}
+
+// =============================
 // HEADER STICKY COM BLUR
 // =============================
 
 class StickyHeader {
     constructor() {
         const header = document.getElementById('header');
+        const logo = document.querySelector('.logo');
         let lastScrollTop = 0;
+
+        // Logo clicável para voltar ao topo
+        if (logo) {
+            logo.style.cursor = 'pointer';
+            logo.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
@@ -861,6 +904,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.faqInstance = faq; // Exposição global para toggleFaq()
     const slider = new BeforeAfterSlider();
     window.sliderInstance = slider; // Exposição global para updateBeforeAfter()
+    const activeSectionIndicator = new ActiveSectionIndicator();
     const header = new StickyHeader();
     const menu = new MobileMenu();
     const floatingCta = new FloatingCtaButton();

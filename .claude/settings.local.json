@@ -101,7 +101,9 @@
       "Bash(sed -i '' 's/alt=\"Tatuagem obra\"/alt=\"Obra de tatuagem em realismo preto e cinza\"/g' index.html)",
       "Bash(sed -i '' 's/alt=\"Tatuagem braço\"/alt=\"Tatuagem no braço em realismo preto e cinza\"/g' index.html)",
       "Bash(open \"https://juncotatto.vercel.app/\")",
-      "Bash(curl -s -I \"https://juncotatto.vercel.app/\")"
+      "Bash(curl -s -I \"https://juncotatto.vercel.app/\")",
+      "Bash(grep -E \"#[0-9a-fA-F]{3,6}\" /Users/marinho/Downloads/juncotatto/css/styles.css)",
+      "Bash(grep -E \"#[0-9]{3,6}|#[a-f]{3,6}\")"
     ]
   }
 }
