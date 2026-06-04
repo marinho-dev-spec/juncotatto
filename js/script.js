@@ -608,6 +608,25 @@ function abrirWhatsApp(tipo = 'geral') {
     const message = WHATSAPP_MESSAGES[tipo] || WHATSAPP_MESSAGES.geral;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
+    // Disparar evento de conversão - Google Analytics 4
+    if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_contact', {
+            'event_category': 'engagement',
+            'event_label': tipo,
+            'value': 1
+        });
+    }
+
+    // Disparar evento de conversão - Meta Pixel
+    if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+            'content_name': 'WhatsApp Contact',
+            'value': 1.0,
+            'currency': 'BRL',
+            'content_type': 'product'
+        });
+    }
+
     trackEvent('whatsapp_click', { tipo, timestamp: new Date().toISOString() });
     window.open(url, '_blank');
 }
