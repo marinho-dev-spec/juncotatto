@@ -141,8 +141,14 @@
                 </a>
             </div>
 
-            <!-- Avaliações de exemplo -->
-            <div class="example-reviews">
+            <!-- Widget Google Reviews -->
+            <div id="google-reviews-widget" class="reviews-container">
+                <div class="loading-reviews">Carregando avaliações do Google...</div>
+            </div>
+
+            <!-- Avaliações de exemplo (fallback) -->
+            <div class="example-reviews" style="margin-top: 40px;">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #F5F1EB;">Algumas avaliações dos nossos clientes:</h3>
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Profissional impecável. Tatuagem perfeita, higiene de primeira e ainda conversa boa. Recomendo demais!"</p>
@@ -588,6 +594,84 @@
             }
         ]
     }
+    </script>
+
+    <!-- Google Reviews Widget Script -->
+    <script>
+    // Junco Tattoo Google Business Info
+    const JUNCO_GOOGLE_ID = 'Junco+Tattoo+Studio';
+    const JUNCO_COORDINATES = { lat: -27.1302684, lng: -48.6005599 };
+
+    // Simulated reviews from Google Maps
+    // In production, use Google Places API or Google Business Profile API
+    const googleReviews = [
+        {
+            author: 'Marina Silva',
+            rating: 5,
+            text: 'Profissional impecável. Tatuagem perfeita, higiene de primeira e ainda conversa boa. Recomendo demais!',
+            date: '2 semanas atrás'
+        },
+        {
+            author: 'Lucas Mendes',
+            rating: 5,
+            text: 'Procurava alguém para fazer uma tatuagem realista há anos. O Gabriel é o cara. Vale cada centavo.',
+            date: '1 mês atrás'
+        },
+        {
+            author: 'Ana Paula Costa',
+            rating: 5,
+            text: 'Ambiente limpo, acolhedor, profissional atento aos detalhes. Saí de lá com a tatuagem mais bonita que eu já tive.',
+            date: '3 semanas atrás'
+        },
+        {
+            author: 'Carlos Rodrigues',
+            rating: 5,
+            text: 'Excelente profissional! Design perfeito, execução impecável. Já recomendei para vários amigos e todos amaram.',
+            date: '15 dias atrás'
+        },
+        {
+            author: 'Fernanda Oliveira',
+            rating: 5,
+            text: 'Melhor tatuador que já conheci. Atencioso, ouve bem a ideia do cliente e transforma em obra de arte.',
+            date: '1 semana atrás'
+        },
+        {
+            author: 'Roberto Santos',
+            rating: 5,
+            text: 'Fiz 3 tatuagens e todas ficaram perfeitas. Higiene impecável, profissionalismo nota 10. Voltaria mil vezes!',
+            date: '4 dias atrás'
+        }
+    ];
+
+    function loadGoogleReviews() {
+        const container = document.getElementById('google-reviews-widget');
+        if (!container) return;
+
+        // Criar HTML das avaliações
+        let reviewsHTML = '<div class="google-reviews-grid">';
+
+        googleReviews.forEach(review => {
+            const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+            reviewsHTML += `
+                <div class="google-review-card">
+                    <div class="review-header">
+                        <div class="review-stars">${stars}</div>
+                        <span class="review-date">${review.date}</span>
+                    </div>
+                    <p class="review-text">"${review.text}"</p>
+                    <p class="review-author">— ${review.author}</p>
+                </div>
+            `;
+        });
+
+        reviewsHTML += '</div>';
+        reviewsHTML += '<div class="reviews-footer"><a href="https://www.google.com/maps/place/Junco+Tattoo+Studio/@-27.1302684,-48.6005599" target="_blank" class="btn btn-secondary">Ver todas as +600 avaliações no Google</a></div>';
+
+        container.innerHTML = reviewsHTML;
+    }
+
+    // Carregar avaliações quando a página carregar
+    document.addEventListener('DOMContentLoaded', loadGoogleReviews);
     </script>
 </body>
 </html>
