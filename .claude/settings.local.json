@@ -118,7 +118,9 @@
       "Bash(sed -i '' 's/Agendar Consulta Grátis/Chamar o Gabriel no WhatsApp/' /Users/marinho/Downloads/juncotatto/index.html)",
       "Bash(sed -i '' 's/2014 desde então/Desde 2014/' /Users/marinho/Downloads/juncotatto/index.html)",
       "Bash(sed -i '' 's/+600 avaliações no Google/+600 avaliações reais no Google/' /Users/marinho/Downloads/juncotatto/index.html)",
-      "Bash(sed -i '' 's/+600 avaliações Google/+600 avaliações reais/' /Users/marinho/Downloads/juncotatto/index.html)"
+      "Bash(sed -i '' 's/+600 avaliações Google/+600 avaliações reais/' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/<script src=\"js\\\\//<script defer src=\"js\\\\//' /Users/marinho/Downloads/juncotatto/index.html)",
+      "Bash(sed -i '' 's/<script src=\"https:\\\\/\\\\/cdn.jsdelivr.net\\\\\\(.*\\\\\\)\"/<script defer src=\"https:\\\\/\\\\/cdn.jsdelivr.net\\\\1\"/' /Users/marinho/Downloads/juncotatto/index.html)"
     ]
   }
 }

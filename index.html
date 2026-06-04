@@ -34,7 +34,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mobile-optimization.css">
@@ -47,9 +48,13 @@
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "additionalType": "ProfessionalService",
         "name": "Junco Tattoo & Piercing",
-        "image": "https://juncotatto.vercel.app/imagens-junco/estudio.webp",
-        "description": "Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing, cobertura e fine line.",
+        "image": [
+            "https://juncotatto.vercel.app/imagens-junco/estudio.webp",
+            "https://juncotatto.vercel.app/imagens-junco/gabriel-junco.jpg"
+        ],
+        "description": "Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing, cobertura e fine line. Desde 2014 com mais de 600 avaliações 5 estrelas.",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Av. Nereu Ramos, 4142, Sala 9",
@@ -61,6 +66,11 @@
         "telephone": "+5547996615555",
         "url": "https://juncotatto.vercel.app",
         "priceRange": "R$",
+        "foundingDate": "2014",
+        "founder": {
+            "@type": "Person",
+            "name": "Gabriel Junco"
+        },
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
@@ -519,8 +529,8 @@
 
     <!-- Scripts -->
     <!-- GLightbox for Gallery Lightbox Functionality -->
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="js/script.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script defer src="js/script.js"></script>
 
     <!-- EmailJS for Form Submissions -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
@@ -725,9 +735,9 @@
     </script>
 
     <!-- Advanced Animations & Interactions Scripts -->
-    <script src="js/scroll-animations.js"></script>
-    <script src="js/interactions.js"></script>
-    <script src="js/lightbox-advanced.js"></script>
+    <script defer src="js/scroll-animations.js"></script>
+    <script defer src="js/interactions.js"></script>
+    <script defer src="js/lightbox-advanced.js"></script>
 
     <!-- Initialize Advanced Effects -->
     <script>
