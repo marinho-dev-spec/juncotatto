@@ -1,16 +1,40 @@
 'use client';
 
-import React, { useEffect, useRef, ReactNode } from 'react';
+import React, { useEffect, useRef, type ReactNode, type CSSProperties } from 'react';
+
+type Direction = 'up' | 'down' | 'left' | 'right' | 'none';
 
 interface ScrollRevealProps {
   children: ReactNode;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+  direction?: Direction;
+  /** atraso antes de iniciar a animação (ms) */
   delay?: number;
+  /** duração da transição (ms) */
   duration?: number;
+  /** distância do deslocamento inicial */
   distance?: string;
   className?: string;
+  /** anima apenas uma vez (padrão) ou sempre que entra/sai do viewport */
   once?: boolean;
+  /** fração do elemento visível para disparar */
   threshold?: number;
+  /** estilos extras aplicados ao wrapper */
+  style?: CSSProperties;
+}
+
+function initialTransform(direction: Direction, distance: string): string {
+  switch (direction) {
+    case 'up':
+      return `translate(0, ${distance})`;
+    case 'down':
+      return `translate(0, -${distance})`;
+    case 'left':
+      return `translate(${distance}, 0)`;
+    case 'right':
+      return `translate(-${distance}, 0)`;
+    default:
+      return 'translate(0, 0)';
+  }
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -22,6 +46,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   className = '',
   once = true,
   threshold = 0.15,
+  style,
 }) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -29,66 +54,59 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     const element = elementRef.current;
     if (!element) return;
 
-    // Calcular posição inicial baseada na direção
-    const getInitialTransform = () => {
-      const offsetMap: Record<string, { x: string; y: string }> = {
-        up: { x: '0', y: distance },
-        down: { x: '0', y: `-${distance}` },
-        left: { x: distance, y: '0' },
-        right: { x: `-${distance}`, y: '0' },
-        none: { x: '0', y: '0' },
-      };
-      const offset = offsetMap[direction];
-      return `translate(${offset.x}, ${offset.y})`;
+    // Respeita usuários que preferem menos movimento
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Fallback: sem suporte a IntersectionObserver ou movimento reduzido → mostra direto
+    if (prefersReduced || typeof IntersectionObserver === 'undefined') {
+      element.style.opacity = '1';
+      element.style.transform = 'translate(0, 0)';
+      return;
+    }
+
+    const reveal = () => {
+      element.style.transition = `opacity ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+      element.style.opacity = '1';
+      element.style.transform = 'translate(0, 0)';
     };
 
-    // Aplicar estilos iniciais
-    element.style.opacity = '0';
-    element.style.transform = getInitialTransform();
-    element.style.willChange = 'opacity, transform';
-    element.style.transition = 'none'; // Sem transição inicialmente
+    const hide = () => {
+      element.style.transition = 'none';
+      element.style.opacity = '0';
+      element.style.transform = initialTransform(direction, distance);
+    };
 
-    // Configurar Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Elemento entrou no viewport
-            setTimeout(() => {
-              if (element) {
-                element.style.transition = `all ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
-                element.style.opacity = '1';
-                element.style.transform = 'translate(0, 0)';
-              }
-            }, delay);
-
-            // Desinscrever se once = true
-            if (once) {
-              observer.unobserve(element);
-            }
+            window.setTimeout(reveal, delay);
+            if (once) observer.unobserve(element);
           } else if (!once) {
-            // Resetar se once = false e elemento saiu do viewport
-            element.style.transition = 'none';
-            element.style.opacity = '0';
-            element.style.transform = getInitialTransform();
+            hide();
           }
         });
       },
-      {
-        threshold,
-        rootMargin: '0px 0px -50px 0px',
-      }
+      { threshold, rootMargin: '0px 0px -50px 0px' }
     );
 
     observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, [direction, delay, duration, distance, once, threshold]);
 
+  // Estilos iniciais definidos já na renderização (SSR) para evitar "flash"
+  const initialStyle: CSSProperties = {
+    opacity: 0,
+    transform: initialTransform(direction, distance),
+    willChange: 'opacity, transform',
+    ...style,
+  };
+
   return (
-    <div ref={elementRef} className={className}>
+    <div ref={elementRef} className={className} style={initialStyle}>
       {children}
     </div>
   );

@@ -130,7 +130,14 @@
       "Bash(curl -s -o /dev/null -w \"Home: %{http_code}\\\\n\" http://localhost:3000)",
       "Bash(curl -s -o /dev/null -w \"Piercing: %{http_code}\\\\n\" http://localhost:3000/piercing)",
       "Bash(pkill -f \"next start\")",
-      "Bash(pkill -f \"next-server\")"
+      "Bash(pkill -f \"next-server\")",
+      "Bash(timeout 120 vercel ls juncotatto)",
+      "Bash(vercel ls *)",
+      "Bash(curl -s -o /dev/null -w \"Home: %{http_code}\\\\n\" https://juncotatto.vercel.app)",
+      "Bash(curl -s -o /dev/null -w \"Piercing: %{http_code}\\\\n\" https://juncotatto.vercel.app/piercing)",
+      "Bash(curl -sI https://juncotatto.vercel.app)",
+      "Bash(curl -s https://juncotatto.vercel.app/piercing)",
+      "Bash(pkill -f \"next dev\")"
     ]
   }
 }

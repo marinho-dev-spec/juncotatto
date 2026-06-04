@@ -31,8 +31,6 @@ const ProgressiveBlur: React.FC<ProgressiveBlurProps> = ({
     pointerEvents: 'none',
   };
 
-  // Classe usada para esconder no mobile (onde existe a barra inferior)
-
   const layerStyle = (blur: number, mask: string): React.CSSProperties => ({
     position: 'absolute',
     inset: 0,
