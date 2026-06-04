@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations-advanced.css">
+    <link rel="stylesheet" href="css/glassmorphism.css">
 </head>
 <body>
     <!-- HEADER FIXO -->
@@ -594,6 +596,33 @@
             }
         ]
     }
+    </script>
+
+    <!-- Advanced Animations & Interactions Scripts -->
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/lightbox-advanced.js"></script>
+
+    <!-- Initialize Advanced Effects -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Advanced Scroll Animations
+        if (typeof AdvancedScrollReveal !== 'undefined') {
+            new AdvancedScrollReveal();
+        }
+
+        // Initialize Interactive Effects
+        if (typeof InteractiveEffects !== 'undefined') {
+            new InteractiveEffects();
+        }
+
+        // Initialize Advanced Lightbox
+        if (typeof AdvancedLightbox !== 'undefined') {
+            new AdvancedLightbox();
+        }
+
+        console.log('✨ Advanced animations & effects initialized');
+    });
     </script>
 
     <!-- Google Reviews Widget Script -->
