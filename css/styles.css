@@ -338,15 +338,49 @@ a {
     display: flex;
     width: 100%;
     height: 100%;
-    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .carousel-image {
     min-width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.6) saturate(0.8);
-    transition: filter 0.6s var(--ease-smooth);
+    filter: brightness(0.55) saturate(0.75) contrast(1.05);
+    transition: filter 0.8s var(--ease-smooth);
+    animation: imageZoom 7s ease-out infinite;
+}
+
+@keyframes imageZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.02);
+    }
+}
+
+.carousel-image:nth-child(1),
+.carousel-image:nth-child(5),
+.carousel-image:nth-child(9) {
+    animation-delay: 0s;
+}
+
+.carousel-image:nth-child(2),
+.carousel-image:nth-child(6),
+.carousel-image:nth-child(10) {
+    animation-delay: 1.4s;
+}
+
+.carousel-image:nth-child(3),
+.carousel-image:nth-child(7),
+.carousel-image:nth-child(11) {
+    animation-delay: 2.8s;
+}
+
+.carousel-image:nth-child(4),
+.carousel-image:nth-child(8),
+.carousel-image:nth-child(12) {
+    animation-delay: 4.2s;
 }
 
 .carousel-track:hover .carousel-image {

@@ -56,6 +56,8 @@ class HeroCarousel {
                 position = 0;
             }
 
+            // Transição suave com easing cinematic
+            this.carouselTrack.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
             this.carouselTrack.style.transform = `translateX(${position}%)`;
         }, 5000);
     }
