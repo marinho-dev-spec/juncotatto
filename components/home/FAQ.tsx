@@ -27,10 +27,14 @@ export default function FAQ() {
                   aria-label={`Expandir pergunta: ${item.q}`}
                 >
                   <span>{item.q}</span>
-                  <span className="faq-icon">{isOpen ? '−' : '+'}</span>
+                  <span className="faq-icon" aria-hidden="true">
+                    +
+                  </span>
                 </button>
                 <div className={`faq-answer${isOpen ? ' active' : ''}`}>
-                  <p>{item.a}</p>
+                  <div className="faq-answer-inner">
+                    <p>{item.a}</p>
+                  </div>
                 </div>
               </div>
             );

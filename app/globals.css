@@ -926,6 +926,63 @@ p,
 }
 
 /* ============================================= */
+/* FAQ — colapso limpo (grid-template-rows)       */
+/* Substitui o max-height (que vazava o texto).   */
+/* ============================================= */
+
+.faq-item {
+  border-bottom: 1px solid rgba(201, 162, 75, 0.12);
+}
+
+.faq-question {
+  gap: 24px;
+  transition: color 0.25s ease;
+}
+
+.faq-question.active {
+  color: var(--gold);
+}
+
+/* ícone sempre "+", vira "×" ao abrir (rotação 45°) */
+.faq-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease-smooth), color 0.25s ease;
+}
+
+.faq-question.active .faq-icon {
+  transform: rotate(45deg);
+  color: var(--gold);
+}
+
+/* animação de altura confiável: 0fr -> 1fr */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  max-height: none; /* anula o antigo max-height */
+  padding: 0;
+  overflow: hidden;
+  transition: grid-template-rows 0.38s var(--ease-smooth);
+}
+
+.faq-answer.active {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.faq-answer-inner p {
+  margin: 0;
+  padding-bottom: 28px;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 70ch;
+}
+
+/* ============================================= */
 /* Movimento reduzido — cobertura completa        */
 /* ============================================= */
 
