@@ -301,6 +301,12 @@
       "skillPath": "skills/social/SKILL.md",
       "computedHash": "45f19eb1da07de3505f4db57ea0a83906c73bc30bc6af1fdb4d576d5d2dee310"
     },
+    "ui-ux-designer": {
+      "source": "lotosbin/claude-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-ux-designer/SKILL.md",
+      "computedHash": "42c6f46cc45913d21f55b7c1814bde21b90103cadf7f2f6f80bc001efffa7c86"
+    },
     "ui-ux-pro-max": {
       "source": "nextlevelbuilder/ui-ux-pro-max-skill",
       "sourceType": "github",

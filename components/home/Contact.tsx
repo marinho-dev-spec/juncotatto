@@ -8,19 +8,25 @@ export default function Contact() {
   const [telefone, setTelefone] = useState('');
   const [mensagem, setMensagem] = useState('');
   const [status, setStatus] = useState('');
+  const [statusType, setStatusType] = useState<'idle' | 'error' | 'success'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!nome.trim() || !telefone.trim() || !mensagem.trim()) {
-      setStatus('Por favor, preencha todos os campos.');
+      setStatusType('error');
+      setStatus('Por favor, preencha todos os campos antes de enviar.');
       return;
     }
     enviarMensagemWhatsApp(nome.trim(), telefone.trim(), mensagem.trim());
+    setStatusType('success');
     setStatus('Abrindo o WhatsApp… é só enviar a mensagem que o Gabriel responde rápido!');
     setNome('');
     setTelefone('');
     setMensagem('');
-    setTimeout(() => setStatus(''), 6000);
+    setTimeout(() => {
+      setStatus('');
+      setStatusType('idle');
+    }, 6000);
   };
 
   return (
@@ -119,7 +125,15 @@ export default function Contact() {
           </form>
           <div
             id="form-status"
-            style={{ marginTop: 12, fontSize: '0.95rem', textAlign: 'center', minHeight: 20, color: '#C9A24B' }}
+            role="status"
+            aria-live="polite"
+            style={{
+              marginTop: 12,
+              fontSize: '0.95rem',
+              textAlign: 'center',
+              minHeight: 20,
+              color: statusType === 'error' ? '#E08A7D' : 'var(--gold)',
+            }}
           >
             {status}
           </div>
