@@ -46,10 +46,10 @@ export default function Gallery() {
   return (
     <section className="gallery" id="trabalhos">
       <div className="container">
-        <h2 className="section-title">Trabalhos Realizados</h2>
+        <h2 className="section-title">Trabalhos que falam por si</h2>
         <p className="section-subtitle">
-          Especializado em realismo preto e cinza, cobertura e fine line. Veja alguns dos trabalhos
-          que já realizei.
+          Realismo preto e cinza, cobertura e fine line. Cada peça é criada do zero para o seu
+          corpo — nada de desenho de catálogo.
         </p>
 
         <div className="gallery-grid" id="galleryGrid">

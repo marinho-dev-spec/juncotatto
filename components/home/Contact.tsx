@@ -66,6 +66,10 @@ export default function Contact() {
 
         <div className="contact-cta">
           <h2>Sua próxima tatuagem começa com uma mensagem</h2>
+          <p className="contact-cta-sub">
+            Me conta sua ideia — eu respondo pessoalmente, geralmente em até 2 horas. Sem
+            compromisso e sem robô do outro lado.
+          </p>
           <form className="contact-form" id="contactForm" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -79,7 +83,7 @@ export default function Contact() {
             <input
               type="tel"
               name="user_phone"
-              placeholder="WhatsApp (com DDD)"
+              placeholder="Seu WhatsApp (com DDD)"
               required
               aria-label="Telefone ou WhatsApp com DDD"
               value={telefone}
@@ -87,15 +91,15 @@ export default function Contact() {
             />
             <textarea
               name="message"
-              placeholder="Descreve sua ideia..."
+              placeholder="Descreve sua ideia: o que, onde no corpo, tamanho... (pode mandar referência depois)"
               rows={4}
               required
               aria-label="Descreva sua ideia de tatuagem"
               value={mensagem}
               onChange={(e) => setMensagem(e.target.value)}
             />
-            <button type="submit" className="btn btn-primary" aria-label="Enviar mensagem">
-              Enviar
+            <button type="submit" className="btn btn-primary" aria-label="Enviar pelo WhatsApp">
+              Enviar pelo WhatsApp
             </button>
           </form>
           <div

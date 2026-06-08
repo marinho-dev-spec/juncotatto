@@ -11,8 +11,8 @@ const STEPS = [
   },
   {
     number: '03',
-    title: 'Faço sua tatuagem',
-    text: 'No dia marcado, você sai com a sua tatuagem. Sem pressa.',
+    title: 'Você sai com uma tatuagem pra vida toda',
+    text: 'No dia marcado, sem pressa e com material aberto na sua frente, transformo o projeto na sua tatuagem.',
   },
 ];
 

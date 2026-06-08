@@ -718,4 +718,14 @@ button:focus:not(:focus-visible) {
   color: var(--text-secondary);
 }
 
+/* Subtítulo de reforço no formulário de contato */
+.contact-cta-sub {
+  max-width: 520px;
+  margin: 0 auto 28px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 

@@ -77,7 +77,7 @@ export default function Hero() {
             className="btn btn-secondary ripple-effect"
             onClick={() => scrollToSection('trabalhos')}
           >
-            ↓ Ver Portfólio
+            ↓ Ver trabalhos
           </button>
         </div>
         <div className="hero-urgency">
