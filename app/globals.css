@@ -790,4 +790,119 @@ select,
   touch-action: manipulation;
 }
 
+/* ============================================= */
+/* Antes & Depois — comparador deslizante         */
+/* ============================================= */
+
+.ba-slider {
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: none; /* permite arrastar no toque sem rolar a página */
+}
+
+.ba-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* a imagem "antes" é recortada via clip-path (sem distorcer) */
+.ba-img-before {
+  z-index: 2;
+  will-change: clip-path;
+}
+
+.ba-slider:not(.is-dragging) .ba-img-before {
+  transition: clip-path 0.12s ease-out;
+}
+
+/* rótulos */
+.ba-label {
+  position: absolute;
+  top: 16px;
+  z-index: 4;
+  padding: 6px 14px;
+  background: rgba(11, 11, 13, 0.6);
+  backdrop-filter: blur(4px);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.ba-label-antes {
+  left: 16px;
+}
+
+.ba-label-depois {
+  right: 16px;
+  color: var(--gold);
+}
+
+/* linha divisória */
+.ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(-1px);
+  z-index: 5;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.ba-slider:not(.is-dragging) .ba-divider {
+  transition: left 0.12s ease-out;
+}
+
+/* alça circular */
+.ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: rgba(11, 11, 13, 0.55);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: ew-resize;
+  pointer-events: auto;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ba-handle:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.ba-slider.is-dragging .ba-handle {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.ba-handle:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 
