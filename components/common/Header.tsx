@@ -78,12 +78,14 @@ export default function Header({ crossPage = false }: HeaderProps) {
             <Link href="/" className="logo" aria-label="Junco Tattoo & Piercing" onClick={closeMenu}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/junco-logo.svg"
-                alt="Junco Tattoo & Piercing"
+                src="/junco-mark.svg"
+                alt=""
+                aria-hidden="true"
                 className="logo-img"
-                width={48}
-                height={48}
+                width={56}
+                height={56}
               />
+              <span className="logo-word">JUNCO</span>
             </Link>
 
             <nav className="nav" role="navigation" aria-label="Menu principal">

@@ -492,7 +492,7 @@ button:focus:not(:focus-visible) {
 /* ============================================= */
 
 .styles-showcase {
-  background: #0b0b0d;
+  background: rgba(11, 11, 13, 0.72);
   text-align: center;
   padding: 100px 0;
   overflow: hidden;
@@ -629,7 +629,7 @@ button:focus:not(:focus-visible) {
 /* ============================================= */
 
 .team {
-  background: #0b0b0d;
+  background: rgba(11, 11, 13, 0.72);
   text-align: center;
   padding: 100px 0;
 }
@@ -926,6 +926,51 @@ p,
 }
 
 /* ============================================= */
+/* Textura de marca — selos repetidos no fundo    */
+/* Camada fixa atrás do conteúdo; aparece sutil   */
+/* através das seções semi-transparentes ao rolar.*/
+/* ============================================= */
+
+.brand-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url('/junco-mark.svg');
+  background-repeat: round;
+  background-size: 200px 200px;
+  opacity: 0.26;
+  /* esmaece nas bordas para o conteúdo respirar e ficar legível */
+  -webkit-mask-image: radial-gradient(ellipse 120% 100% at 50% 42%, #000 22%, transparent 80%);
+  mask-image: radial-gradient(ellipse 120% 100% at 50% 42%, #000 22%, transparent 80%);
+}
+
+@media (max-width: 767px) {
+  .brand-pattern {
+    background-size: 140px 140px;
+    opacity: 0.22;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .brand-pattern {
+      animation: brandDrift linear both;
+      animation-timeline: scroll(root block);
+      will-change: background-position;
+    }
+    @keyframes brandDrift {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 0 -120px;
+      }
+    }
+  }
+}
+
+/* ============================================= */
 /* Marca d'água do hero (emblema fantasma)        */
 /* ============================================= */
 
@@ -974,23 +1019,42 @@ p,
 .logo {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
 .logo-img {
-  height: 48px;
+  height: 56px;
   width: auto;
   display: block;
   transition: height 0.3s ease, filter 0.3s ease;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
 }
 
+.logo-word {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  line-height: 1;
+  color: var(--bone);
+  /* o emblema já tem "JUNCO"; o wordmark garante leitura no tamanho pequeno */
+  text-indent: 0.24em; /* compensa o tracking à direita p/ centrar visualmente */
+}
+
 .header.is-scrolled .logo-img {
-  height: 42px;
+  height: 48px;
 }
 
 @media (max-width: 767px) {
+  .logo {
+    gap: 9px;
+  }
   .logo-img {
-    height: 42px;
+    height: 48px;
+  }
+  .logo-word {
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
   }
 }
 

@@ -126,6 +126,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
         </a>
+        {/* Textura de marca: selos repetidos no fundo (decorativo) */}
+        <div className="brand-pattern" aria-hidden="true" />
         {children}
 
         {/* GLightbox */}
