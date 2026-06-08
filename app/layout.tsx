@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Gabriel Junco' }],
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
+  icons: {
+    icon: [{ url: '/junco-mark.svg', type: 'image/svg+xml' }],
+    shortcut: '/junco-mark.svg',
+    apple: '/junco-mark.svg',
+  },
   openGraph: {
     type: 'website',
     url: 'https://juncotatto.vercel.app/',

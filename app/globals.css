@@ -926,6 +926,67 @@ p,
 }
 
 /* ============================================= */
+/* Logo da marca (emblema SVG)                    */
+/* ============================================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  transition: height 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.header.is-scrolled .logo-img {
+  height: 42px;
+}
+
+@media (max-width: 767px) {
+  .logo-img {
+    height: 42px;
+  }
+}
+
+/* Logo no rodapé */
+.footer-logo {
+  height: 90px;
+  width: auto;
+  display: block;
+  margin-bottom: 18px;
+}
+
+/* Marca d'água decorativa (v2) no rodapé */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-watermark {
+  position: absolute;
+  right: -60px;
+  bottom: -60px;
+  width: 340px;
+  height: 340px;
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 767px) {
+  .footer-watermark {
+    width: 220px;
+    height: 220px;
+    right: -50px;
+    bottom: -40px;
+  }
+}
+
+/* ============================================= */
 /* FAQ — colapso limpo (grid-template-rows)       */
 /* Substitui o max-height (que vazava o texto).   */
 /* ============================================= */

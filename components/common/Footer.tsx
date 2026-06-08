@@ -9,10 +9,19 @@ export default function Footer({ crossPage = false }: FooterProps) {
 
   return (
     <footer className="footer">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/junco-mark.svg" alt="" aria-hidden="true" className="footer-watermark" />
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <h4>JUNCO</h4>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/junco-logo.svg"
+              alt="Junco Tattoo & Piercing"
+              className="footer-logo"
+              width={90}
+              height={90}
+            />
             <p>
               Tatuagem &amp; Piercing em Itapema/SC
               <br />

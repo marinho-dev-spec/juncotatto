@@ -159,7 +159,9 @@
       "Bash(npx -y skills add https://github.com/onewave-ai/claude-skills --skill landing-page-copywriter)",
       "Bash(npx -y skills add https://github.com/omer-metin/skills-for-antigravity --skill landing-page-design)",
       "Bash(npx -y skills add https://github.com/lotosbin/claude-skills --skill ui-ux-designer)",
-      "Bash(node -p \"const p=require\\('./package.json'\\); JSON.stringify\\({next:p.dependencies.next, react:p.dependencies.react, rd:p.dependencies['react-dom'], types_react:p.devDependencies['@types/react'], eslint_next:p.devDependencies['eslint-config-next']},null,2\\)\")"
+      "Bash(node -p \"const p=require\\('./package.json'\\); JSON.stringify\\({next:p.dependencies.next, react:p.dependencies.react, rd:p.dependencies['react-dom'], types_react:p.devDependencies['@types/react'], eslint_next:p.devDependencies['eslint-config-next']},null,2\\)\")",
+      "Bash(cp \"/Users/marinho/Downloads/JUNCO_LOGO_v1.svg\" public/junco-logo.svg)",
+      "Bash(cp \"/Users/marinho/Downloads/JUNCO_LOGO_v2.svg\" public/junco-mark.svg)"
     ]
   }
 }

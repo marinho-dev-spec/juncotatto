@@ -75,9 +75,15 @@ export default function Header({ crossPage = false }: HeaderProps) {
       <header className={`header${scrolled ? ' is-scrolled' : ''}`} id="header" role="banner">
         <div className="container">
           <div className="header-content">
-            <Link href="/" className="logo" aria-label="Junco Tattoo" onClick={closeMenu}>
-              <span className="logo-text">JUNCO</span>
-              <span className="logo-dot" />
+            <Link href="/" className="logo" aria-label="Junco Tattoo & Piercing" onClick={closeMenu}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/junco-logo.svg"
+                alt="Junco Tattoo & Piercing"
+                className="logo-img"
+                width={48}
+                height={48}
+              />
             </Link>
 
             <nav className="nav" role="navigation" aria-label="Menu principal">
