@@ -49,7 +49,7 @@ export default function Gallery() {
         <h2 className="section-title">Trabalhos que falam por si</h2>
         <p className="section-subtitle">
           Realismo preto e cinza, cobertura e fine line. Cada peça é criada do zero para o seu
-          corpo — nada de desenho de catálogo.
+          corpo. Aqui não tem desenho de catálogo.
         </p>
 
         <div className="gallery-grid" id="galleryGrid">

@@ -28,8 +28,8 @@ export default function Team() {
         <span className="eyebrow">★ EQUIPE</span>
         <h2 className="section-title">Quem faz acontecer</h2>
         <p className="section-subtitle">
-          Um time de profissionais dedicados — tatuagem, piercing e barbearia — com o mesmo padrão
-          de cuidado e qualidade.
+          Tatuagem, piercing e barbearia no mesmo lugar, com o cuidado e a qualidade que você
+          espera em cada serviço.
         </p>
 
         <div className="team-grid">
@@ -38,7 +38,7 @@ export default function Team() {
               <div className="team-photo">
                 {m.photo ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={m.photo} alt={`${m.name} — ${m.role}`} loading="lazy" decoding="async" />
+                  <img src={m.photo} alt={`${m.name}, ${m.role}`} loading="lazy" decoding="async" />
                 ) : (
                   <div className="team-photo-placeholder" aria-hidden="true">
                     <IconPerson />

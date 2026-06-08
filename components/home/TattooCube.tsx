@@ -12,7 +12,7 @@ export default function TattooCube() {
         <span className="eyebrow">★ ESTILOS</span>
         <h2 className="section-title">O que eu faço melhor</h2>
         <p className="section-subtitle">
-          Realismo preto e cinza, blackwork, fine line e cobertura — cada estilo com a mesma
+          Realismo preto e cinza, blackwork, fine line e cobertura. Em todos os estilos, a mesma
           obsessão por detalhe.
         </p>
 

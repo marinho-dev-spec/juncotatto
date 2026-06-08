@@ -44,7 +44,7 @@ export default function Contact() {
             <p className="contact-address">
               <strong>Av. Nereu Ramos, 4142, Sala 9</strong>
               <br />
-              Meia Praia — Itapema/SC
+              Meia Praia, Itapema/SC
             </p>
             <p className="contact-hours">
               <strong>Horário</strong>
@@ -67,8 +67,8 @@ export default function Contact() {
         <div className="contact-cta">
           <h2>Sua próxima tatuagem começa com uma mensagem</h2>
           <p className="contact-cta-sub">
-            Me conta sua ideia — eu respondo pessoalmente, geralmente em até 2 horas. Sem
-            compromisso e sem robô do outro lado.
+            Me conta sua ideia. Quem responde sou eu, geralmente em até 2 horas. Sem compromisso e
+            sem robô do outro lado.
           </p>
           <form className="contact-form" id="contactForm" onSubmit={handleSubmit}>
             <input

@@ -7,7 +7,7 @@ const PIXEL_ID = process.env.NEXT_PUBLIC_PIXEL_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://juncotatto.vercel.app'),
-  title: 'Junco Tattoo & Piercing — Tatuador em Itapema/SC | Realismo Preto e Cinza',
+  title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC · Realismo Preto e Cinza',
   description:
     'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2016. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
   keywords: ['tatuador', 'tattoo', 'itapema', 'sc', 'realismo preto cinza', 'piercing', 'fine line', 'tatuagem'],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://juncotatto.vercel.app/',
-    title: 'Junco Tattoo & Piercing — Tatuador em Itapema/SC',
+    title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC',
     description:
       'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line. Consultoria gratuita.',
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Junco Tattoo & Piercing — Tatuador em Itapema/SC',
+    title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC',
     description:
       'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
     images: ['/imagens-junco/estudio.webp'],

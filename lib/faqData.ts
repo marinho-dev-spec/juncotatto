@@ -22,18 +22,18 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Posso levar minha referência?',
-    a: 'Claro! Quanto melhor a referência, melhor a tatuagem. Pode ser foto, print, desenho — trago como está ou adapto para ficar perfeito no seu corpo.',
+    a: 'Claro! Quanto melhor a referência, melhor a tatuagem. Pode ser foto, print ou desenho. Eu trago como está ou adapto para ficar perfeito no seu corpo.',
   },
   {
     q: 'Tem retoque/garantia?',
-    a: 'Sim. Se algo sair fora do planejado, agendamos um retoque sem custo. A tatuagem é meu trabalho — sai certo.',
+    a: 'Sim. Se algo sair fora do planejado, agendamos um retoque sem custo. A tatuagem é meu trabalho e eu faço questão de entregar certo.',
   },
   {
     q: 'E se não ficar bom?',
-    a: 'A gente desenha o projeto junto antes de encostar a agulha. Você só aprova quando estiver 100%. E todo trabalho tem retoque incluso — se precisar ajustar, marcamos no mês seguinte sem custo.',
+    a: 'A gente desenha o projeto junto antes de encostar a agulha. Você só aprova quando estiver 100%. E todo trabalho tem retoque incluso: se precisar ajustar, marcamos no mês seguinte sem custo.',
   },
   {
     q: 'É a sua primeira tatuagem?',
-    a: 'Relaxa. Boa parte de quem me procura está estreando. Eu te explico cada passo antes — você nunca fica perdido. A gente conversa, eu tiro suas dúvidas e você entra confiante.',
+    a: 'Relaxa. Boa parte de quem me procura está estreando. Eu te explico cada passo antes, então você nunca fica perdido. A gente conversa, eu tiro suas dúvidas e você entra confiante.',
   },
 ];

@@ -3,7 +3,7 @@ export default function CtaUrgency() {
     <section className="cta-urgency">
       <div className="container">
         <div className="cta-urgency-content">
-          <h2>Agenda enchendo — garanta sua data</h2>
+          <h2>A agenda enche rápido. Garanta a sua data.</h2>
           <p>
             Trabalho com um cliente por vez, sem pressa. Por isso as datas fecham rápido. Se quer
             uma tatuagem de qualidade, fala comigo agora.
@@ -22,7 +22,7 @@ export default function CtaUrgency() {
               fontStyle: 'italic',
             }}
           >
-            ★ Mais de 600 pessoas já confiaram — e voltaram.
+            ★ Mais de 600 pessoas já confiaram em mim. E boa parte delas voltou.
           </p>
         </div>
       </div>

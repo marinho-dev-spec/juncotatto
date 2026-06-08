@@ -2,7 +2,7 @@ const STEPS = [
   {
     number: '01',
     title: 'Manda sua ideia no WhatsApp',
-    text: 'Pode ser foto, descrição, desenho — o que você tiver em mente.',
+    text: 'Pode ser foto, descrição ou desenho. O que você tiver em mente já serve pra começar.',
   },
   {
     number: '02',

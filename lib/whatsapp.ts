@@ -10,7 +10,7 @@ export type WhatsAppContext = 'geral' | 'cobertura' | 'piercing';
 
 export const WHATSAPP_MESSAGES: Record<WhatsAppContext, string> = {
   geral:
-    'Oi, Gabriel! Vim pelo site. Quero um orçamento — a ideia é mais ou menos: ___ (posso mandar referência). Quando você tem agenda?',
+    'Oi, Gabriel! Vim pelo site e queria um orçamento. Minha ideia é mais ou menos assim: ___ (posso mandar referência). Quando você tem agenda?',
   cobertura:
     'Oi, Gabriel! Quero cobrir uma tatuagem antiga. Vou te mandar a foto agora pra você ver se dá.',
   piercing: 'Oi, Gabriel! Quero colocar um piercing. Como funciona?',

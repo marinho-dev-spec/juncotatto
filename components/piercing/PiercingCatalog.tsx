@@ -63,7 +63,7 @@ export default function PiercingCatalog({ activeFilter, onFilterChange }: Pierci
 
         <p className="disclaimer">
           ★ Tempos de cicatrização são aproximados e variam de pessoa para pessoa. A higiene adequada
-          acelera o processo. Sem preço fixo — solicite orçamento pelo WhatsApp.
+          acelera o processo. Não trabalho com preço fixo. Faça um orçamento pelo WhatsApp.
         </p>
       </div>
     </section>

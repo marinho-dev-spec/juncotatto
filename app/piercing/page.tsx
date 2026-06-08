@@ -10,14 +10,14 @@ import PiercingHero from '@/components/piercing/PiercingHero';
 import PiercingSections from '@/components/piercing/PiercingSections';
 
 export const metadata: Metadata = {
-  title: 'Piercing em Itapema/SC — Junco Tattoo & Piercing | Gabriel Junco',
+  title: 'Piercing em Itapema/SC · Junco Tattoo & Piercing · Gabriel Junco',
   description:
     'Piercing profissional em Itapema/SC. Orelha, nariz, septo, industrial e mais. Estúdio esterilizado, titânio/aço cirúrgico, +600 avaliações 5 estrelas. Agende seu piercing agora.',
   alternates: { canonical: '/piercing' },
   openGraph: {
     type: 'website',
     url: 'https://juncotatto.vercel.app/piercing',
-    title: 'Piercing profissional — Junco Tattoo & Piercing',
+    title: 'Piercing profissional · Junco Tattoo & Piercing',
     description: 'Piercing em Itapema/SC especializado. Agulha, titânio, higiene profissional.',
     locale: 'pt_BR',
   },

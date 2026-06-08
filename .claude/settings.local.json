@@ -150,7 +150,9 @@
       "Bash(echo \"Home: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app\\)\")",
       "Bash(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/piercing)",
       "Bash(echo \"Piercing: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/piercing\\)\")",
-      "Bash(npx -y skills add coreyhaines31/marketingskills)"
+      "Bash(npx -y skills add coreyhaines31/marketingskills)",
+      "Bash(echo \"Home: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app\\) | Piercing: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/piercing\\)\")",
+      "Bash(awk '{print \"Deploy:\",$5}')"
     ]
   }
 }
