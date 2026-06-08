@@ -52,10 +52,10 @@ export default function Hero() {
       <div className="hero-overlay" />
       <div className="hero-content">
         <span className="eyebrow">
-          ★ ESPECIALISTA REALISMO PRETO E CINZA · ITAPEMA/SC · DESDE 2014
+          ★ ESPECIALISTA REALISMO PRETO E CINZA · ITAPEMA/SC · DESDE 2016
         </span>
         <h1 className="hero-headline">
-          A Tatuagem Que Você Não Vai Querer Esconder Daqui a 10 Anos
+          A tatuagem que você vai ter orgulho de mostrar por anos.
         </h1>
         <p className="hero-subtitle">
           Fine Line · Realismo · Cobertura · Lettering
@@ -82,8 +82,8 @@ export default function Hero() {
         </div>
         <div className="hero-urgency">
           <small>
-            💫 Atendo um cliente por vez, sem pressa — por isso as datas fecham rápido. Garanta a
-            sua.
+            Atendimento individual, criação exclusiva e agenda limitada para garantir qualidade em
+            cada projeto.
           </small>
         </div>
       </div>

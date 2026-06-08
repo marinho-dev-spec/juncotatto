@@ -18,17 +18,32 @@ export default function About() {
             />
           </div>
           <div className="about-text">
-            <h2 className="section-title">Sobre</h2>
+            <h2 className="section-title">Sobre Gabriel Junco</h2>
             <p>
-              Eu sei que tatuar dá frio na barriga: será que vai ficar bom, dói, vou me arrepender?
-              Desde 2014 eu faço esse medo virar orgulho — e são mais de 600 avaliações 5 estrelas
-              que confirmam isso.
+              Há mais de 10 anos transformando ideias em tatuagens que carregam significado,
+              identidade e história.
             </p>
             <p>
-              Sou especializado em realismo preto e cinza: um estilo que não perdoa erro. Por isso
-              trabalho de um jeito só: sem pressa, um cliente por vez, com material descartável
-              aberto na sua frente. Você não sai daqui com uma tatuagem qualquer. Sai com a sua, pra
-              vida toda.
+              Sou Gabriel Junco, especialista em realismo preto e cinza, e acredito que uma boa
+              tatuagem vai muito além de uma imagem bonita. Ela precisa ter impacto hoje e continuar
+              impressionando daqui a muitos anos. Por isso, cada projeto é desenvolvido de forma
+              exclusiva, respeitando a anatomia, o fluxo do corpo e a durabilidade da tatuagem ao
+              longo do tempo.
+            </p>
+            <p>
+              Atendo um cliente por vez, sem pressa, dedicando atenção total a cada detalhe do
+              processo. Desde a criação da arte até a execução final, meu compromisso é entregar um
+              trabalho que você tenha orgulho de carregar para o resto da vida.
+            </p>
+            <p>
+              Mais de 600 avaliações 5 estrelas refletem aquilo que considero mais importante:
+              confiança, qualidade e uma experiência que faz o cliente se sentir seguro do primeiro
+              contato até a cicatrização.
+            </p>
+            <p>
+              <strong style={{ color: 'var(--bone)' }}>
+                Sua tatuagem merece mais do que uma sessão. Merece um projeto pensado para durar.
+              </strong>
             </p>
             <button className="btn btn-primary" onClick={() => abrirWhatsApp('geral')}>
               Chamar o Gabriel no WhatsApp
