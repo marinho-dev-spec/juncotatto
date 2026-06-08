@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://juncotatto.vercel.app'),
   title: 'Junco Tattoo & Piercing — Tatuador em Itapema/SC | Realismo Preto e Cinza',
   description:
-    'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2014. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
+    'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2016. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
   keywords: ['tatuador', 'tattoo', 'itapema', 'sc', 'realismo preto cinza', 'piercing', 'fine line', 'tatuagem'],
   authors: [{ name: 'Gabriel Junco' }],
   robots: { index: true, follow: true },
@@ -55,7 +55,7 @@ const schemaJsonLd = {
     'https://juncotatto.vercel.app/imagens-junco/gabriel-junco.jpg',
   ],
   description:
-    'Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing, cobertura e fine line. Desde 2014 com mais de 600 avaliações 5 estrelas.',
+    'Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing, cobertura e fine line. Desde 2016 com mais de 600 avaliações 5 estrelas.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Av. Nereu Ramos, 4142, Sala 9',
@@ -67,7 +67,7 @@ const schemaJsonLd = {
   telephone: '+5547996615555',
   url: 'https://juncotatto.vercel.app',
   priceRange: 'R$',
-  foundingDate: '2014',
+  foundingDate: '2016',
   founder: { '@type': 'Person', name: 'Gabriel Junco' },
   openingHoursSpecification: [
     {

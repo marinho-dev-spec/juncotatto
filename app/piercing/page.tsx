@@ -40,7 +40,7 @@ const schemaJsonLd = {
   },
   telephone: '+5547996615555',
   url: 'https://juncotatto.vercel.app/piercing',
-  foundingDate: '2014',
+  foundingDate: '2016',
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.9',

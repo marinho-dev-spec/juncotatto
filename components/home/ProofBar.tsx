@@ -19,7 +19,7 @@ export default function ProofBar() {
           </div>
           <div className="proof-item">
             <span className="proof-number">
-              <CountUp end={2014} grouping={false} />
+              <CountUp end={2016} grouping={false} />
             </span>
             <span className="proof-text">desde então</span>
           </div>
