@@ -118,6 +118,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <a href="#conteudo" className="skip-link">
+          Pular para o conteúdo
+        </a>
         {children}
 
         {/* GLightbox */}

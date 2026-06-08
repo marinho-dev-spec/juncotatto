@@ -432,6 +432,29 @@ h1,
   }
 }
 
+/* Link "pular para o conteúdo" — visível só ao focar via teclado */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, -140%);
+  z-index: 300;
+  padding: 12px 22px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: transform 0.25s ease;
+}
+
+.skip-link:focus {
+  transform: translate(-50%, 0);
+  outline: none;
+}
+
 /* ============================================= */
 /* Acessibilidade — foco visível por teclado      */
 /* ============================================= */

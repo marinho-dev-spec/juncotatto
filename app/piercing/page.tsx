@@ -70,7 +70,7 @@ export default function PiercingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header crossPage />
-      <main>
+      <main id="conteudo">
         <PiercingHero />
         <PiercingSections />
       </main>

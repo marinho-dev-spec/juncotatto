@@ -51,7 +51,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       <Header />
-      <main>
+      <main id="conteudo">
         <Hero />
         <ProofBar />
 

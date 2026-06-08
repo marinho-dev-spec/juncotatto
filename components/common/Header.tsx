@@ -13,12 +13,35 @@ export default function Header({ crossPage = false }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const [activeId, setActiveId] = useState<string>('');
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Indicador de seção ativa no menu (apenas na home, onde os links são âncoras)
+  useEffect(() => {
+    if (crossPage || typeof IntersectionObserver === 'undefined') return;
+    const ids = ['trabalhos', 'contato'];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el);
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px' }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, [crossPage]);
 
   // Bloqueia scroll do body quando o menu mobile está aberto
   useEffect(() => {
@@ -58,17 +81,24 @@ export default function Header({ crossPage = false }: HeaderProps) {
             </Link>
 
             <nav className="nav" role="navigation" aria-label="Menu principal">
-              {links.map((l) =>
-                l.internal ? (
+              {links.map((l) => {
+                const sectionId = l.href.includes('#') ? l.href.split('#')[1] : '';
+                const isActive = !crossPage && sectionId !== '' && sectionId === activeId;
+                return l.internal ? (
                   <Link key={l.label} href={l.href}>
                     {l.label}
                   </Link>
                 ) : (
-                  <a key={l.label} href={l.href}>
+                  <a
+                    key={l.label}
+                    href={l.href}
+                    className={isActive ? 'active' : undefined}
+                    aria-current={isActive ? 'true' : undefined}
+                  >
                     {l.label}
                   </a>
-                )
-              )}
+                );
+              })}
             </nav>
 
             <button
