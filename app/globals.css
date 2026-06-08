@@ -926,6 +926,48 @@ p,
 }
 
 /* ============================================= */
+/* Marca d'água do hero (emblema fantasma)        */
+/* ============================================= */
+
+.hero-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(72vw, 680px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* acima do carousel/overlay (z 0), abaixo do conteúdo (z 2) */
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.6));
+  animation: heroMarkFloat 14s ease-in-out infinite;
+}
+
+@keyframes heroMarkFloat {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -52%) scale(1.025);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-watermark {
+    width: 86vw;
+    opacity: 0.05;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-watermark {
+    animation: none;
+  }
+}
+
+/* ============================================= */
 /* Logo da marca (emblema SVG)                    */
 /* ============================================= */
 

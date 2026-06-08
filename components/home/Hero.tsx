@@ -50,6 +50,9 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-overlay" />
+      {/* Marca d'água do emblema (decorativa) */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/junco-mark.svg" alt="" aria-hidden="true" className="hero-watermark" />
       <div className="hero-content">
         <span className="eyebrow">
           ★ ESPECIALISTA REALISMO PRETO E CINZA · ITAPEMA/SC · DESDE 2016
