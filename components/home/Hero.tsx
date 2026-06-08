@@ -68,13 +68,13 @@ export default function Hero() {
         </div>
         <div className="hero-buttons">
           <button
-            className="btn btn-primary btn-pulse ripple-effect"
+            className="btn btn-primary btn-pulse"
             onClick={() => abrirWhatsApp('geral')}
           >
             Chamar o Gabriel no WhatsApp
           </button>
           <button
-            className="btn btn-secondary ripple-effect"
+            className="btn btn-secondary"
             onClick={() => scrollToSection('trabalhos')}
           >
             ↓ Ver trabalhos

@@ -905,4 +905,52 @@ select,
   outline-offset: 3px;
 }
 
+/* ============================================= */
+/* Upgrades 2026 — tipografia nativa              */
+/* ============================================= */
+
+/* Equilibra títulos (evita "órfãos") — degrada sozinho onde não há suporte */
+h1,
+h2,
+h3,
+.section-title,
+.hero-headline {
+  text-wrap: balance;
+}
+
+/* Parágrafos com quebra mais natural na última linha */
+p,
+.hero-subtitle,
+.section-subtitle {
+  text-wrap: pretty;
+}
+
+/* ============================================= */
+/* Movimento reduzido — cobertura completa        */
+/* ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .header,
+  .hero-content,
+  .hero-headline,
+  .hero-subtitle,
+  .hero-badge,
+  .hero-buttons,
+  .proof-number,
+  .proof-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 
