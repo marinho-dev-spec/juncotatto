@@ -71,33 +71,48 @@ export default function Contact() {
             sem robô do outro lado.
           </p>
           <form className="contact-form" id="contactForm" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="user_name"
-              placeholder="Seu nome"
-              required
-              aria-label="Seu nome completo"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-            />
-            <input
-              type="tel"
-              name="user_phone"
-              placeholder="Seu WhatsApp (com DDD)"
-              required
-              aria-label="Telefone ou WhatsApp com DDD"
-              value={telefone}
-              onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))}
-            />
-            <textarea
-              name="message"
-              placeholder="Descreve sua ideia: o que, onde no corpo, tamanho... (pode mandar referência depois)"
-              rows={4}
-              required
-              aria-label="Descreva sua ideia de tatuagem"
-              value={mensagem}
-              onChange={(e) => setMensagem(e.target.value)}
-            />
+            <div className="form-field">
+              <label htmlFor="contact-nome" className="form-label">
+                Seu nome
+              </label>
+              <input
+                id="contact-nome"
+                type="text"
+                name="user_name"
+                placeholder="Como podemos te chamar?"
+                required
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="contact-tel" className="form-label">
+                Seu WhatsApp (com DDD)
+              </label>
+              <input
+                id="contact-tel"
+                type="tel"
+                name="user_phone"
+                placeholder="(48) 99999-9999"
+                required
+                value={telefone}
+                onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))}
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="contact-msg" className="form-label">
+                Sua ideia
+              </label>
+              <textarea
+                id="contact-msg"
+                name="message"
+                placeholder="O que, onde no corpo, tamanho... (pode mandar referência depois)"
+                rows={4}
+                required
+                value={mensagem}
+                onChange={(e) => setMensagem(e.target.value)}
+              />
+            </div>
             <button type="submit" className="btn btn-primary" aria-label="Enviar pelo WhatsApp">
               Enviar pelo WhatsApp
             </button>

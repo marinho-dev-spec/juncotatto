@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { abrirWhatsApp, type WhatsAppContext } from '@/lib/whatsapp';
+import { IconWhatsApp } from './Icons';
 
 interface FloatingCTAProps {
   context?: WhatsAppContext;
@@ -30,7 +31,9 @@ export default function FloatingCTA({ context = 'geral', label = 'Agendar' }: Fl
       aria-label={label}
       title={label}
     >
-      <span className="floating-cta-icon">💬</span>
+      <span className="floating-cta-icon">
+        <IconWhatsApp />
+      </span>
       <span className="floating-cta-text">{label}</span>
     </button>
   );

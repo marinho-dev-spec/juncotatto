@@ -751,4 +751,43 @@ button:focus:not(:focus-visible) {
   line-height: 1.6;
 }
 
+/* Campos do formulário com label visível (acessibilidade) */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  text-align: left;
+}
+
+.form-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+}
+
+/* Ícone do botão flutuante (SVG em vez de emoji) */
+.floating-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reduz o atraso de 300ms em toques (mobile) */
+a,
+button,
+input,
+textarea,
+select,
+[role='button'] {
+  touch-action: manipulation;
+}
+
 
