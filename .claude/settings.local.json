@@ -155,7 +155,9 @@
       "Bash(awk '{print \"Deploy:\",$5}')",
       "Bash(echo \"Travessão visível na home? -> $\\(curl -s https://juncotatto.vercel.app)",
       "Bash(npx -y skills add nextlevelbuilder/ui-ux-pro-max-skill)",
-      "Bash(npx -y skills add https://github.com/nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max)"
+      "Bash(npx -y skills add https://github.com/nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max)",
+      "Bash(npx -y skills add https://github.com/onewave-ai/claude-skills --skill landing-page-copywriter)",
+      "Bash(npx -y skills add https://github.com/omer-metin/skills-for-antigravity --skill landing-page-design)"
     ]
   }
 }

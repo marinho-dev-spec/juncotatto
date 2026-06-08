@@ -12,7 +12,7 @@ export default function CtaUrgency() {
             <a href="#contato" style={{ color: '#C9A24B', textDecoration: 'underline' }}>
               Agende agora
             </a>{' '}
-            • Resposta em até 2 horas • Sinal garante sua data
+            • Resposta em até 2h • Retoque incluso • Material descartável aberto na sua frente
           </p>
           <p
             style={{
