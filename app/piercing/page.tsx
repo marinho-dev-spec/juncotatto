@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: 'Piercing em Itapema/SC — Junco Tattoo & Piercing | Gabriel Junco',
   description:
     'Piercing profissional em Itapema/SC. Orelha, nariz, septo, industrial e mais. Estúdio esterilizado, titânio/aço cirúrgico, +600 avaliações 5 estrelas. Agende seu piercing agora.',
+  alternates: { canonical: '/piercing' },
   openGraph: {
     type: 'website',
     url: 'https://juncotatto.vercel.app/piercing',
@@ -48,12 +49,25 @@ const schemaJsonLd = {
   },
 };
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://juncotatto.vercel.app' },
+    { '@type': 'ListItem', position: 2, name: 'Piercing', item: 'https://juncotatto.vercel.app/piercing' },
+  ],
+};
+
 export default function PiercingPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header crossPage />
       <main>

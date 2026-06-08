@@ -19,10 +19,37 @@ import Steps from '@/components/home/Steps';
 import FAQ from '@/components/home/FAQ';
 import CtaUrgency from '@/components/home/CtaUrgency';
 import Contact from '@/components/home/Contact';
+import { FAQ_ITEMS } from '@/lib/faqData';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Junco Tattoo & Piercing',
+  url: 'https://juncotatto.vercel.app',
+  inLanguage: 'pt-BR',
+};
 
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <Header />
       <main>
         <Hero />

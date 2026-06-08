@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   keywords: ['tatuador', 'tattoo', 'itapema', 'sc', 'realismo preto cinza', 'piercing', 'fine line', 'tatuagem'],
   authors: [{ name: 'Gabriel Junco' }],
   robots: { index: true, follow: true },
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     url: 'https://juncotatto.vercel.app/',

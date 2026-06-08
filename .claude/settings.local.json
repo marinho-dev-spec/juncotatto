@@ -149,7 +149,8 @@
       "Bash(echo \"Home: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app\\) | Cinematic: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/cinematic\\)\")",
       "Bash(echo \"Home: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app\\)\")",
       "Bash(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/piercing)",
-      "Bash(echo \"Piercing: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/piercing\\)\")"
+      "Bash(echo \"Piercing: $\\(curl -s -o /dev/null -w '%{http_code}' https://juncotatto.vercel.app/piercing\\)\")",
+      "Bash(npx -y skills add coreyhaines31/marketingskills)"
     ]
   }
 }
