@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/piercing' },
   openGraph: {
     type: 'website',
-    url: 'https://juncotatto.vercel.app/piercing',
+    url: 'https://www.juncotattoo.com/piercing',
     title: 'Piercing profissional · Junco Tattoo & Piercing',
     description: 'Piercing em Itapema/SC especializado. Agulha, titânio, higiene profissional.',
     images: [{ url: '/imagens-junco/estudio.webp', width: 1200, height: 630 }],
@@ -35,7 +35,7 @@ const schemaJsonLd = {
   '@type': 'LocalBusiness',
   additionalType: 'ProfessionalService',
   name: 'Junco Tattoo & Piercing',
-  image: 'https://juncotatto.vercel.app/imagens-junco/estudio.webp',
+  image: 'https://www.juncotattoo.com/imagens-junco/estudio.webp',
   description:
     'Piercing profissional em Itapema/SC. Orelha, nariz, septo, industrial e mais. Esterilizado, titânio, agulha.',
   address: {
@@ -47,7 +47,7 @@ const schemaJsonLd = {
     addressCountry: 'BR',
   },
   telephone: '+5547996615555',
-  url: 'https://juncotatto.vercel.app/piercing',
+  url: 'https://www.juncotattoo.com/piercing',
   priceRange: 'R$',
   foundingDate: '2016',
   aggregateRating: {
@@ -68,8 +68,8 @@ const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://juncotatto.vercel.app' },
-    { '@type': 'ListItem', position: 2, name: 'Piercing', item: 'https://juncotatto.vercel.app/piercing' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.juncotattoo.com' },
+    { '@type': 'ListItem', position: 2, name: 'Piercing', item: 'https://www.juncotattoo.com/piercing' },
   ],
 };
 

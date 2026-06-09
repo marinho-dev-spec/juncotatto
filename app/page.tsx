@@ -35,7 +35,7 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Junco Tattoo & Piercing',
-  url: 'https://juncotatto.vercel.app',
+  url: 'https://www.juncotattoo.com',
   inLanguage: 'pt-BR',
 };
 

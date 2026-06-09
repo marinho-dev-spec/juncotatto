@@ -6,7 +6,7 @@ const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const PIXEL_ID = process.env.NEXT_PUBLIC_PIXEL_ID;
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://juncotatto.vercel.app'),
+  metadataBase: new URL('https://www.juncotattoo.com'),
   title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC · Realismo Preto e Cinza',
   description:
     'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2016. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://juncotatto.vercel.app/',
+    url: 'https://www.juncotattoo.com/',
     title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC',
     description:
       'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line. Consultoria gratuita.',
@@ -57,8 +57,8 @@ const schemaJsonLd = {
   additionalType: 'ProfessionalService',
   name: 'Junco Tattoo & Piercing',
   image: [
-    'https://juncotatto.vercel.app/imagens-junco/estudio.webp',
-    'https://juncotatto.vercel.app/imagens-junco/gabriel-junco.jpg',
+    'https://www.juncotattoo.com/imagens-junco/estudio.webp',
+    'https://www.juncotattoo.com/imagens-junco/gabriel-junco.jpg',
   ],
   description:
     'Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing, cobertura e fine line. Desde 2016 com mais de 600 avaliações 5 estrelas.',
@@ -71,7 +71,7 @@ const schemaJsonLd = {
     addressCountry: 'BR',
   },
   telephone: '+5547996615555',
-  url: 'https://juncotatto.vercel.app',
+  url: 'https://www.juncotattoo.com',
   priceRange: 'R$',
   foundingDate: '2016',
   founder: { '@type': 'Person', name: 'Gabriel Junco' },

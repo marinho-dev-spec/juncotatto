@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const SITE = 'https://juncotatto.vercel.app';
+const SITE = 'https://www.juncotattoo.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
