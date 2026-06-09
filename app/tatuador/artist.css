@@ -170,3 +170,10 @@
     justify-content: center;
   }
 }
+
+/* O carrossel na página do tatuador fica contido na coluna (sem full-bleed) */
+.artist-works .marquee {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+}

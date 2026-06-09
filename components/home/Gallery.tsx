@@ -24,7 +24,7 @@ export default function Gallery() {
         </p>
       </div>
 
-      <MarqueeGallery images={GALLERY_IMAGES} lightboxGroup="tattoos" secondsPerImage={4.5} />
+      <MarqueeGallery images={GALLERY_IMAGES} lightboxGroup="tattoos" secondsPerImage={6} />
 
       <div className="container">
         <div className="gallery-footer">

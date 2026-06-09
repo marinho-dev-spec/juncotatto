@@ -92,7 +92,7 @@ export default function TatuadorPage({ params }: { params: { slug: string } }) {
               <MarqueeGallery
                 images={artist.works}
                 lightboxGroup={`works-${artist.slug}`}
-                secondsPerImage={5}
+                secondsPerImage={6}
               />
             </>
           ) : (

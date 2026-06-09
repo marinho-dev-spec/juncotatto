@@ -1559,24 +1559,31 @@ h3 {
 /* ============================================= */
 
 .marquee {
-  --marquee-h: clamp(280px, 46vh, 480px);
-  --marquee-gap: 16px;
+  --marquee-h: clamp(440px, 68vh, 720px);
+  --marquee-gap: 28px;
   --marquee-duration: 60s;
   position: relative;
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-block: 14px;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  contain: layout paint;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
 .marquee-track {
   display: flex;
+  align-items: center;
   width: max-content;
   list-style: none;
   margin: 0;
   padding: 0;
   animation: marqueeScroll var(--marquee-duration) linear infinite;
   will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 @keyframes marqueeScroll {
@@ -1597,15 +1604,17 @@ h3 {
   height: var(--marquee-h);
   width: auto;
   margin-right: var(--marquee-gap);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(201, 162, 75, 0.18);
+  border: 1px solid rgba(201, 162, 75, 0.22);
   background: #0b0b0d;
-  transition: border-color 0.3s var(--ease-smooth);
+  box-shadow: 0 18px 50px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth);
 }
 
 .marquee-item:hover {
-  border-color: rgba(201, 162, 75, 0.5);
+  border-color: rgba(201, 162, 75, 0.6);
+  box-shadow: 0 22px 60px -10px rgba(0, 0, 0, 0.8), 0 0 30px -6px rgba(201, 162, 75, 0.35);
 }
 
 .marquee-item > a,
@@ -1620,12 +1629,26 @@ h3 {
   width: auto;
   object-fit: contain;
   display: block;
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+@media (hover: hover) {
+  .marquee-item:hover img {
+    transform: scale(1.015);
+  }
+}
+
+@media (max-width: 1024px) {
+  .marquee {
+    --marquee-h: clamp(400px, 58vh, 600px);
+    --marquee-gap: 24px;
+  }
 }
 
 @media (max-width: 767px) {
   .marquee {
-    --marquee-h: clamp(240px, 62vw, 360px);
-    --marquee-gap: 12px;
+    --marquee-h: clamp(420px, 74vh, 560px);
+    --marquee-gap: 20px;
   }
 }
 
@@ -1637,5 +1660,8 @@ h3 {
   }
   .marquee-track {
     animation: none;
+  }
+  .marquee-item:hover img {
+    transform: none;
   }
 }

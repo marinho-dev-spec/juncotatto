@@ -28,8 +28,8 @@ export const ARTISTS: Artist[] = [
     agendaMsg:
       'Oi, Gabriel! Vim pelo site e quero agendar uma tatuagem em realismo preto e cinza. Minha ideia é mais ou menos assim: ___ (posso mandar referência).',
     bio: [
-      'Fundador e CEO do Junco Studio. Tatuo desde 2016 e me dediquei inteiro ao realismo preto e cinza: retratos, religioso, animais e composições que parecem saltar da pele.',
-      'Montei o estúdio em Itapema para reunir um time que compartilha a mesma obsessão por qualidade. Cada projeto é desenhado do zero pensando no seu corpo, na luz e nas sombras, para envelhecer bem e continuar bonito por muitos anos.',
+      'Fundador e CEO do Junco Studio. Tatuo desde 2014 e me dediquei inteiro ao realismo preto e cinza: retratos, religioso, animais e composições que parecem saltar da pele.',
+      'Em 2016 montei o estúdio em Itapema para reunir um time que compartilha a mesma obsessão por qualidade. Cada projeto é desenhado do zero pensando no seu corpo, na luz e nas sombras, para envelhecer bem e continuar bonito por muitos anos.',
     ],
     instagram: 'https://www.instagram.com/gabrieljuncotatuador',
     works: [
