@@ -55,9 +55,9 @@ export default function Contact() {
             <p className="contact-hours">
               <strong>Horário</strong>
               <br />
-              Seg a Sex: 9h às 18h
+              Portas abertas, por ordem de chegada: das 13h30 às 20h30
               <br />
-              Sáb: 9h às 13h
+              Outros horários com agendamento
             </p>
             <button
               className="btn btn-secondary btn-small"
