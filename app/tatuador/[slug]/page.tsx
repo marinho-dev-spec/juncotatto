@@ -48,7 +48,9 @@ export default function TatuadorPage({ params }: { params: { slug: string } }) {
             <img src={artist.photo} alt={`${artist.name}, ${artist.role}`} />
           </div>
           <div className="artist-intro">
-            <span className="artist-eyebrow">★ Tatuador no Junco</span>
+            <span className="artist-eyebrow">
+              {artist.founder ? '★ Fundador & CEO do Junco Studio' : '★ Tatuador no Junco'}
+            </span>
             <h1 className="artist-name">{artist.name}</h1>
             <span className="artist-role">{artist.role}</span>
             <div className="artist-bio">

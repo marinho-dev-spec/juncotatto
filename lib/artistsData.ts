@@ -13,6 +13,8 @@ export interface Artist {
   agendaMsg: string;
   bio: string[];
   instagram?: string;
+  /** Destaque de fundador/CEO do estúdio */
+  founder?: boolean;
   works: { src: string; alt: string }[];
 }
 
@@ -20,15 +22,16 @@ export const ARTISTS: Artist[] = [
   {
     slug: 'gabriel-junco',
     name: 'Gabriel Junco',
-    role: 'Especialista em Realismo Preto e Cinza',
+    role: 'Fundador & CEO · Especialista em Realismo Preto e Cinza',
     photo: '/imagens-junco/gabriel-junco.jpg',
+    founder: true,
     agendaMsg:
       'Oi, Gabriel! Vim pelo site e quero agendar uma tatuagem em realismo preto e cinza. Minha ideia é mais ou menos assim: ___ (posso mandar referência).',
     bio: [
-      'Tatuo desde 2016 e me dediquei inteiro ao realismo preto e cinza. É o estilo que me move: retratos, religioso, animais e composições que parecem saltar da pele.',
-      'Cada projeto é desenhado do zero pensando no seu corpo, na luz e nas sombras, para envelhecer bem e continuar bonito por muitos anos.',
+      'Fundador e CEO do Junco Studio. Tatuo desde 2016 e me dediquei inteiro ao realismo preto e cinza: retratos, religioso, animais e composições que parecem saltar da pele.',
+      'Montei o estúdio em Itapema para reunir um time que compartilha a mesma obsessão por qualidade. Cada projeto é desenhado do zero pensando no seu corpo, na luz e nas sombras, para envelhecer bem e continuar bonito por muitos anos.',
     ],
-    instagram: 'https://instagram.com/junco_tattoo',
+    instagram: 'https://www.instagram.com/gabrieljuncotatuador',
     works: [
       { src: '/imagens-junco/tattoo-01.webp', alt: 'Tatuagem realista de leão e retrato no braço' },
       { src: '/imagens-junco/tattoo-02.webp', alt: 'Tatuagem realista de rostos em preto e cinza' },
@@ -64,6 +67,7 @@ export const ARTISTS: Artist[] = [
       'Money é tatuador no Junco, especializado em realismo preto e cinza, com traço marcante e atenção total aos detalhes.',
       'Cada peça é pensada para ficar marcante hoje e continuar bonita com o passar dos anos.',
     ],
+    instagram: 'https://www.instagram.com/moneystar.ink',
     works: [],
   },
 ];
