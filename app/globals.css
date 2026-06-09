@@ -1296,7 +1296,7 @@ p {
 
 /* Eyebrow: tracking mais elegante (menos espaçado/amador) */
 .eyebrow {
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
 }
 
 /* Hierarquia de títulos: h3 com tracking sutil */
@@ -1311,11 +1311,12 @@ h3 {
   opacity: 0.82;
 }
 
-/* Prova social: texto em bone para leitura confortável */
+/* Prova social: rótulo em bone, secundário ao número (que é o herói) */
 .proof-text {
-  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  font-size: clamp(0.8rem, 2.2vw, 0.92rem);
   color: var(--bone);
-  opacity: 0.8;
+  opacity: 0.78;
+  letter-spacing: 0.05em;
 }
 
 /* Cards de avaliação/depoimento: mais entrelinha */
@@ -1396,14 +1397,34 @@ h3 {
   .section-subtitle {
     font-size: clamp(1.02rem, 3.4vw, 1.15rem);
   }
+  /* Prova social: NÚMERO é o herói (grande, dourado), rótulo secundário */
   .proof-bar {
-    padding: 48px 0;
+    padding: 44px 0;
+  }
+  .proof-items {
+    gap: 18px;
   }
   .proof-item {
-    gap: 14px;
+    gap: 8px;
+    padding: 16px 12px;
+  }
+  .proof-number {
+    font-size: clamp(2.5rem, 10.5vw, 3.1rem);
+    margin-bottom: 10px;
+    line-height: 1;
   }
   .proof-text {
-    font-size: clamp(0.8rem, 2.4vw, 0.9rem);
+    font-size: clamp(0.82rem, 2.4vw, 0.92rem);
+  }
+  /* Selo de avaliação do hero: estrelas e nota mais presentes */
+  .hero-badge {
+    gap: 12px;
+  }
+  .hero-badge .stars {
+    font-size: clamp(1.15rem, 4vw, 1.4rem);
+  }
+  .hero-badge .rating {
+    font-size: clamp(0.82rem, 2.4vw, 0.92rem);
   }
   .faq-question {
     font-size: clamp(0.98rem, 2.6vw, 1.06rem);
@@ -1414,4 +1435,28 @@ h3 {
     font-size: clamp(0.92rem, 2.4vw, 1rem);
     line-height: 1.7;
   }
+}
+
+/* ============================================= */
+/* Melhorias finais de polimento (agentes UI/UX)  */
+/* ============================================= */
+
+/* Linha decorativa dos títulos de seção: dourada e sutil (era cinza invisível) */
+.section-title::after {
+  background: var(--gold);
+  opacity: 0.45;
+  height: 4px;
+}
+
+/* Estrelas do selo do hero: dourado cheio (mais presença) */
+.hero-badge .stars {
+  color: var(--gold);
+}
+
+/* Profundidade sutil nos cards (estado normal, premium discreto) */
+.safety-item,
+.review-card,
+.google-review-card,
+.team-card {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
 }
