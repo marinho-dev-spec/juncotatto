@@ -36,20 +36,57 @@ html {
 /* Header transparente com leve gradiente sobre a imagem (legibilidade);
    fica sólido ao rolar (classe is-scrolled controlada pelo React). */
 .header {
+  position: relative;
   background: linear-gradient(
     to bottom,
-    rgba(11, 11, 13, 0.9) 0%,
-    rgba(11, 11, 13, 0.45) 55%,
+    rgba(11, 11, 13, 0.78) 0%,
+    rgba(11, 11, 13, 0.32) 60%,
     rgba(11, 11, 13, 0) 100%
   );
-  border-bottom: 1px solid transparent;
-  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  border-bottom: none;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 18px 0;
+  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease,
+    padding 0.35s var(--ease-smooth);
 }
 
+/* Ao rolar: vidro escuro com blur; separação por sombra escura (sem linha dura) */
 .header.is-scrolled {
-  background: rgba(11, 11, 13, 0.97);
-  box-shadow: 0 8px 32px rgba(201, 162, 75, 0.15);
-  border-bottom-color: rgba(201, 162, 75, 0.2);
+  background: rgba(11, 11, 13, 0.55);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 14px 34px rgba(0, 0, 0, 0.5);
+  padding: 12px 0;
+}
+
+/* Fio dourado discreto que esmaece nas pontas (em vez de linha dura) */
+.header.is-scrolled::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 162, 75, 0.32) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Nav verdadeiramente centralizada (independente das larguras do logo/CTA) */
+@media (min-width: 768px) {
+  .header-content {
+    position: relative;
+  }
+  .header-content .nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 /* ============================================= */
@@ -1023,39 +1060,85 @@ p,
 }
 
 .logo-img {
-  height: 56px;
+  height: 52px;
   width: auto;
   display: block;
-  transition: height 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  transition: height 0.35s var(--ease-smooth), filter 0.35s ease;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.45));
 }
 
 .logo-word {
   font-family: var(--font-display);
-  font-size: 1.7rem;
-  font-weight: 600;
-  letter-spacing: 0.24em;
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   line-height: 1;
   color: var(--bone);
-  /* o emblema já tem "JUNCO"; o wordmark garante leitura no tamanho pequeno */
-  text-indent: 0.24em; /* compensa o tracking à direita p/ centrar visualmente */
 }
 
 .header.is-scrolled .logo-img {
-  height: 48px;
+  height: 42px;
 }
 
 @media (max-width: 767px) {
   .logo {
-    gap: 9px;
+    gap: 10px;
   }
   .logo-img {
-    height: 48px;
+    height: 46px;
   }
   .logo-word {
-    font-size: 1.4rem;
-    letter-spacing: 0.2em;
+    font-size: 1.3rem;
+    letter-spacing: 0.08em;
   }
+}
+
+/* Nav — links e underline curto/centrado (mais refinado) */
+.nav {
+  gap: 40px;
+}
+
+.nav a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  transition: color 0.25s ease;
+}
+
+.nav a:hover {
+  color: var(--bone);
+}
+
+.nav a::after {
+  left: 50%;
+  right: auto;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: translateX(-50%);
+  transition: width 0.3s var(--ease-smooth);
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 20px;
+}
+
+.nav a.active {
+  color: var(--bone);
+}
+
+/* Botão Agendar — ghost com brilho só no hover */
+.btn-header-schedule {
+  border-width: 1px;
+  border-color: rgba(201, 162, 75, 0.45);
+  padding: 11px 26px;
+}
+
+.btn-header-schedule:hover {
+  box-shadow: 0 6px 20px rgba(201, 162, 75, 0.25);
 }
 
 /* Logo no rodapé */
