@@ -3,12 +3,12 @@
 import { useEffect } from 'react';
 
 const GALLERY = [
-  { src: '/imagens-piercing/20260403_151858.jpg', alt: 'Piercing realizado no estúdio Junco' },
-  { src: '/imagens-piercing/20260403_151907.jpg', alt: 'Piercing em titânio aplicado com agulha' },
-  { src: '/imagens-piercing/20260403_152441.jpg', alt: 'Piercing de orelha profissional' },
-  { src: '/imagens-piercing/20260403_152610.jpg', alt: 'Piercing com joia de titânio' },
-  { src: '/imagens-piercing/20260403_152822.jpg', alt: 'Detalhe de piercing realizado' },
-  { src: '/imagens-piercing/20260403_153227.jpg', alt: 'Piercing profissional em Itapema' },
+  { src: '/imagens-piercing/20260403_151858.webp', alt: 'Piercing realizado no estúdio Junco' },
+  { src: '/imagens-piercing/20260403_151907.webp', alt: 'Piercing em titânio aplicado com agulha' },
+  { src: '/imagens-piercing/20260403_152441.webp', alt: 'Piercing de orelha profissional' },
+  { src: '/imagens-piercing/20260403_152610.webp', alt: 'Piercing com joia de titânio' },
+  { src: '/imagens-piercing/20260403_152822.webp', alt: 'Detalhe de piercing realizado' },
+  { src: '/imagens-piercing/20260403_153227.webp', alt: 'Piercing profissional em Itapema' },
 ];
 
 export default function PiercingGallery() {

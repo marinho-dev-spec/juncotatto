@@ -19,7 +19,14 @@ export const metadata: Metadata = {
     url: 'https://juncotatto.vercel.app/piercing',
     title: 'Piercing profissional · Junco Tattoo & Piercing',
     description: 'Piercing em Itapema/SC especializado. Agulha, titânio, higiene profissional.',
+    images: [{ url: '/imagens-junco/estudio.webp', width: 1200, height: 630 }],
     locale: 'pt_BR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Piercing profissional · Junco Tattoo & Piercing',
+    description: 'Piercing em Itapema/SC especializado. Agulha, titânio, higiene profissional.',
+    images: ['/imagens-junco/estudio.webp'],
   },
 };
 
@@ -41,12 +48,20 @@ const schemaJsonLd = {
   },
   telephone: '+5547996615555',
   url: 'https://juncotatto.vercel.app/piercing',
+  priceRange: 'R$',
   foundingDate: '2016',
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
     ratingCount: '600',
+    bestRating: '5',
+    worstRating: '1',
   },
+  sameAs: [
+    'https://instagram.com/junco_tattoo',
+    'https://wa.me/5547996615555',
+    'https://www.google.com/maps/search/Junco+Tattoo+Itapema',
+  ],
 };
 
 const breadcrumbJsonLd = {

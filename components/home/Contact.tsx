@@ -55,9 +55,9 @@ export default function Contact() {
             <p className="contact-hours">
               <strong>Horário</strong>
               <br />
-              Seg–Sex: 9h–18h
+              Seg a Sex: 9h às 18h
               <br />
-              Sáb: 9h–13h
+              Sáb: 9h às 13h
             </p>
             <button
               className="btn btn-secondary btn-small"
