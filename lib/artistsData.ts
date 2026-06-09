@@ -54,6 +54,7 @@ export const ARTISTS: Artist[] = [
       'Apollo é tatuador no Junco e trabalha com realismo preto e cinza, dando vida a retratos e composições cheias de profundidade e textura.',
       'Atendimento próximo, do desenho à execução, sempre buscando o melhor resultado para a sua pele.',
     ],
+    instagram: 'https://www.instagram.com/isaiasapollo_art',
     works: [],
   },
   {

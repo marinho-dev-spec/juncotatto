@@ -1,8 +1,8 @@
 const FACES = [
-  { src: '/imagens-junco/tattoo-01.webp', title: 'Realismo', cls: 'cube-face-front' },
-  { src: '/imagens-junco/tattoo-05.webp', title: 'Retratos', cls: 'cube-face-bottom' },
-  { src: '/imagens-junco/tattoo-13.webp', title: 'Sombreado', cls: 'cube-face-back' },
-  { src: '/imagens-junco/tattoo-04.webp', title: 'Detalhes', cls: 'cube-face-top' },
+  { src: '/imagens-junco/tattoo-01.webp', alt: 'Tatuagem realista de leão e retrato no braço', cls: 'cube-face-front' },
+  { src: '/imagens-junco/tattoo-05.webp', alt: 'Retrato feminino em realismo preto e cinza', cls: 'cube-face-bottom' },
+  { src: '/imagens-junco/tattoo-13.webp', alt: 'Tatuagem realista de guerreiro no antebraço', cls: 'cube-face-back' },
+  { src: '/imagens-junco/tattoo-04.webp', alt: 'Tatuagem realista com relógio no antebraço', cls: 'cube-face-top' },
 ];
 
 export default function TattooCube() {
@@ -12,8 +12,8 @@ export default function TattooCube() {
         <span className="eyebrow">★ REALISMO</span>
         <h2 className="section-title">O que a gente faz melhor</h2>
         <p className="section-subtitle">
-          Realismo preto e cinza: retratos, sombreado e composições com profundidade e textura.
-          A mesma obsessão por detalhe em cada peça.
+          Realismo preto e cinza. Cada peça é feita com profundidade, textura e obsessão por
+          cada detalhe.
         </p>
 
         <div className="cube-stage" aria-hidden="true">
@@ -21,18 +21,15 @@ export default function TattooCube() {
             {FACES.map((face) => (
               <div className={`cube-face ${face.cls}`} key={face.cls}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={face.src} alt={face.title} loading="lazy" decoding="async" />
-                <span className="cube-face-title">{face.title}</span>
+                <img src={face.src} alt={face.alt} loading="lazy" decoding="async" />
+                <span className="cube-face-title">Realismo</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Lista acessível dos estilos (o cubo é decorativo/visual) */}
         <ul className="styles-list">
-          {FACES.map((f) => (
-            <li key={f.title}>{f.title}</li>
-          ))}
+          <li>Realismo preto e cinza</li>
         </ul>
       </div>
     </section>
