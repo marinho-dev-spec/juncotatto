@@ -22,7 +22,6 @@ export default function TattooCube() {
               <div className={`cube-face ${face.cls}`} key={face.cls}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={face.src} alt={face.alt} loading="lazy" decoding="async" />
-                <span className="cube-face-title">Realismo</span>
               </div>
             ))}
           </div>
