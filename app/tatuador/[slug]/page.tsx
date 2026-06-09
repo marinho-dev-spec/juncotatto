@@ -6,6 +6,7 @@ import '../artist.css';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import BackToTop from '@/components/common/BackToTop';
+import MarqueeGallery from '@/components/common/MarqueeGallery';
 import { ARTISTS, getArtist, artistWhatsAppLink } from '@/lib/artistsData';
 
 export function generateStaticParams() {
@@ -88,21 +89,11 @@ export default function TatuadorPage({ params }: { params: { slug: string } }) {
               <p className="artist-works-sub">
                 Realismo preto e cinza feito no estúdio em Itapema.
               </p>
-              <div className="artist-works-grid">
-                {artist.works.map((w) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <a
-                    key={w.src}
-                    className="artist-work"
-                    href={w.src}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={w.src} alt={w.alt} loading="lazy" decoding="async" />
-                  </a>
-                ))}
-              </div>
+              <MarqueeGallery
+                images={artist.works}
+                lightboxGroup={`works-${artist.slug}`}
+                secondsPerImage={5}
+              />
             </>
           ) : (
             <div className="artist-works-empty">

@@ -1552,3 +1552,90 @@ h3 {
     align-self: center;
   }
 }
+
+/* ============================================= */
+/* Carrossel marquee (trabalhos) — foto inteira,  */
+/* esteira horizontal automática e contínua       */
+/* ============================================= */
+
+.marquee {
+  --marquee-h: clamp(280px, 46vh, 480px);
+  --marquee-gap: 16px;
+  --marquee-duration: 60s;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  animation: marqueeScroll var(--marquee-duration) linear infinite;
+  will-change: transform;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* pausa ao passar o mouse / focar (somente onde há hover real) */
+@media (hover: hover) {
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  height: var(--marquee-h);
+  width: auto;
+  margin-right: var(--marquee-gap);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 162, 75, 0.18);
+  background: #0b0b0d;
+  transition: border-color 0.3s var(--ease-smooth);
+}
+
+.marquee-item:hover {
+  border-color: rgba(201, 162, 75, 0.5);
+}
+
+.marquee-item > a,
+.marquee-item > img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.marquee-item img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .marquee {
+    --marquee-h: clamp(240px, 62vw, 360px);
+    --marquee-gap: 12px;
+  }
+}
+
+/* Movimento reduzido: para a esteira e permite rolar manualmente */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}

@@ -55,7 +55,11 @@ export const ARTISTS: Artist[] = [
       'Atendimento próximo, do desenho à execução, sempre buscando o melhor resultado para a sua pele.',
     ],
     instagram: 'https://www.instagram.com/isaiasapollo_art',
-    works: [],
+    works: [
+      { src: '/imagens-junco/apollo-work-1.webp', alt: 'Tatuagem realista de samurai no antebraço por Apollo' },
+      { src: '/imagens-junco/apollo-work-2.webp', alt: 'Braço fechado em realismo preto e cinza por Apollo' },
+      { src: '/imagens-junco/apollo-work-3.webp', alt: 'Tatuagem realista religiosa no braço por Apollo' },
+    ],
   },
   {
     slug: 'money',
@@ -69,7 +73,12 @@ export const ARTISTS: Artist[] = [
       'Cada peça é pensada para ficar marcante hoje e continuar bonita com o passar dos anos.',
     ],
     instagram: 'https://www.instagram.com/moneystar.ink',
-    works: [],
+    works: [
+      { src: '/imagens-junco/money-work-1.webp', alt: 'Tatuagem realista de relógio e engrenagens no peito por Money' },
+      { src: '/imagens-junco/money-work-2.webp', alt: 'Tatuagem realista de caveira no braço por Money' },
+      { src: '/imagens-junco/money-work-3.webp', alt: 'Tatuagem realista de rostos no antebraço por Money' },
+      { src: '/imagens-junco/money-work-4.webp', alt: 'Tatuagem realista de anjo e coração no peito por Money' },
+    ],
   },
 ];
 

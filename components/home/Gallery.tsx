@@ -1,13 +1,4 @@
-'use client';
-
-import { useEffect } from 'react';
-import { IconZoom } from '@/components/common/Icons';
-
-declare global {
-  interface Window {
-    GLightbox?: (options: Record<string, unknown>) => { destroy: () => void };
-  }
-}
+import MarqueeGallery from '@/components/common/MarqueeGallery';
 
 const GALLERY_IMAGES = [
   { src: '/imagens-junco/tattoo-01.webp', alt: 'Tatuagem em realismo preto e cinza com leão e retrato no braço' },
@@ -23,29 +14,6 @@ const GALLERY_IMAGES = [
 ];
 
 export default function Gallery() {
-  useEffect(() => {
-    let lightbox: { destroy: () => void } | null = null;
-    let tries = 0;
-
-    const init = () => {
-      if (typeof window !== 'undefined' && typeof window.GLightbox === 'function') {
-        lightbox = window.GLightbox({
-          selector: '.glightbox',
-          touchNavigation: true,
-          loop: true,
-        });
-      } else if (tries < 20) {
-        tries += 1;
-        setTimeout(init, 200);
-      }
-    };
-
-    init();
-    return () => {
-      if (lightbox) lightbox.destroy();
-    };
-  }, []);
-
   return (
     <section className="gallery" id="trabalhos">
       <div className="container">
@@ -54,25 +22,11 @@ export default function Gallery() {
           Realismo preto e cinza. Cada peça é criada do zero para o seu corpo. Aqui não tem
           desenho de catálogo.
         </p>
+      </div>
 
-        <div className="gallery-grid" id="galleryGrid">
-          {GALLERY_IMAGES.map((img) => (
-            <a
-              key={img.src}
-              href={img.src}
-              className="gallery-item glightbox"
-              data-gallery="tattoos"
-              aria-label={`Ampliar: ${img.alt}`}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
-              <span className="gallery-overlay">
-                <IconZoom />
-              </span>
-            </a>
-          ))}
-        </div>
+      <MarqueeGallery images={GALLERY_IMAGES} lightboxGroup="tattoos" secondsPerImage={4.5} />
 
+      <div className="container">
         <div className="gallery-footer">
           <a
             href="https://instagram.com/junco_tattoo"
