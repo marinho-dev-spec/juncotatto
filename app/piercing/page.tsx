@@ -91,8 +91,8 @@ export default function PiercingPage() {
       </main>
       <Footer crossPage />
 
-      <MobileBottomBar context="piercing" label="Agendar Piercing" />
-      <FloatingCTA context="piercing" label="Agendar" />
+      <MobileBottomBar context="piercing" label="Tirar dúvida no WhatsApp" />
+      <FloatingCTA context="piercing" label="WhatsApp" />
       <BackToTop />
     </>
   );

@@ -66,7 +66,7 @@ export default function BeforeAfter() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="ba-img ba-img-after"
-            src="/imagens-junco/tatto-braco2.webp"
+            src="/imagens-junco/tattoo-04.webp"
             alt="Tatuagem depois do trabalho"
             loading="lazy"
             decoding="async"
@@ -76,7 +76,7 @@ export default function BeforeAfter() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="ba-img ba-img-before"
-            src="/imagens-junco/tatto-braco.webp"
+            src="/imagens-junco/tattoo-12.webp"
             alt="Tatuagem antes do trabalho"
             loading="lazy"
             decoding="async"

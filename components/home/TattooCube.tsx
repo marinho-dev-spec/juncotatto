@@ -1,8 +1,8 @@
 const FACES = [
-  { src: '/imagens-junco/tatto-braco.webp', title: 'Realismo', cls: 'cube-face-front' },
-  { src: '/imagens-junco/tatto-braco11.webp', title: 'Blackwork', cls: 'cube-face-bottom' },
-  { src: '/imagens-junco/tatto-braco3.webp', title: 'Fine Line', cls: 'cube-face-back' },
-  { src: '/imagens-junco/tatto-braco-jesus.webp', title: 'Cobertura', cls: 'cube-face-top' },
+  { src: '/imagens-junco/tattoo-01.webp', title: 'Realismo', cls: 'cube-face-front' },
+  { src: '/imagens-junco/tattoo-03.webp', title: 'Blackwork', cls: 'cube-face-bottom' },
+  { src: '/imagens-junco/tattoo-14.webp', title: 'Fine Line', cls: 'cube-face-back' },
+  { src: '/imagens-junco/tattoo-04.webp', title: 'Cobertura', cls: 'cube-face-top' },
 ];
 
 export default function TattooCube() {

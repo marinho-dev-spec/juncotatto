@@ -6,13 +6,13 @@ import { IconChevronDown } from '@/components/common/Icons';
 
 const HERO_IMAGES = [
   { src: '/imagens-junco/estudio.webp', alt: 'Estúdio profissional Junco Tattoo em Itapema com equipamentos de tatuagem' },
-  { src: '/imagens-junco/tatto-braco.webp', alt: 'Tatuagem em realismo preto e cinza feita no braço por Gabriel Junco' },
+  { src: '/imagens-junco/tattoo-01.webp', alt: 'Tatuagem em realismo preto e cinza feita no braço por Gabriel Junco' },
   { src: '/imagens-junco/estudio2.webp', alt: 'Estúdio profissional Junco Tattoo em Itapema' },
-  { src: '/imagens-junco/tatto-braco2.webp', alt: 'Detalhe de tatuagem em realismo preto e cinza' },
+  { src: '/imagens-junco/tattoo-03.webp', alt: 'Braço fechado em realismo preto e cinza por Gabriel Junco' },
   { src: '/imagens-junco/estudio-fktk.webp', alt: 'Estúdio profissional Junco Tattoo em Itapema' },
-  { src: '/imagens-junco/tatto-braco3.webp', alt: 'Tatuagem no braço em realismo preto e cinza' },
+  { src: '/imagens-junco/tattoo-05.webp', alt: 'Retrato em realismo preto e cinza no braço' },
   { src: '/imagens-junco/foto-estudio-todo.webp', alt: 'Vista completa do estúdio Junco com espaço dedicado e higienizado' },
-  { src: '/imagens-junco/tatto-braco11.webp', alt: 'Obra de tatuagem em realismo preto e cinza' },
+  { src: '/imagens-junco/tattoo-04.webp', alt: 'Tatuagem realista com relógio e detalhes no antebraço' },
 ];
 
 function scrollToSection(id: string) {

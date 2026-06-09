@@ -10,13 +10,16 @@ declare global {
 }
 
 const GALLERY_IMAGES = [
-  { src: '/imagens-junco/tatto-braco.webp', alt: 'Tatuagem realismo preto e cinza no braço' },
-  { src: '/imagens-junco/tatto-braco2.webp', alt: 'Detalhe de tatuagem em realismo' },
-  { src: '/imagens-junco/tatto-braco3.webp', alt: 'Tatuagem fine line no braço' },
-  { src: '/imagens-junco/tatto-braco5.jpg', alt: 'Tatuagem realismo preto e cinza' },
-  { src: '/imagens-junco/tatto-braco11.webp', alt: 'Tatuagem blackwork no braço' },
-  { src: '/imagens-junco/tatto-braco-jesus.webp', alt: 'Tatuagem realismo religioso' },
-  { src: '/imagens-junco/tatto-3.webp', alt: 'Tatuagem custom exclusiva' },
+  { src: '/imagens-junco/tattoo-01.webp', alt: 'Tatuagem em realismo preto e cinza com leão e retrato no braço' },
+  { src: '/imagens-junco/tattoo-02.webp', alt: 'Tatuagem realista de rostos em preto e cinza no braço' },
+  { src: '/imagens-junco/tattoo-03.webp', alt: 'Braço fechado em realismo preto e cinza' },
+  { src: '/imagens-junco/tattoo-04.webp', alt: 'Tatuagem realista com relógio e detalhes no antebraço' },
+  { src: '/imagens-junco/tattoo-05.webp', alt: 'Retrato feminino em realismo preto e cinza no braço' },
+  { src: '/imagens-junco/tattoo-06.webp', alt: 'Tatuagem realista de rosto no braço' },
+  { src: '/imagens-junco/tattoo-07.webp', alt: 'Retrato em realismo preto e cinza no braço' },
+  { src: '/imagens-junco/tattoo-09.webp', alt: 'Tatuagem realista no antebraço em preto e cinza' },
+  { src: '/imagens-junco/tattoo-13.webp', alt: 'Tatuagem de guerreiro em realismo no antebraço' },
+  { src: '/imagens-junco/tattoo-14.webp', alt: 'Tatuagem fine line de lettering no braço' },
 ];
 
 export default function Gallery() {
