@@ -1270,3 +1270,148 @@ p,
 }
 
 
+
+/* ============================================= */
+/* Refinamento tipográfico & legibilidade 2026   */
+/* (decidido pelos agentes: Diretor x Crítico)    */
+/* globals.css carrega por último -> vence cascata */
+/* ============================================= */
+
+/* Corpo: mais respiro e contraste pleno (sem opacity esmaecida) */
+p {
+  line-height: 1.85;
+  opacity: 1;
+}
+
+/* Hero: títulos com respiro, subtítulo legível e fluido */
+.hero-headline {
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.hero-subtitle {
+  color: var(--bone);
+  opacity: 0.92;
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+}
+
+/* Eyebrow: tracking mais elegante (menos espaçado/amador) */
+.eyebrow {
+  letter-spacing: 0.18em;
+}
+
+/* Hierarquia de títulos: h3 com tracking sutil */
+h3 {
+  letter-spacing: -0.01em;
+}
+
+/* Subtítulos de seção: maiores e com mais contraste */
+.section-subtitle {
+  font-size: clamp(1.15rem, 3.5vw, 1.4rem);
+  color: var(--bone);
+  opacity: 0.82;
+}
+
+/* Prova social: texto em bone para leitura confortável */
+.proof-text {
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  color: var(--bone);
+  opacity: 0.8;
+}
+
+/* Cards de avaliação/depoimento: mais entrelinha */
+.review-text,
+.testimonial-text {
+  line-height: 1.75;
+}
+
+/* FAQ aberto: texto claro e arejado */
+.faq-answer-inner p {
+  color: var(--bone);
+  opacity: 0.86;
+  line-height: 1.8;
+}
+
+/* Sobre: limita largura da linha para leitura ideal */
+.about-text p {
+  max-width: 70ch;
+  line-height: 1.85;
+}
+
+/* Segurança/cuidados: texto legível em bone */
+.safety-item p {
+  font-size: clamp(0.95rem, 2.2vw, 1rem);
+  color: var(--bone);
+  opacity: 0.85;
+}
+
+/* Contato: mais separação entre blocos */
+.contact-address,
+.contact-hours {
+  margin-bottom: 32px;
+  line-height: 1.85;
+}
+
+/* Botões: tamanho de texto fluido e coerente */
+.btn {
+  font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+}
+
+/* Labels de formulário: legíveis, tracking suave */
+.form-label {
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  letter-spacing: 0.08em;
+}
+
+/* Before/After e rótulos pequenos: tracking suave */
+.ba-label {
+  letter-spacing: 0.08em;
+}
+
+/* Footer: links e marca com mais presença */
+.footer-nav a,
+.footer-contact a {
+  opacity: 0.85;
+}
+.footer-brand p {
+  opacity: 0.85;
+}
+
+/* ---- Mobile (<=767px): conforto de leitura ---- */
+@media (max-width: 767px) {
+  p,
+  li {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    line-height: 1.65;
+  }
+  h2 {
+    font-size: clamp(1.4rem, 6vw, 1.9rem);
+  }
+  h3 {
+    font-size: clamp(1.1rem, 3.2vw, 1.35rem);
+  }
+  .hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    margin-bottom: 24px;
+  }
+  .section-subtitle {
+    font-size: clamp(1.02rem, 3.4vw, 1.15rem);
+  }
+  .proof-bar {
+    padding: 48px 0;
+  }
+  .proof-item {
+    gap: 14px;
+  }
+  .proof-text {
+    font-size: clamp(0.8rem, 2.4vw, 0.9rem);
+  }
+  .faq-question {
+    font-size: clamp(0.98rem, 2.6vw, 1.06rem);
+    padding: 14px 12px;
+    min-height: 48px;
+  }
+  .faq-answer-inner p {
+    font-size: clamp(0.92rem, 2.4vw, 1rem);
+    line-height: 1.7;
+  }
+}
