@@ -19,7 +19,7 @@ const GALLERY_IMAGES = [
   { src: '/imagens-junco/tattoo-07.webp', alt: 'Retrato em realismo preto e cinza no braço' },
   { src: '/imagens-junco/tattoo-09.webp', alt: 'Tatuagem realista no antebraço em preto e cinza' },
   { src: '/imagens-junco/tattoo-13.webp', alt: 'Tatuagem de guerreiro em realismo no antebraço' },
-  { src: '/imagens-junco/tattoo-14.webp', alt: 'Tatuagem fine line de lettering no braço' },
+  { src: '/imagens-junco/tattoo-11.webp', alt: 'Tatuagem realista em preto e cinza no braço' },
 ];
 
 export default function Gallery() {
@@ -51,8 +51,8 @@ export default function Gallery() {
       <div className="container">
         <h2 className="section-title">Trabalhos que falam por si</h2>
         <p className="section-subtitle">
-          Realismo preto e cinza, cobertura e fine line. Cada peça é criada do zero para o seu
-          corpo. Aqui não tem desenho de catálogo.
+          Realismo preto e cinza. Cada peça é criada do zero para o seu corpo. Aqui não tem
+          desenho de catálogo.
         </p>
 
         <div className="gallery-grid" id="galleryGrid">

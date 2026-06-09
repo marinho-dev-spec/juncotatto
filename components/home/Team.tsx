@@ -1,25 +1,5 @@
-import { IconPerson } from '@/components/common/Icons';
-
-interface Member {
-  name: string;
-  role: string;
-  photo?: string;
-  cta?: { label: string; href: string };
-  placeholder?: boolean;
-}
-
-const TEAM: Member[] = [
-  {
-    name: 'Gabriel Junco',
-    role: 'Especialista em Realismo Preto e Cinza',
-    photo: '/imagens-junco/gabriel-junco.jpg',
-    cta: { label: 'Ver trabalhos', href: '#trabalhos' },
-  },
-  { name: 'Em breve', role: 'Body Piercing', placeholder: true },
-  { name: 'Em breve', role: 'Tatuador(a)', placeholder: true },
-  { name: 'Em breve', role: 'Tatuador(a)', placeholder: true },
-  { name: 'Em breve', role: 'Barbeiro', placeholder: true },
-];
+import Link from 'next/link';
+import { ARTISTS } from '@/lib/artistsData';
 
 export default function Team() {
   return (
@@ -28,32 +8,23 @@ export default function Team() {
         <span className="eyebrow">★ EQUIPE</span>
         <h2 className="section-title">Quem faz acontecer</h2>
         <p className="section-subtitle">
-          Tatuagem, piercing e barbearia no mesmo lugar, com o cuidado e a qualidade que você
-          espera em cada serviço.
+          Tatuadores especializados em realismo preto e cinza. Conheça o trabalho de cada um e
+          agende direto com quem vai te atender.
         </p>
 
         <div className="team-grid">
-          {TEAM.map((m, i) => (
-            <article className={`team-card${m.placeholder ? ' team-card-placeholder' : ''}`} key={i}>
+          {ARTISTS.map((a) => (
+            <article className="team-card" key={a.slug}>
               <div className="team-photo">
-                {m.photo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={m.photo} alt={`${m.name}, ${m.role}`} loading="lazy" decoding="async" />
-                ) : (
-                  <div className="team-photo-placeholder" aria-hidden="true">
-                    <IconPerson />
-                    <span>Foto em breve</span>
-                  </div>
-                )}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={a.photo} alt={`${a.name}, ${a.role}`} loading="lazy" decoding="async" />
               </div>
               <div className="team-info">
-                <h3 className="team-name">{m.name}</h3>
-                <span className="team-role">{m.role}</span>
-                {m.cta && (
-                  <a className="btn btn-secondary btn-small team-cta" href={m.cta.href}>
-                    {m.cta.label}
-                  </a>
-                )}
+                <h3 className="team-name">{a.name}</h3>
+                <span className="team-role">{a.role}</span>
+                <Link className="btn btn-secondary btn-small team-cta" href={`/tatuador/${a.slug}`}>
+                  Conhecer meu trabalho
+                </Link>
               </div>
             </article>
           ))}

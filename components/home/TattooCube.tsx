@@ -1,19 +1,19 @@
 const FACES = [
   { src: '/imagens-junco/tattoo-01.webp', title: 'Realismo', cls: 'cube-face-front' },
-  { src: '/imagens-junco/tattoo-03.webp', title: 'Blackwork', cls: 'cube-face-bottom' },
-  { src: '/imagens-junco/tattoo-14.webp', title: 'Fine Line', cls: 'cube-face-back' },
-  { src: '/imagens-junco/tattoo-04.webp', title: 'Cobertura', cls: 'cube-face-top' },
+  { src: '/imagens-junco/tattoo-05.webp', title: 'Retratos', cls: 'cube-face-bottom' },
+  { src: '/imagens-junco/tattoo-13.webp', title: 'Sombreado', cls: 'cube-face-back' },
+  { src: '/imagens-junco/tattoo-04.webp', title: 'Detalhes', cls: 'cube-face-top' },
 ];
 
 export default function TattooCube() {
   return (
     <section className="styles-showcase" id="estilos">
       <div className="container">
-        <span className="eyebrow">★ ESTILOS</span>
-        <h2 className="section-title">O que eu faço melhor</h2>
+        <span className="eyebrow">★ REALISMO</span>
+        <h2 className="section-title">O que a gente faz melhor</h2>
         <p className="section-subtitle">
-          Realismo preto e cinza, blackwork, fine line e cobertura. Em todos os estilos, a mesma
-          obsessão por detalhe.
+          Realismo preto e cinza: retratos, sombreado e composições com profundidade e textura.
+          A mesma obsessão por detalhe em cada peça.
         </p>
 
         <div className="cube-stage" aria-hidden="true">

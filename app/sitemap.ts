@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { ARTISTS } from '@/lib/artistsData';
 
 const SITE = 'https://www.juncotattoo.com';
 
@@ -14,5 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    ...ARTISTS.map((a) => ({
+      url: `${SITE}/tatuador/${a.slug}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
   ];
 }

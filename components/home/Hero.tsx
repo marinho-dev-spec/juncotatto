@@ -61,7 +61,7 @@ export default function Hero() {
           A tatuagem que você vai ter orgulho de mostrar por anos.
         </h1>
         <p className="hero-subtitle">
-          Fine Line · Realismo · Cobertura · Lettering
+          Especialistas em realismo preto e cinza
           <br />
           <small>Consultoria → Design Exclusivo → Execução Perfeita</small>
         </p>

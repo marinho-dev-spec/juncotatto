@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.juncotattoo.com'),
   title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC · Realismo Preto e Cinza',
   description:
-    'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2016. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
-  keywords: ['tatuador', 'tattoo', 'itapema', 'sc', 'realismo preto cinza', 'piercing', 'fine line', 'tatuagem'],
+    'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2016. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing e coberturas.',
+  keywords: ['tatuador', 'tattoo', 'itapema', 'sc', 'realismo preto cinza', 'piercing', 'tatuagem'],
   authors: [{ name: 'Gabriel Junco' }],
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     url: 'https://www.juncotattoo.com/',
     title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC',
     description:
-      'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line. Consultoria gratuita.',
+      'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing e coberturas. Consultoria gratuita.',
     images: [
       {
         url: '/imagens-junco/estudio.webp',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC',
     description:
-      'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing, cobertura e fine line.',
+      'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing e coberturas.',
     images: ['/imagens-junco/estudio.webp'],
   },
 };
@@ -61,7 +61,7 @@ const schemaJsonLd = {
     'https://www.juncotattoo.com/imagens-junco/gabriel-junco.jpg',
   ],
   description:
-    'Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing, cobertura e fine line. Desde 2016 com mais de 600 avaliações 5 estrelas.',
+    'Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing e coberturas. Desde 2016 com mais de 600 avaliações 5 estrelas.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Av. Nereu Ramos, 4142, Sala 9',
