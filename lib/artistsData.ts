@@ -72,7 +72,7 @@ export const ARTISTS: Artist[] = [
       'Money é tatuador no Junco, especializado em realismo preto e cinza, com traço marcante e atenção total aos detalhes.',
       'Cada peça é pensada para ficar marcante hoje e continuar bonita com o passar dos anos.',
     ],
-    instagram: 'https://www.instagram.com/moneystar.ink',
+    instagram: 'https://www.instagram.com/moneystar.tattoo',
     works: [
       { src: '/imagens-junco/money-work-1.webp', alt: 'Tatuagem realista de relógio e engrenagens no peito por Money' },
       { src: '/imagens-junco/money-work-2.webp', alt: 'Tatuagem realista de caveira no braço por Money' },
