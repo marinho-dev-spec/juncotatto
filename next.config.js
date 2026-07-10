@@ -25,30 +25,20 @@ const nextConfig = {
         destination: '/piercing',
         permanent: true,
       },
-      // URLs usadas em campanhas (Google Ads) e versões antigas do site
-      {
-        source: '/tatuagem-itapema',
-        destination: '/',
-        permanent: false,
-      },
+      // Variações de URLs usadas em campanhas e versões antigas do site
       {
         source: '/tatuagem-itapema.html',
-        destination: '/',
+        destination: '/tatuagem-itapema',
         permanent: false,
       },
       {
         source: '/tatuagem',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/piercing-itapema',
-        destination: '/piercing',
+        destination: '/tatuagem-itapema',
         permanent: false,
       },
       {
         source: '/piercing-itapema.html',
-        destination: '/piercing',
+        destination: '/piercing-itapema',
         permanent: false,
       },
     ];
