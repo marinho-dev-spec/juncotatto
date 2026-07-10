@@ -6,13 +6,13 @@ import { IconChevronDown } from '@/components/common/Icons';
 
 const HERO_IMAGES = [
   { src: '/imagens-junco/estudio.webp', alt: 'Estúdio profissional Junco Tattoo em Itapema com equipamentos de tatuagem' },
-  { src: '/imagens-junco/tattoo-01.webp', alt: 'Tatuagem em realismo preto e cinza feita no braço por Gabriel Junco' },
+  { src: '/imagens-junco/tattoo-15.webp', alt: 'Fechamento de braço com leão e rosto de Jesus em realismo preto e cinza' },
   { src: '/imagens-junco/estudio2.webp', alt: 'Estúdio profissional Junco Tattoo em Itapema' },
-  { src: '/imagens-junco/tattoo-03.webp', alt: 'Braço fechado em realismo preto e cinza por Gabriel Junco' },
+  { src: '/imagens-junco/tattoo-17.webp', alt: 'Fechamento de braço com leão, cruz, relógio e bússola em realismo preto e cinza' },
   { src: '/imagens-junco/estudio-fktk.webp', alt: 'Estúdio profissional Junco Tattoo em Itapema' },
-  { src: '/imagens-junco/tattoo-05.webp', alt: 'Retrato em realismo preto e cinza no braço' },
+  { src: '/imagens-junco/tattoo-16.webp', alt: 'Tatuagem de estátua grega de Zeus em realismo preto e cinza no braço' },
   { src: '/imagens-junco/foto-estudio-todo.webp', alt: 'Vista completa do estúdio Junco com espaço dedicado e higienizado' },
-  { src: '/imagens-junco/tattoo-04.webp', alt: 'Tatuagem realista com relógio e detalhes no antebraço' },
+  { src: '/imagens-junco/tattoo-18.webp', alt: 'Tatuagem de Jesus Cristo com coroa de espinhos e cruz em realismo no braço' },
 ];
 
 function scrollToSection(id: string) {

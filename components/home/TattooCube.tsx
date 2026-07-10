@@ -1,8 +1,8 @@
 const FACES = [
-  { src: '/imagens-junco/tattoo-01.webp', alt: 'Tatuagem realista de leão e retrato no braço', cls: 'cube-face-front' },
-  { src: '/imagens-junco/tattoo-05.webp', alt: 'Retrato feminino em realismo preto e cinza', cls: 'cube-face-bottom' },
-  { src: '/imagens-junco/tattoo-13.webp', alt: 'Tatuagem realista de guerreiro no antebraço', cls: 'cube-face-back' },
-  { src: '/imagens-junco/tattoo-04.webp', alt: 'Tatuagem realista com relógio no antebraço', cls: 'cube-face-top' },
+  { src: '/imagens-junco/tattoo-16.webp', alt: 'Tatuagem de estátua grega de Zeus em realismo preto e cinza', cls: 'cube-face-front' },
+  { src: '/imagens-junco/tattoo-23.webp', alt: 'Tatuagem de rosto feminino estilo chicano em realismo', cls: 'cube-face-bottom' },
+  { src: '/imagens-junco/tattoo-20.webp', alt: 'Tatuagem de armadura de cavaleiro com espada em realismo', cls: 'cube-face-back' },
+  { src: '/imagens-junco/tattoo-21.webp', alt: 'Tatuagem de guerreiro com elmo e espada em realismo', cls: 'cube-face-top' },
 ];
 
 export default function TattooCube() {
