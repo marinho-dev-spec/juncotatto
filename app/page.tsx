@@ -14,7 +14,6 @@ import Reviews from '@/components/home/Reviews';
 import Safety from '@/components/home/Safety';
 import About from '@/components/home/About';
 import Team from '@/components/home/Team';
-import BeforeAfter from '@/components/home/BeforeAfter';
 import Steps from '@/components/home/Steps';
 import FAQ from '@/components/home/FAQ';
 import CtaUrgency from '@/components/home/CtaUrgency';
@@ -77,10 +76,6 @@ export default function HomePage() {
 
         <ScrollReveal direction="up">
           <Team />
-        </ScrollReveal>
-
-        <ScrollReveal direction="up">
-          <BeforeAfter />
         </ScrollReveal>
 
         <ScrollReveal direction="up">

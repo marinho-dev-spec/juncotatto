@@ -14,7 +14,6 @@ import Gallery from '@/components/home/Gallery';
 import TattooCube from '@/components/home/TattooCube';
 import Reviews from '@/components/home/Reviews';
 import Safety from '@/components/home/Safety';
-import BeforeAfter from '@/components/home/BeforeAfter';
 import Steps from '@/components/home/Steps';
 import CtaUrgency from '@/components/home/CtaUrgency';
 import Contact from '@/components/home/Contact';
@@ -101,10 +100,6 @@ export default function TatuagemItapemaPage() {
 
         <ScrollReveal direction="up">
           <Safety />
-        </ScrollReveal>
-
-        <ScrollReveal direction="up">
-          <BeforeAfter />
         </ScrollReveal>
 
         <ScrollReveal direction="up">
