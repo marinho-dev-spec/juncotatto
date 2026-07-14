@@ -12,6 +12,7 @@ import Gallery from '@/components/home/Gallery';
 import TattooCube from '@/components/home/TattooCube';
 import Reviews from '@/components/home/Reviews';
 import Safety from '@/components/home/Safety';
+import Studio from '@/components/home/Studio';
 import About from '@/components/home/About';
 import Team from '@/components/home/Team';
 import Steps from '@/components/home/Steps';
@@ -68,6 +69,10 @@ export default function HomePage() {
 
         <ScrollReveal direction="up">
           <Safety />
+        </ScrollReveal>
+
+        <ScrollReveal direction="up">
+          <Studio />
         </ScrollReveal>
 
         <ScrollReveal direction="up">
