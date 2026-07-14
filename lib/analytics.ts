@@ -58,9 +58,10 @@ export function getAttribution(): Record<string, string> {
 }
 
 // Rótulos das ações de conversão do Google Ads (formato: AW-XXXXXXXXX/AbCdEfGh).
-// Criados em Google Ads > Metas > Conversões. O rótulo de piercing é opcional:
-// sem ele, tudo conta na ação principal de WhatsApp.
-const ADS_LABEL_WHATSAPP = process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL;
+// "Contato WhatsApp" é a ação oficial da conta; env vars sobrescrevem se mudar.
+// O rótulo de piercing é opcional: sem ele, tudo conta na ação principal.
+const ADS_LABEL_WHATSAPP =
+  process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL ?? 'AW-803976787/SNNQCIecqL0cENPsrv8C';
 const ADS_LABEL_PIERCING = process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_PIERCING;
 
 /** Dispara a conversão oficial do Google Ads (se configurada) */
