@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing e coberturas. Consultoria gratuita.',
     images: [
       {
-        url: '/imagens-junco/estudio.webp',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
       },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC',
     description:
       'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing e coberturas.',
-    images: ['/imagens-junco/estudio.webp'],
+    images: ['/og-image.jpg'],
   },
 };
 

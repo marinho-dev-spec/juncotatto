@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Tatuagem Realismo Preto e Cinza em Itapema · Junco Tattoo',
     description:
       'Especialistas em realismo preto e cinza. Design exclusivo, estúdio esterilizado, +600 avaliações 5 estrelas.',
-    images: [{ url: '/imagens-junco/tattoo-15.webp', width: 1400, height: 1867 }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
     locale: 'pt_BR',
   },
   twitter: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: 'Tatuagem Realismo Preto e Cinza em Itapema · Junco Tattoo',
     description:
       'Especialistas em realismo preto e cinza. Design exclusivo, estúdio esterilizado, +600 avaliações 5 estrelas.',
-    images: ['/imagens-junco/tattoo-15.webp'],
+    images: ['/og-image.jpg'],
   },
 };
 
