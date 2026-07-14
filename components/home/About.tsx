@@ -36,7 +36,7 @@ export default function About() {
               trabalho que você tenha orgulho de carregar para o resto da vida.
             </p>
             <p>
-              Mais de 600 avaliações 5 estrelas refletem aquilo que considero mais importante:
+              Mais de 600 avaliações com nota 4,9 refletem aquilo que considero mais importante:
               confiança, qualidade e uma experiência que faz o cliente se sentir seguro do primeiro
               contato até a cicatrização.
             </p>
@@ -45,7 +45,7 @@ export default function About() {
                 Sua tatuagem merece mais do que uma sessão. Merece um projeto pensado para durar.
               </strong>
             </p>
-            <button className="btn btn-primary" onClick={() => abrirWhatsApp('geral')}>
+            <button className="btn btn-primary" onClick={() => abrirWhatsApp('geral', 'sobre')}>
               Chamar o Gabriel no WhatsApp
             </button>
           </div>

@@ -16,11 +16,14 @@ export const WHATSAPP_MESSAGES: Record<WhatsAppContext, string> = {
   piercing: 'Oi, Gabriel! Quero colocar um piercing. Como funciona?',
 };
 
-/** Abre o WhatsApp com a mensagem pré-formatada para o contexto */
-export function abrirWhatsApp(tipo: WhatsAppContext = 'geral'): void {
+/**
+ * Abre o WhatsApp com a mensagem pré-formatada para o contexto.
+ * `origem` identifica qual CTA converteu (hero, header, bottom-bar, urgencia...).
+ */
+export function abrirWhatsApp(tipo: WhatsAppContext = 'geral', origem = 'nao-informado'): void {
   const message = WHATSAPP_MESSAGES[tipo] ?? WHATSAPP_MESSAGES.geral;
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  trackWhatsAppContact(tipo);
+  trackWhatsAppContact(tipo, origem);
   if (typeof window !== 'undefined') {
     window.open(url, '_blank');
   }
@@ -38,9 +41,10 @@ export function abrirWhatsAppPiercing(tipo: string): void {
 
 /** Envia mensagem livre (usado pelo formulário de contato) */
 export function enviarMensagemWhatsApp(nome: string, telefone: string, mensagem: string): void {
-  const texto = `Oi, Gabriel! Meu nome é ${nome} (WhatsApp: ${telefone}).\n\n${mensagem}`;
+  const quem = telefone ? `${nome} (WhatsApp: ${telefone})` : nome;
+  const texto = `Oi, Gabriel! Meu nome é ${quem}.\n\n${mensagem}`;
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
-  trackWhatsAppContact('formulario');
+  trackWhatsAppContact('geral', 'formulario');
   if (typeof window !== 'undefined') {
     window.open(url, '_blank');
   }

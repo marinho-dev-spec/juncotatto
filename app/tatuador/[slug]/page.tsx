@@ -90,7 +90,10 @@ export default function TatuadorPage({ params }: { params: { slug: string } }) {
                 Realismo preto e cinza feito no estúdio em Itapema.
               </p>
               <MarqueeGallery
-                images={artist.works}
+                images={artist.works.map((img) => ({
+                  ...img,
+                  thumb: img.src.replace('/imagens-junco/', '/imagens-junco/thumbs/'),
+                }))}
                 lightboxGroup={`works-${artist.slug}`}
                 secondsPerImage={6}
               />

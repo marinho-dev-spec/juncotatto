@@ -2,10 +2,12 @@ import Link from 'next/link';
 
 interface FooterProps {
   crossPage?: boolean;
+  /** Modo landing page (tráfego pago): navegação só com âncoras locais */
+  landing?: boolean;
 }
 
-export default function Footer({ crossPage = false }: FooterProps) {
-  const prefix = crossPage ? '/' : '';
+export default function Footer({ crossPage = false, landing = false }: FooterProps) {
+  const prefix = crossPage && !landing ? '/' : '';
 
   return (
     <footer className="footer">
@@ -30,12 +32,24 @@ export default function Footer({ crossPage = false }: FooterProps) {
           </div>
           <div className="footer-nav">
             <h5>Navegação</h5>
-            <a href={`${prefix}#trabalhos`}>Trabalhos</a>
-            <a href={`${prefix}#avaliacoes`}>Avaliações</a>
-            <Link href="/piercing">Piercing</Link>
-            <a href={`${prefix}#sobre`}>Sobre</a>
-            <a href={`${prefix}#duvidas`}>Dúvidas</a>
-            <a href={`${prefix}#contato`}>Contato</a>
+            {landing ? (
+              <>
+                <a href="#trabalhos">Trabalhos</a>
+                <a href="#avaliacoes">Avaliações</a>
+                <a href="#duvidas">Dúvidas</a>
+                <a href="#contato">Contato</a>
+              </>
+            ) : (
+              <>
+                <a href={`${prefix}#trabalhos`}>Trabalhos</a>
+                <a href={`${prefix}#avaliacoes`}>Avaliações</a>
+                <Link href="/tatuagem-itapema">Tatuagem em Itapema</Link>
+                <Link href="/piercing">Piercing</Link>
+                <a href={`${prefix}#sobre`}>Sobre</a>
+                <a href={`${prefix}#duvidas`}>Dúvidas</a>
+                <a href={`${prefix}#contato`}>Contato</a>
+              </>
+            )}
           </div>
           <div className="footer-contact">
             <h5>Contato</h5>

@@ -13,7 +13,7 @@ export default function MobileBottomBar({
 }: MobileBottomBarProps) {
   return (
     <div className="mobile-bottom-bar" id="mobileBottomBar">
-      <button onClick={() => abrirWhatsApp(context)} className="btn btn-primary btn-block">
+      <button onClick={() => abrirWhatsApp(context, 'bottom-bar')} className="btn btn-primary btn-block">
         {label}
       </button>
     </div>

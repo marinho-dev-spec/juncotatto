@@ -7,9 +7,14 @@ import { abrirWhatsApp } from '@/lib/whatsapp';
 interface HeaderProps {
   /** Quando true, links de seção usam /#secao (para a página de piercing) */
   crossPage?: boolean;
+  /**
+   * Modo landing page (tráfego pago): navegação mínima com âncoras locais,
+   * sem links que tirem o visitante da página.
+   */
+  landing?: boolean;
 }
 
-export default function Header({ crossPage = false }: HeaderProps) {
+export default function Header({ crossPage = false, landing = false }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -22,9 +27,9 @@ export default function Header({ crossPage = false }: HeaderProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Indicador de seção ativa no menu (apenas na home, onde os links são âncoras)
+  // Indicador de seção ativa no menu (apenas onde os links são âncoras locais)
   useEffect(() => {
-    if (crossPage || typeof IntersectionObserver === 'undefined') return;
+    if ((crossPage && !landing) || typeof IntersectionObserver === 'undefined') return;
     const ids = ['trabalhos', 'contato'];
     const sections = ids
       .map((id) => document.getElementById(id))
@@ -41,7 +46,7 @@ export default function Header({ crossPage = false }: HeaderProps) {
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, [crossPage]);
+  }, [crossPage, landing]);
 
   // Bloqueia scroll do body quando o menu mobile está aberto
   useEffect(() => {
@@ -61,37 +66,59 @@ export default function Header({ crossPage = false }: HeaderProps) {
     return () => window.removeEventListener('keydown', onKey);
   }, [menuOpen]);
 
-  const prefix = crossPage ? '/' : '';
+  const prefix = crossPage && !landing ? '/' : '';
   const closeMenu = () => setMenuOpen(false);
 
-  const links = [
-    { label: 'Trabalhos', href: `${prefix}#trabalhos`, internal: false },
-    { label: 'Piercing', href: '/piercing', internal: true },
-    { label: 'Contato', href: `${prefix}#contato`, internal: false },
-  ];
+  // Em modo landing a navegação é mínima e 100% local: nenhum link tira o
+  // visitante do anúncio da página (evita vazamento de tráfego pago).
+  const links = landing
+    ? [
+        { label: 'Trabalhos', href: '#trabalhos', internal: false },
+        { label: 'Contato', href: '#contato', internal: false },
+      ]
+    : [
+        { label: 'Trabalhos', href: `${prefix}#trabalhos`, internal: false },
+        { label: 'Piercing', href: '/piercing', internal: true },
+        { label: 'Contato', href: `${prefix}#contato`, internal: false },
+      ];
 
   return (
     <>
       <header className={`header${scrolled ? ' is-scrolled' : ''}`} id="header" role="banner">
         <div className="container">
           <div className="header-content">
-            <Link href="/" className="logo" aria-label="Junco Tattoo & Piercing" onClick={closeMenu}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/junco-mark.svg"
-                alt=""
-                aria-hidden="true"
-                className="logo-img"
-                width={56}
-                height={56}
-              />
-              <span className="logo-word">JUNCO</span>
-            </Link>
+            {landing ? (
+              <a href="#hero" className="logo" aria-label="Junco Tattoo & Piercing" onClick={closeMenu}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/junco-mark.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="logo-img"
+                  width={56}
+                  height={56}
+                />
+                <span className="logo-word">JUNCO</span>
+              </a>
+            ) : (
+              <Link href="/" className="logo" aria-label="Junco Tattoo & Piercing" onClick={closeMenu}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/junco-mark.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="logo-img"
+                  width={56}
+                  height={56}
+                />
+                <span className="logo-word">JUNCO</span>
+              </Link>
+            )}
 
             <nav className="nav" role="navigation" aria-label="Menu principal">
               {links.map((l) => {
                 const sectionId = l.href.includes('#') ? l.href.split('#')[1] : '';
-                const isActive = !crossPage && sectionId !== '' && sectionId === activeId;
+                const isActive = (!crossPage || landing) && sectionId !== '' && sectionId === activeId;
                 return l.internal ? (
                   <Link key={l.label} href={l.href}>
                     {l.label}
@@ -111,7 +138,7 @@ export default function Header({ crossPage = false }: HeaderProps) {
 
             <button
               className="btn btn-header-schedule"
-              onClick={() => abrirWhatsApp('geral')}
+              onClick={() => abrirWhatsApp('geral', 'header')}
               aria-label="Abrir WhatsApp para agendar"
             >
               Agendar
@@ -172,7 +199,7 @@ export default function Header({ crossPage = false }: HeaderProps) {
             className="btn btn-primary mobile-menu-cta"
             onClick={() => {
               closeMenu();
-              abrirWhatsApp('geral');
+              abrirWhatsApp('geral', 'menu-mobile');
             }}
           >
             Chamar o Gabriel no WhatsApp

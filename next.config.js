@@ -29,17 +29,17 @@ const nextConfig = {
       {
         source: '/tatuagem-itapema.html',
         destination: '/tatuagem-itapema',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/tatuagem',
         destination: '/tatuagem-itapema',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/piercing-itapema.html',
         destination: '/piercing-itapema',
-        permanent: false,
+        permanent: true,
       },
     ];
   },

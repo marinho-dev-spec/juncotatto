@@ -12,9 +12,9 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!nome.trim() || !telefone.trim() || !mensagem.trim()) {
+    if (!nome.trim() || !mensagem.trim()) {
       setStatusType('error');
-      setStatus('Por favor, preencha todos os campos antes de enviar.');
+      setStatus('Me conta seu nome e sua ideia antes de enviar.');
       return;
     }
     enviarMensagemWhatsApp(nome.trim(), telefone.trim(), mensagem.trim());
@@ -93,14 +93,13 @@ export default function Contact() {
             </div>
             <div className="form-field">
               <label htmlFor="contact-tel" className="form-label">
-                Seu WhatsApp (com DDD)
+                Seu WhatsApp (opcional)
               </label>
               <input
                 id="contact-tel"
                 type="tel"
                 name="user_phone"
                 placeholder="(48) 99999-9999"
-                required
                 value={telefone}
                 onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))}
               />

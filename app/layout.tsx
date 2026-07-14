@@ -1,6 +1,23 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
+
+// Fontes self-hosted pelo Next (next/font): zero requisições ao Google Fonts
+// e nenhum CSS render-blocking de terceiros no <head>.
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['500', '600'],
+  variable: '--font-cormorant',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const PIXEL_ID = process.env.NEXT_PUBLIC_PIXEL_ID;
@@ -9,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.juncotattoo.com'),
   title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC · Realismo Preto e Cinza',
   description:
-    'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2016. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações 5 estrelas. Piercing e coberturas.',
+    'Gabriel Junco - Tatuador especialista em realismo preto e cinza desde 2016. Estúdio de tatuagem em Itapema/SC com mais de 600 avaliações, nota 4,9. Piercing e coberturas.',
   keywords: ['tatuador', 'tattoo', 'itapema', 'sc', 'realismo preto cinza', 'piercing', 'tatuagem'],
   authors: [{ name: 'Gabriel Junco' }],
   robots: { index: true, follow: true },
@@ -24,7 +41,7 @@ export const metadata: Metadata = {
     url: 'https://www.juncotattoo.com/',
     title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC',
     description:
-      'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing e coberturas. Consultoria gratuita.',
+      'Especialista em realismo preto e cinza. Mais de 600 avaliações, nota 4,9. Piercing e coberturas. Consultoria gratuita.',
     images: [
       {
         url: '/og-image.jpg',
@@ -38,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Junco Tattoo & Piercing · Tatuador em Itapema/SC',
     description:
-      'Especialista em realismo preto e cinza. Mais de 600 avaliações 5 estrelas. Piercing e coberturas.',
+      'Especialista em realismo preto e cinza. Mais de 600 avaliações, nota 4,9. Piercing e coberturas.',
     images: ['/og-image.jpg'],
   },
 };
@@ -51,17 +68,21 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
+// Entidade única do negócio, referenciada por @id nas demais páginas.
+// Sem aggregateRating: avaliação auto-declarada no próprio site é
+// "self-serving" pela diretriz de review snippets do Google.
 const schemaJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  additionalType: 'ProfessionalService',
+  '@type': 'TattooParlor',
+  '@id': 'https://www.juncotattoo.com/#estudio',
   name: 'Junco Tattoo & Piercing',
   image: [
+    'https://www.juncotattoo.com/og-image.jpg',
     'https://www.juncotattoo.com/imagens-junco/estudio.webp',
     'https://www.juncotattoo.com/imagens-junco/gabriel-junco.jpg',
   ],
   description:
-    'Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing e coberturas. Desde 2016 com mais de 600 avaliações 5 estrelas.',
+    'Tatuador especialista em realismo preto e cinza em Itapema/SC. Piercing e coberturas. Desde 2016 com mais de 600 avaliações.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Av. Nereu Ramos, 4142, Sala 9',
@@ -70,6 +91,27 @@ const schemaJsonLd = {
     postalCode: '88220-000',
     addressCountry: 'BR',
   },
+  areaServed: [
+    { '@type': 'City', name: 'Itapema' },
+    { '@type': 'City', name: 'Porto Belo' },
+    { '@type': 'City', name: 'Balneário Camboriú' },
+    { '@type': 'City', name: 'Bombinhas' },
+    { '@type': 'City', name: 'Tijucas' },
+  ],
+  makesOffer: [
+    {
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: 'Tatuagem realismo preto e cinza' },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: 'Cobertura de tatuagem' },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: 'Piercing profissional' },
+    },
+  ],
   telephone: '+5547996615555',
   url: 'https://www.juncotattoo.com',
   priceRange: 'R$',
@@ -83,13 +125,6 @@ const schemaJsonLd = {
       closes: '20:30',
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    ratingCount: '600',
-    bestRating: '5',
-    worstRating: '1',
-  },
   sameAs: [
     'https://instagram.com/junco_tattoo',
     'https://wa.me/5547996615555',
@@ -99,23 +134,8 @@ const schemaJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/css/glightbox.min.css"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
@@ -129,10 +149,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="brand-pattern" aria-hidden="true" />
         {children}
 
-        {/* GLightbox */}
+        {/* GLightbox — CSS e JS carregados sem bloquear a renderização */}
+        <Script id="glightbox-css" strategy="lazyOnload">
+          {`(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/css/glightbox.min.css';document.head.appendChild(l);})();`}
+        </Script>
         <Script
           src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
         {/* Google Analytics 4 — só carrega se o ID estiver configurado */}

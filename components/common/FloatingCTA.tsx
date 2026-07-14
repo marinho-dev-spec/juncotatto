@@ -27,7 +27,7 @@ export default function FloatingCTA({ context = 'geral', label = 'Agendar' }: Fl
     <button
       id="floatingCta"
       className={`floating-cta-btn${visible ? ' visible' : ''}`}
-      onClick={() => abrirWhatsApp(context)}
+      onClick={() => abrirWhatsApp(context, 'floating')}
       aria-label={label}
       title={label}
     >

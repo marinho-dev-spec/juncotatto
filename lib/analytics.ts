@@ -31,26 +31,54 @@ export function trackPixelEvent(
   }
 }
 
-/** Rastreia clique de contato no WhatsApp em ambas as plataformas */
-export function trackWhatsAppContact(label: string): void {
+const ATTRIBUTION_KEYS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign'] as const;
+
+/**
+ * Captura gclid/UTMs da URL na primeira visita e persiste na sessão,
+ * para que a conversão (clique no WhatsApp) carregue a origem da campanha
+ * mesmo depois de navegar entre páginas.
+ */
+export function getAttribution(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const params = new URLSearchParams(window.location.search);
+    for (const key of ATTRIBUTION_KEYS) {
+      const value = params.get(key);
+      if (value) sessionStorage.setItem(`junco_${key}`, value);
+    }
+    const attribution: Record<string, string> = {};
+    for (const key of ATTRIBUTION_KEYS) {
+      const stored = sessionStorage.getItem(`junco_${key}`);
+      if (stored) attribution[key] = stored;
+    }
+    return attribution;
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Rastreia clique de contato no WhatsApp (a conversão principal do site).
+ * `contexto` = tipo de serviço; `origem` = qual CTA foi clicado.
+ */
+export function trackWhatsAppContact(contexto: string, origem = 'nao-informado'): void {
   trackEvent('whatsapp_contact', {
-    event_category: 'engagement',
-    event_label: label,
-    value: 1,
+    contexto,
+    cta_origem: origem,
+    ...getAttribution(),
   });
   trackPixelEvent('Contact', {
     content_name: 'WhatsApp Contact',
-    value: 1.0,
-    currency: 'BRL',
-    content_type: 'product',
+    content_category: contexto,
   });
 }
 
 /** Rastreia agendamento de piercing específico */
 export function trackPiercingBooking(piercingName: string): void {
   trackEvent('piercing_booking', {
-    event_category: 'engagement',
-    event_label: piercingName,
+    contexto: 'piercing',
+    piercing: piercingName,
+    ...getAttribution(),
   });
   trackPixelEvent('Contact', { content_name: piercingName });
 }

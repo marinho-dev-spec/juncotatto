@@ -12,7 +12,7 @@ import PiercingSections from '@/components/piercing/PiercingSections';
 export const metadata: Metadata = {
   title: 'Piercing em Itapema/SC · Junco Tattoo & Piercing · Gabriel Junco',
   description:
-    'Piercing profissional em Itapema/SC. Orelha, nariz, septo, industrial e mais. Estúdio esterilizado, titânio/aço cirúrgico, +600 avaliações 5 estrelas. Agende seu piercing agora.',
+    'Piercing profissional em Itapema/SC. Orelha, nariz, septo, industrial e mais. Estúdio esterilizado, titânio/aço cirúrgico, +600 avaliações, nota 4,9. Agende seu piercing agora.',
   alternates: { canonical: '/piercing' },
   openGraph: {
     type: 'website',
@@ -30,38 +30,16 @@ export const metadata: Metadata = {
   },
 };
 
+// Referencia a entidade única declarada no layout (@id), sem duplicar o negócio.
 const schemaJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  additionalType: 'ProfessionalService',
+  '@type': 'TattooParlor',
+  '@id': 'https://www.juncotattoo.com/#estudio',
   name: 'Junco Tattoo & Piercing',
-  image: 'https://www.juncotattoo.com/imagens-junco/estudio.webp',
+  url: 'https://www.juncotattoo.com/piercing',
+  image: 'https://www.juncotattoo.com/og-image.jpg',
   description:
     'Piercing profissional em Itapema/SC. Orelha, nariz, septo, industrial e mais. Esterilizado, titânio, agulha.',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Av. Nereu Ramos, 4142, Sala 9',
-    addressLocality: 'Itapema',
-    addressRegion: 'SC',
-    postalCode: '88220-000',
-    addressCountry: 'BR',
-  },
-  telephone: '+5547996615555',
-  url: 'https://www.juncotattoo.com/piercing',
-  priceRange: 'R$',
-  foundingDate: '2016',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    ratingCount: '600',
-    bestRating: '5',
-    worstRating: '1',
-  },
-  sameAs: [
-    'https://instagram.com/junco_tattoo',
-    'https://wa.me/5547996615555',
-    'https://www.google.com/maps/search/Junco+Tattoo+Itapema',
-  ],
 };
 
 const breadcrumbJsonLd = {

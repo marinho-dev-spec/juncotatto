@@ -28,7 +28,14 @@ export default function Gallery() {
         </p>
       </div>
 
-      <MarqueeGallery images={GALLERY_IMAGES} lightboxGroup="tattoos" secondsPerImage={6} />
+      <MarqueeGallery
+        images={GALLERY_IMAGES.map((img) => ({
+          ...img,
+          thumb: img.src.replace('/imagens-junco/', '/imagens-junco/thumbs/'),
+        }))}
+        lightboxGroup="tattoos"
+        secondsPerImage={6}
+      />
 
       <div className="container">
         <div className="gallery-footer">

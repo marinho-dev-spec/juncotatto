@@ -1,3 +1,7 @@
+'use client';
+
+import { abrirWhatsApp } from '@/lib/whatsapp';
+
 export default function CtaUrgency() {
   return (
     <section className="cta-urgency">
@@ -8,11 +12,16 @@ export default function CtaUrgency() {
             Trabalho com um cliente por vez, sem pressa. Por isso as datas fecham rápido. Se quer
             uma tatuagem de qualidade, fala comigo agora.
           </p>
-          <p className="cta-urgency-subtitle">
-            <a href="#contato" style={{ color: '#C9A24B', textDecoration: 'underline' }}>
-              Agende agora
-            </a>{' '}
-            • Resposta em até 2h • Retoque incluso • Material descartável aberto na sua frente
+          <button
+            className="btn btn-primary btn-pulse"
+            onClick={() => abrirWhatsApp('geral', 'urgencia')}
+            style={{ marginTop: 8 }}
+          >
+            Garantir minha data no WhatsApp
+          </button>
+          <p className="cta-urgency-subtitle" style={{ marginTop: 16 }}>
+            ★★★★★ 4,9 · Resposta em até 2h • Retoque incluso • Material descartável aberto na sua
+            frente
           </p>
           <p
             style={{

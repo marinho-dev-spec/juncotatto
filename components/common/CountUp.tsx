@@ -27,7 +27,9 @@ export default function CountUp({
   grouping = true,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [value, setValue] = useState(0);
+  // Começa no valor final: o HTML estático (SEO, no-JS) mostra o número real.
+  // A animação parte do zero apenas no cliente, quando o elemento entra na viewport.
+  const [value, setValue] = useState(end);
   const started = useRef(false);
 
   useEffect(() => {
@@ -47,6 +49,7 @@ export default function CountUp({
     const animate = () => {
       if (started.current) return;
       started.current = true;
+      setValue(0);
       const start = performance.now();
       const tick = (now: number) => {
         const progress = Math.min((now - start) / duration, 1);

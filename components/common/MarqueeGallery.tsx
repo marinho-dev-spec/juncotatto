@@ -2,7 +2,12 @@
 
 import { useEffect } from 'react';
 
-type Img = { src: string; alt: string };
+type Img = {
+  src: string;
+  alt: string;
+  /** Versão reduzida exibida no carrossel; o lightbox continua abrindo o src cheio */
+  thumb?: string;
+};
 
 interface Props {
   images: Img[];
@@ -29,7 +34,8 @@ export default function MarqueeGallery({ images, lightboxGroup, secondsPerImage 
         .GLightbox;
       if (typeof G === 'function') {
         lb = G({ selector: `.glightbox-${lightboxGroup}`, touchNavigation: true, loop: true });
-      } else if (tries < 20) {
+      } else if (tries < 50) {
+        // O GLightbox carrega em lazyOnload; em conexões lentas pode demorar
         tries += 1;
         setTimeout(init, 200);
       }
@@ -53,7 +59,7 @@ export default function MarqueeGallery({ images, lightboxGroup, secondsPerImage 
           const isClone = i >= base.length;
           const imgEl = (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={img.src} alt={isClone ? '' : img.alt} loading="lazy" decoding="async" draggable={false} />
+            <img src={img.thumb ?? img.src} alt={isClone ? '' : img.alt} loading="lazy" decoding="async" draggable={false} />
           );
           return (
             <li className="marquee-item" key={i} aria-hidden={isClone || undefined}>
