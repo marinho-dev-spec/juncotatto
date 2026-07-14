@@ -57,6 +57,17 @@ export function getAttribution(): Record<string, string> {
   }
 }
 
+// Rótulo da ação de conversão do Google Ads (formato: AW-XXXXXXXXX/AbCdEfGh).
+// Criado em Google Ads > Metas > Conversões > "Clique no WhatsApp".
+const ADS_CONVERSION_SEND_TO = process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL;
+
+/** Dispara a conversão oficial do Google Ads (se configurada) */
+function trackAdsConversion(): void {
+  if (ADS_CONVERSION_SEND_TO && typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', 'conversion', { send_to: ADS_CONVERSION_SEND_TO });
+  }
+}
+
 /**
  * Rastreia clique de contato no WhatsApp (a conversão principal do site).
  * `contexto` = tipo de serviço; `origem` = qual CTA foi clicado.
@@ -67,6 +78,7 @@ export function trackWhatsAppContact(contexto: string, origem = 'nao-informado')
     cta_origem: origem,
     ...getAttribution(),
   });
+  trackAdsConversion();
   trackPixelEvent('Contact', {
     content_name: 'WhatsApp Contact',
     content_category: contexto,
@@ -80,5 +92,6 @@ export function trackPiercingBooking(piercingName: string): void {
     piercing: piercingName,
     ...getAttribution(),
   });
+  trackAdsConversion();
   trackPixelEvent('Contact', { content_name: piercingName });
 }

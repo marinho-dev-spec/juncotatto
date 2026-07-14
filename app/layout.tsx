@@ -20,7 +20,10 @@ const inter = Inter({
 });
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
+const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 const PIXEL_ID = process.env.NEXT_PUBLIC_PIXEL_ID;
+// gtag.js atende GA4 e Google Ads com um único carregamento
+const GTAG_ID = GA4_ID || ADS_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.juncotattoo.com'),
@@ -158,19 +161,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           strategy="lazyOnload"
         />
 
-        {/* Google Analytics 4 — só carrega se o ID estiver configurado */}
-        {GA4_ID && (
+        {/* Google Analytics 4 + Google Ads — só carregam se os IDs estiverem configurados */}
+        {GTAG_ID && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}
               strategy="afterInteractive"
             />
-            <Script id="ga4-init" strategy="afterInteractive">
+            <Script id="gtag-init" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${GA4_ID}', { send_page_view: true });
+                ${GA4_ID ? `gtag('config', '${GA4_ID}', { send_page_view: true });` : ''}
+                ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ''}
               `}
             </Script>
           </>
