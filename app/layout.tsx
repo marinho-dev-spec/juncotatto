@@ -21,7 +21,9 @@ const inter = Inter({
 });
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
-const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+// Tag do Google Ads da conta do Junco (pública por natureza — aparece no HTML
+// de qualquer site). Pode ser sobrescrita por env var na Vercel se mudar.
+const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? 'AW-803976787';
 const PIXEL_ID = process.env.NEXT_PUBLIC_PIXEL_ID;
 // gtag.js atende GA4 e Google Ads com um único carregamento
 const GTAG_ID = GA4_ID || ADS_ID;
