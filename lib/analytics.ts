@@ -57,14 +57,17 @@ export function getAttribution(): Record<string, string> {
   }
 }
 
-// Rótulo da ação de conversão do Google Ads (formato: AW-XXXXXXXXX/AbCdEfGh).
-// Criado em Google Ads > Metas > Conversões > "Clique no WhatsApp".
-const ADS_CONVERSION_SEND_TO = process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL;
+// Rótulos das ações de conversão do Google Ads (formato: AW-XXXXXXXXX/AbCdEfGh).
+// Criados em Google Ads > Metas > Conversões. O rótulo de piercing é opcional:
+// sem ele, tudo conta na ação principal de WhatsApp.
+const ADS_LABEL_WHATSAPP = process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL;
+const ADS_LABEL_PIERCING = process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_PIERCING;
 
 /** Dispara a conversão oficial do Google Ads (se configurada) */
-function trackAdsConversion(): void {
-  if (ADS_CONVERSION_SEND_TO && typeof window !== 'undefined' && typeof window.gtag === 'function') {
-    window.gtag('event', 'conversion', { send_to: ADS_CONVERSION_SEND_TO });
+function trackAdsConversion(contexto: string): void {
+  const sendTo = (contexto === 'piercing' && ADS_LABEL_PIERCING) || ADS_LABEL_WHATSAPP;
+  if (sendTo && typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', 'conversion', { send_to: sendTo });
   }
 }
 
@@ -78,7 +81,7 @@ export function trackWhatsAppContact(contexto: string, origem = 'nao-informado')
     cta_origem: origem,
     ...getAttribution(),
   });
-  trackAdsConversion();
+  trackAdsConversion(contexto);
   trackPixelEvent('Contact', {
     content_name: 'WhatsApp Contact',
     content_category: contexto,
@@ -92,6 +95,6 @@ export function trackPiercingBooking(piercingName: string): void {
     piercing: piercingName,
     ...getAttribution(),
   });
-  trackAdsConversion();
+  trackAdsConversion('piercing');
   trackPixelEvent('Contact', { content_name: piercingName });
 }

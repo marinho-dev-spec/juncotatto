@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
+import AnalyticsListener from '@/components/common/AnalyticsListener';
 import './globals.css';
 
 // Fontes self-hosted pelo Next (next/font): zero requisições ao Google Fonts
@@ -150,6 +151,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         {/* Textura de marca: selos repetidos no fundo (decorativo) */}
         <div className="brand-pattern" aria-hidden="true" />
+        <AnalyticsListener />
         {children}
 
         {/* GLightbox — CSS e JS carregados sem bloquear a renderização */}
